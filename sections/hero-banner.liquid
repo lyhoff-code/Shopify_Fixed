@@ -1,0 +1,215 @@
+{%- comment -%}
+  SECCIÓN: Hero Banner Principal
+
+  ═══════════════════════════════════════════════════════════════════════════
+  IMÁGENES Y VIDEOS NECESARIOS:
+  ═══════════════════════════════════════════════════════════════════════════
+
+  📸 IMAGEN DE FONDO (si usas imagen):
+     - Tamaño: 1920x1080px mínimo (Full HD)
+     - Formato: JPG de alta calidad (comprimido para web)
+     - Tipo de imagen: Fotografía de estilo de vida mostrando tus productos
+       en uso, o imagen de marca con ambiente que represente tu negocio
+     - Colores: Preferiblemente tonos que no compitan con el texto blanco
+     - Consejo: La imagen debe tener áreas más oscuras donde irá el texto
+
+  🎬 VIDEO DE FONDO (si usas video):
+     - Tamaño: 1920x1080px (Full HD) o 3840x2160px (4K)
+     - Formato: MP4 (H.264)
+     - Duración: 10-30 segundos en loop
+     - Tipo de video: Video cinematográfico de productos, proceso de
+       fabricación, o estilo de vida de marca
+     - Sin audio o con audio muy sutil
+     - El video debe hacer loop sin cortes notables
+  ═══════════════════════════════════════════════════════════════════════════
+{%- endcomment -%}
+
+<section class="hero-banner{% if section.settings.full_height %} hero-banner--full{% endif %}">
+
+  {%- comment -%} Media de fondo (imagen o video) {%- endcomment -%}
+  <div class="hero-banner__media">
+    {%- if section.settings.video != blank -%}
+      <video
+        class="hero-banner__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="{{ section.settings.image | image_url: width: 1920 }}"
+      >
+        <source src="{{ section.settings.video }}" type="video/mp4">
+      </video>
+    {%- elsif section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1920 }}"
+        srcset="{{ section.settings.image | image_url: width: 1200 }} 1200w,
+                {{ section.settings.image | image_url: width: 1600 }} 1600w,
+                {{ section.settings.image | image_url: width: 1920 }} 1920w,
+                {{ section.settings.image | image_url: width: 2560 }} 2560w"
+        sizes="100vw"
+        alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
+        loading="eager"
+        class="hero-banner__image"
+      >
+    {%- else -%}
+      {%- comment -%} Placeholder cuando no hay imagen {%- endcomment -%}
+      <div class="image-placeholder" style="height: 100%; min-height: 80vh;">
+        <svg class="image-placeholder__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+          <circle cx="9" cy="9" r="2"></circle>
+          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+        </svg>
+        <p class="image-placeholder__text">📸 IMAGEN HERO PRINCIPAL</p>
+        <p class="image-placeholder__specs">
+          Tamaño recomendado: 1920x1080px (16:9)<br>
+          Fotografía de estilo de vida o producto principal<br>
+          JPG de alta calidad, colores que complementen el texto blanco
+        </p>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Overlay oscuro {%- endcomment -%}
+  <div class="hero-banner__overlay" style="background: linear-gradient(135deg, rgba(0,0,0,{{ section.settings.overlay_opacity | divided_by: 100.0 }}) 0%, rgba(0,0,0,{{ section.settings.overlay_opacity | divided_by: 200.0 }}) 100%);"></div>
+
+  {%- comment -%} Contenido {%- endcomment -%}
+  <div class="container">
+    <div class="hero-banner__content{% if section.settings.content_position == 'center' %} hero-banner__content--center{% endif %}">
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="hero-banner__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <h1 class="hero-banner__title">{{ section.settings.title }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p class="hero-banner__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      <div class="hero-banner__buttons">
+        {%- if section.settings.button_1_text != blank -%}
+          <a href="{{ section.settings.button_1_link }}" class="btn btn--primary btn--large">
+            {{ section.settings.button_1_text }}
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.button_2_text != blank -%}
+          <a href="{{ section.settings.button_2_link }}" class="btn btn--white btn--large">
+            {{ section.settings.button_2_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section-hero-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media de fondo"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen de fondo",
+      "info": "Recomendado: 1920x1080px. Fotografía de alta calidad con estilo de vida o producto principal."
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "URL del video (opcional)",
+      "info": "MP4. El video reemplazará la imagen si se proporciona."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Opacidad del overlay",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Contenido"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Bienvenido a nuestra tienda"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título principal",
+      "default": "Descubre Nuestra Nueva Colección"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Productos de alta calidad diseñados para ti. Encuentra lo que necesitas con estilo y funcionalidad."
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Posición del contenido",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "center", "label": "Centro" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_height",
+      "label": "Altura completa de pantalla",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Botón primario"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Texto del botón",
+      "default": "Ver Colección"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Enlace del botón"
+    },
+    {
+      "type": "header",
+      "content": "Botón secundario"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Texto del botón",
+      "default": "Conocer Más"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Enlace del botón"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

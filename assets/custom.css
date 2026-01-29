@@ -1,0 +1,33 @@
+/**
+ * ESTILOS PERSONALIZADOS
+ *
+ * Este archivo es para agregar estilos adicionales o
+ * sobrescribir los estilos del tema principal.
+ *
+ * Puedes personalizar colores, fuentes, espaciados, etc.
+ */
+
+/* ==========================================================================
+   PERSONALIZACIONES ADICIONALES
+   ========================================================================== */
+
+/* Ejemplo: Cambiar el color de los enlaces al hacer hover */
+/*
+a:hover {
+  color: #your-color-here;
+}
+*/
+
+/* Ejemplo: Agregar sombra a las tarjetas de producto */
+/*
+.product-card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+*/
+
+/* Ejemplo: Personalizar el estilo de los botones */
+/*
+.btn--primary {
+  border-radius: 30px;
+}
+*/

@@ -1,0 +1,228 @@
+{%- comment -%}
+  SECCIÓN: Página de Producto Principal
+
+  ═══════════════════════════════════════════════════════════════════════════
+  IMÁGENES DE PRODUCTOS:
+  ═══════════════════════════════════════════════════════════════════════════
+
+  📸 GALERÍA DE PRODUCTO (3-6 imágenes por producto):
+
+  1. IMAGEN PRINCIPAL:
+     - Tamaño: 1200x1200px (cuadrada)
+     - Vista: Frontal del producto completo
+     - Fondo: Blanco puro (#FFFFFF) o neutro
+
+  2. IMAGEN LATERAL/PERFIL:
+     - Mismo tamaño y estilo
+     - Vista: Lateral o 3/4
+
+  3. IMAGEN DE DETALLE/CLOSE-UP:
+     - Mostrar textura, materiales, acabados
+     - Zoom en características especiales
+
+  4. IMAGEN EN USO/LIFESTYLE:
+     - Producto siendo usado por modelo
+     - Contexto real de uso
+
+  5. IMAGEN DE ESCALA:
+     - Mostrar tamaño real del producto
+     - Puede incluir objetos de referencia
+
+  6. IMAGEN DE EMPAQUE (opcional):
+     - Cómo llega el producto
+     - Presentación de regalo si aplica
+
+  ESPECIFICACIONES:
+  - Formato: JPG de alta calidad (80-90%)
+  - Consistencia: Mismo estilo en todos los productos
+  - Iluminación: Profesional, sin sombras duras
+  - Color: Colores fieles al producto real
+  ═══════════════════════════════════════════════════════════════════════════
+{%- endcomment -%}
+
+<section class="product-page">
+  <div class="container">
+    <div class="product-page__wrapper">
+
+      {%- comment -%} Galería de imágenes {%- endcomment -%}
+      <div class="product-gallery">
+        <div class="product-gallery__main">
+          {%- if product.featured_image != blank -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 1200 }}"
+              alt="{{ product.featured_image.alt | default: product.title | escape }}"
+              loading="eager"
+              data-product-main-image
+            >
+          {%- else -%}
+            <div class="image-placeholder" style="aspect-ratio: 1;">
+              <svg class="image-placeholder__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                <circle cx="9" cy="9" r="2"></circle>
+                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+              </svg>
+              <p class="image-placeholder__text">📸 IMAGEN PRINCIPAL</p>
+              <p class="image-placeholder__specs">
+                Tamaño: 1200x1200px<br>
+                Foto frontal del producto<br>
+                Fondo blanco o neutro
+              </p>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if product.images.size > 1 -%}
+          <div class="product-gallery__thumbs">
+            {%- for image in product.images -%}
+              <div class="product-gallery__thumb{% if forloop.first %} is-active{% endif %}" data-thumb-index="{{ forloop.index0 }}">
+                <img
+                  src="{{ image | image_url: width: 150 }}"
+                  alt="{{ image.alt | default: product.title | escape }}"
+                  loading="lazy"
+                >
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- else -%}
+          <div class="product-gallery__thumbs">
+            {%- for i in (1..5) -%}
+              <div class="product-gallery__thumb" style="background: var(--color-background-secondary); display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border-radius: 8px;">
+                <span style="font-size: 0.75rem; color: var(--color-text-light);">{{ i }}</span>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Información del producto {%- endcomment -%}
+      <div class="product-info">
+        {%- if product.vendor != blank -%}
+          <p class="product-info__vendor">{{ product.vendor }}</p>
+        {%- endif -%}
+
+        <h1 class="product-info__title">{{ product.title | default: 'Nombre del Producto' }}</h1>
+
+        <div class="product-info__price">
+          {%- if product.compare_at_price > product.price -%}
+            <span class="product-info__price-current">{{ product.price | money }}</span>
+            <span class="product-info__price-compare">{{ product.compare_at_price | money }}</span>
+            {%- assign discount = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+            <span class="product-info__badge">-{{ discount }}%</span>
+          {%- else -%}
+            <span class="product-info__price-current">{{ product.price | default: '$299.00' | money }}</span>
+          {%- endif -%}
+        </div>
+
+        <div class="product-info__description">
+          {{ product.description | default: '<p>Descripción detallada del producto. Aquí puedes incluir características, materiales, instrucciones de uso y cualquier información relevante para el cliente.</p>' }}
+        </div>
+
+        {%- comment -%} Formulario de producto {%- endcomment -%}
+        {%- form 'product', product, class: 'product-form' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          {%- comment -%} Opciones de variantes {%- endcomment -%}
+          {%- unless product.has_only_default_variant -%}
+            {%- for option in product.options_with_values -%}
+              <div class="product-form__option">
+                <label class="product-form__option-label">{{ option.name }}</label>
+                <div class="product-form__variants">
+                  {%- for value in option.values -%}
+                    <button
+                      type="button"
+                      class="product-form__variant{% if option.selected_value == value %} is-selected{% endif %}"
+                      data-option-value="{{ value }}"
+                    >
+                      {{ value }}
+                    </button>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- comment -%} Opciones de ejemplo si no hay variantes {%- endcomment -%}
+            <div class="product-form__option">
+              <label class="product-form__option-label">Talla</label>
+              <div class="product-form__variants">
+                <button type="button" class="product-form__variant">S</button>
+                <button type="button" class="product-form__variant is-selected">M</button>
+                <button type="button" class="product-form__variant">L</button>
+                <button type="button" class="product-form__variant">XL</button>
+              </div>
+            </div>
+          {%- endunless -%}
+
+          {%- comment -%} Cantidad {%- endcomment -%}
+          <div class="product-form__quantity">
+            <label class="product-form__quantity-label">Cantidad</label>
+            <div class="product-form__quantity-selector">
+              <button type="button" class="product-form__quantity-btn" data-quantity-minus>-</button>
+              <input type="number" name="quantity" value="1" min="1" class="product-form__quantity-input" data-quantity-input>
+              <button type="button" class="product-form__quantity-btn" data-quantity-plus>+</button>
+            </div>
+          </div>
+
+          {%- comment -%} Botones de acción {%- endcomment -%}
+          <div class="product-form__buttons">
+            <button type="submit" class="btn btn--primary btn--large product-form__add-to-cart">
+              {%- if product.available -%}
+                Agregar al Carrito
+              {%- else -%}
+                Agotado
+              {%- endif -%}
+            </button>
+            <button type="button" class="product-form__wishlist" aria-label="Agregar a favoritos">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+            </button>
+          </div>
+        {%- endform -%}
+
+        {%- comment -%} Información adicional {%- endcomment -%}
+        <div class="product-info__meta" style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee;">
+          {%- if product.sku != blank -%}
+            <p style="font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 5px;">
+              <strong>SKU:</strong> {{ product.sku }}
+            </p>
+          {%- endif -%}
+          {%- if product.type != blank -%}
+            <p style="font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 5px;">
+              <strong>Categoría:</strong> {{ product.type }}
+            </p>
+          {%- endif -%}
+          {%- if product.tags.size > 0 -%}
+            <p style="font-size: 0.875rem; color: var(--color-text-light);">
+              <strong>Etiquetas:</strong>
+              {%- for tag in product.tags -%}
+                {{ tag }}{% unless forloop.last %}, {% endunless %}
+              {%- endfor -%}
+            </p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Producto Principal",
+  "tag": "section",
+  "class": "section-main-product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Mostrar selector de cantidad",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Mostrar botones de compartir",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

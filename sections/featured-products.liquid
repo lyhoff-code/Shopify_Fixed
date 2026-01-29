@@ -1,0 +1,150 @@
+{%- comment -%}
+  SECCIÓN: Productos Destacados
+
+  ═══════════════════════════════════════════════════════════════════════════
+  IMÁGENES NECESARIAS:
+  ═══════════════════════════════════════════════════════════════════════════
+
+  📸 IMÁGENES DE PRODUCTOS:
+     - Tamaño: 800x800px (cuadrada) o 600x800px (vertical 3:4)
+     - Formato: JPG o PNG (si necesitas transparencia)
+     - Tipo de imagen: Fotografía de producto sobre fondo blanco o neutro
+     - Calidad: Alta resolución, bien iluminada
+     - Múltiples ángulos: Incluir 3-5 fotos por producto
+     - Consejo: Mantén el estilo consistente en todos los productos
+
+  📸 IMAGEN SECUNDARIA (HOVER):
+     - Mismo tamaño que la principal
+     - Muestra el producto desde otro ángulo o en uso
+  ═══════════════════════════════════════════════════════════════════════════
+{%- endcomment -%}
+
+<section class="featured-products">
+  <div class="container">
+
+    {%- comment -%} Encabezado de la sección {%- endcomment -%}
+    <div class="section-header">
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="section-description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Grid de Productos {%- endcomment -%}
+    <div class="products-grid">
+      {%- assign collection = collections[section.settings.collection] -%}
+      {%- assign products_to_show = section.settings.products_count -%}
+
+      {%- if collection != blank and collection.products.size > 0 -%}
+        {%- for product in collection.products limit: products_to_show -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Placeholders de productos {%- endcomment -%}
+        {%- for i in (1..4) -%}
+          <div class="product-card">
+            <div class="product-card__image-wrapper">
+              <div class="image-placeholder" style="aspect-ratio: 1;">
+                <svg class="image-placeholder__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                  <circle cx="9" cy="9" r="2"></circle>
+                  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                </svg>
+                <p class="image-placeholder__text">📸 FOTO PRODUCTO {{ i }}</p>
+                <p class="image-placeholder__specs">
+                  Tamaño: 800x800px<br>
+                  Fondo blanco o neutro<br>
+                  Alta resolución
+                </p>
+              </div>
+              <span class="product-card__badge product-card__badge--new">Nuevo</span>
+            </div>
+            <div class="product-card__info">
+              <p class="product-card__vendor">Marca</p>
+              <h3 class="product-card__title">
+                <a href="#">Nombre del Producto {{ i }}</a>
+              </h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current">$299.00</span>
+                <span class="product-card__price-compare">$399.00</span>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Botón de ver más {%- endcomment -%}
+    {%- if section.settings.show_view_all and collection != blank -%}
+      <div class="text-center mt-5">
+        <a href="{{ collection.url }}" class="btn btn--primary">
+          {{ section.settings.view_all_text | default: 'Ver Todos los Productos' }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Productos Destacados",
+  "tag": "section",
+  "class": "section-featured-products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Lo Mejor"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Productos Destacados"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Los productos más populares seleccionados especialmente para ti."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Colección"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "label": "Número de productos",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Mostrar botón 'Ver todos'",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Texto del botón",
+      "default": "Ver Todos los Productos"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Productos Destacados"
+    }
+  ]
+}
+{% endschema %}

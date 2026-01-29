@@ -1,0 +1,63 @@
+{%- comment -%}
+  SNIPPET: Cajón del Carrito (Cart Drawer)
+{%- endcomment -%}
+
+<div class="cart-drawer__overlay" data-cart-overlay></div>
+
+<div class="cart-drawer" data-cart-drawer>
+  <div class="cart-drawer__header">
+    <h2 class="cart-drawer__title">Tu Carrito ({{ cart.item_count }})</h2>
+    <button class="cart-drawer__close" data-cart-close aria-label="Cerrar carrito">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="cart-drawer__items">
+    {%- if cart.item_count > 0 -%}
+      {%- for item in cart.items -%}
+        <div class="cart-drawer__item" data-cart-item="{{ item.key }}">
+          <div class="cart-drawer__item-image">
+            {%- if item.image != blank -%}
+              <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" loading="lazy">
+            {%- endif -%}
+          </div>
+          <div class="cart-drawer__item-details">
+            <h4 class="cart-drawer__item-title">{{ item.product.title }}</h4>
+            {%- if item.variant.title != 'Default Title' -%}
+              <p class="cart-drawer__item-variant">{{ item.variant.title }}</p>
+            {%- endif -%}
+            <p class="cart-drawer__item-price">{{ item.final_line_price | money }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- else -%}
+      <div class="cart-drawer__empty" style="text-align: center; padding: 60px 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color: #ccc; margin-bottom: 20px;">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+          <path d="M3 6h18"></path>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <p style="color: var(--color-text-light); margin-bottom: 20px;">Tu carrito está vacío</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">Explorar Productos</a>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if cart.item_count > 0 -%}
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__subtotal">
+        <span class="cart-drawer__subtotal-label">Subtotal</span>
+        <span class="cart-drawer__subtotal-value">{{ cart.total_price | money }}</span>
+      </div>
+      <p style="font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 15px;">
+        Impuestos y envío calculados al finalizar la compra.
+      </p>
+      <a href="{{ routes.cart_url }}" class="btn btn--primary cart-drawer__checkout">
+        Finalizar Compra
+      </a>
+    </div>
+  {%- endif -%}
+</div>

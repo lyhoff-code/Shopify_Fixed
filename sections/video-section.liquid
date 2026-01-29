@@ -1,0 +1,192 @@
+{%- comment -%}
+  SECCIÓN: Video Promocional
+
+  ═══════════════════════════════════════════════════════════════════════════
+  IMÁGENES Y VIDEOS NECESARIOS:
+  ═══════════════════════════════════════════════════════════════════════════
+
+  🎬 VIDEO PROMOCIONAL:
+     - Tamaño: 1920x1080px (Full HD) o superior
+     - Formato: MP4 (H.264) o enlace de YouTube/Vimeo
+     - Duración: 30 segundos a 2 minutos
+     - Tipo de video:
+       • Video de marca/institucional mostrando la historia de la empresa
+       • Video de producto mostrando características y beneficios
+       • Video de fabricación/behind the scenes
+       • Testimoniales de clientes en video
+     - Audio: Con narración o música de fondo profesional
+     - Calidad: Alta definición, bien editado
+
+  📸 IMAGEN DE PORTADA (POSTER):
+     - Tamaño: 1920x1080px (16:9)
+     - Formato: JPG de alta calidad
+     - Tipo: Frame atractivo del video o imagen que represente el contenido
+     - Consejo: Debe invitar a hacer clic para reproducir
+  ═══════════════════════════════════════════════════════════════════════════
+{%- endcomment -%}
+
+<section class="video-section">
+  <div class="container">
+
+    {%- comment -%} Encabezado de la sección {%- endcomment -%}
+    {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+      <div class="section-header">
+        {%- if section.settings.subtitle != blank -%}
+          <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="section-title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="section-description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Contenedor del video {%- endcomment -%}
+    <div class="video-wrapper" data-video-container>
+
+      {%- if section.settings.video_url != blank -%}
+        {%- comment -%} Extraer ID de YouTube o Vimeo {%- endcomment -%}
+        {%- if section.settings.video_url contains 'youtube.com' or section.settings.video_url contains 'youtu.be' -%}
+          {%- assign video_type = 'youtube' -%}
+        {%- elsif section.settings.video_url contains 'vimeo.com' -%}
+          {%- assign video_type = 'vimeo' -%}
+        {%- else -%}
+          {%- assign video_type = 'hosted' -%}
+        {%- endif -%}
+
+        {%- if section.settings.cover_image != blank -%}
+          <img
+            src="{{ section.settings.cover_image | image_url: width: 1920 }}"
+            alt="{{ section.settings.title | escape }}"
+            loading="lazy"
+            class="video-wrapper__placeholder"
+            data-video-poster
+          >
+        {%- else -%}
+          <div class="image-placeholder" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <svg class="image-placeholder__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect width="15" height="14" x="1" y="5" rx="2" ry="2"></rect>
+            </svg>
+            <p class="image-placeholder__text">🎬 VIDEO PROMOCIONAL</p>
+            <p class="image-placeholder__specs">
+              Formato: YouTube, Vimeo o MP4<br>
+              Portada: 1920x1080px<br>
+              Video de marca, producto o testimoniales
+            </p>
+          </div>
+        {%- endif -%}
+
+        <button class="video-wrapper__play-btn" data-video-play aria-label="Reproducir video">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+
+        <div class="video-wrapper__iframe" data-video-iframe style="display: none;">
+          {%- comment -%} El iframe se carga con JavaScript al hacer clic {%- endcomment -%}
+        </div>
+
+      {%- else -%}
+        <div class="image-placeholder" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <svg class="image-placeholder__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+            <rect width="15" height="14" x="1" y="5" rx="2" ry="2"></rect>
+          </svg>
+          <p class="image-placeholder__text">🎬 VIDEO PROMOCIONAL</p>
+          <p class="image-placeholder__specs">
+            Formato: Enlace de YouTube, Vimeo o URL de MP4<br>
+            Portada: Imagen 1920x1080px<br>
+            Contenido sugerido: Video de marca, demostración de producto,<br>
+            proceso de fabricación o testimoniales de clientes
+          </p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const videoContainers = document.querySelectorAll('[data-video-container]');
+
+  videoContainers.forEach(container => {
+    const playBtn = container.querySelector('[data-video-play]');
+    const poster = container.querySelector('[data-video-poster]');
+    const iframeContainer = container.querySelector('[data-video-iframe]');
+
+    if (playBtn) {
+      playBtn.addEventListener('click', function() {
+        const videoUrl = '{{ section.settings.video_url }}';
+        let embedUrl = '';
+
+        if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+          const videoId = videoUrl.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+          if (videoId) {
+            embedUrl = `https://www.youtube.com/embed/${videoId[1]}?autoplay=1&rel=0`;
+          }
+        } else if (videoUrl.includes('vimeo.com')) {
+          const videoId = videoUrl.match(/vimeo\.com\/(\d+)/);
+          if (videoId) {
+            embedUrl = `https://player.vimeo.com/video/${videoId[1]}?autoplay=1`;
+          }
+        }
+
+        if (embedUrl) {
+          iframeContainer.innerHTML = `<iframe src="${embedUrl}" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+          iframeContainer.style.display = 'block';
+          if (poster) poster.style.display = 'none';
+          playBtn.style.display = 'none';
+        }
+      });
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Video Promocional",
+  "tag": "section",
+  "class": "section-video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Descubre"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Nuestra Historia"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Conoce cómo creamos productos excepcionales con pasión y dedicación."
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "URL del video",
+      "info": "YouTube, Vimeo o enlace directo a MP4"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "Imagen de portada",
+      "info": "Se muestra antes de reproducir el video. Recomendado: 1920x1080px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Promocional"
+    }
+  ]
+}
+{% endschema %}

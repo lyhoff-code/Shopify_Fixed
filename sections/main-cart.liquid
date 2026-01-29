@@ -1,0 +1,102 @@
+{%- comment -%}
+  SECCIÓN: Página del Carrito Principal
+{%- endcomment -%}
+
+<section class="cart-page" style="padding: 60px 0;">
+  <div class="container">
+    <h1 style="text-align: center; margin-bottom: 50px;">Tu Carrito</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <div class="cart-page__wrapper" style="display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start;">
+
+        {%- comment -%} Lista de productos {%- endcomment -%}
+        <div class="cart-page__items">
+          {%- for item in cart.items -%}
+            <div class="cart-item" style="display: flex; gap: 20px; padding: 25px 0; border-bottom: 1px solid #eee;">
+              <div class="cart-item__image" style="width: 120px; flex-shrink: 0;">
+                {%- if item.image != blank -%}
+                  <img src="{{ item.image | image_url: width: 240 }}" alt="{{ item.title | escape }}" style="border-radius: 8px;">
+                {%- endif -%}
+              </div>
+              <div class="cart-item__details" style="flex: 1;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 5px;">{{ item.product.title }}</h3>
+                {%- if item.variant.title != 'Default Title' -%}
+                  <p style="color: var(--color-text-light); font-size: 0.9375rem; margin-bottom: 10px;">{{ item.variant.title }}</p>
+                {%- endif -%}
+                <p style="font-weight: 600;">{{ item.final_line_price | money }}</p>
+              </div>
+              <div class="cart-item__quantity" style="display: flex; align-items: center;">
+                <div class="product-form__quantity-selector">
+                  <button type="button" class="product-form__quantity-btn">-</button>
+                  <input type="number" value="{{ item.quantity }}" min="1" class="product-form__quantity-input">
+                  <button type="button" class="product-form__quantity-btn">+</button>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Resumen del carrito {%- endcomment -%}
+        <div class="cart-page__summary" style="background: var(--color-background-secondary); padding: 30px; border-radius: 12px; position: sticky; top: 100px;">
+          <h3 style="margin-bottom: 25px;">Resumen del Pedido</h3>
+
+          <div style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--color-text-light);">
+            <span>Subtotal</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--color-text-light);">
+            <span>Envío</span>
+            <span>Calculado al pagar</span>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+          <div style="display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 1.25rem; font-weight: 700;">
+            <span>Total</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+
+          {%- if settings.cart_notes_enable -%}
+            <div class="form-group">
+              <label class="form-label" for="cart-note">Notas del pedido</label>
+              <textarea id="cart-note" name="note" class="form-textarea" placeholder="Instrucciones especiales...">{{ cart.note }}</textarea>
+            </div>
+          {%- endif -%}
+
+          <a href="{{ routes.checkout_url }}" class="btn btn--primary btn--full btn--large">
+            Finalizar Compra
+          </a>
+
+          <p style="text-align: center; margin-top: 15px; font-size: 0.875rem; color: var(--color-text-light);">
+            Impuestos incluidos. Envío calculado al finalizar.
+          </p>
+        </div>
+      </div>
+    {%- else -%}
+      <div style="text-align: center; padding: 80px 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color: #ccc; margin-bottom: 25px;">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+          <path d="M3 6h18"></path>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <h2 style="margin-bottom: 15px;">Tu carrito está vacío</h2>
+        <p style="color: var(--color-text-light); margin-bottom: 30px;">
+          Parece que aún no has agregado productos a tu carrito.
+        </p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary btn--large">
+          Explorar Productos
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Carrito Principal",
+  "tag": "section",
+  "class": "section-main-cart",
+  "settings": []
+}
+{% endschema %}

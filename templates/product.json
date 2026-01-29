@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "product-recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "subtitle": "También te puede gustar",
+        "title": "Productos Relacionados",
+        "description": "Otros clientes también vieron estos productos.",
+        "products_count": 4,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "product-recommendations"
+  ]
+}

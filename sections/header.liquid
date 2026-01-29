@@ -1,0 +1,117 @@
+{%- comment -%}
+  SECCIÓN: Header Principal
+
+  IMÁGENES NECESARIAS:
+  - Logo de la tienda: PNG transparente, tamaño recomendado 400x100px
+    Sube el logo en: Configuración del tema > Header > Logo
+{%- endcomment -%}
+
+<header class="header{% if settings.header_sticky %} header--sticky{% endif %}" data-header>
+  <div class="container">
+    <div class="header__wrapper">
+
+      {%- comment -%} Logo {%- endcomment -%}
+      <div class="header__logo">
+        <a href="{{ routes.root_url }}" class="header__logo-link">
+          {%- if settings.logo != blank -%}
+            {%- assign logo_width = settings.logo_width -%}
+            <img
+              src="{{ settings.logo | image_url: width: logo_width }}"
+              srcset="{{ settings.logo | image_url: width: logo_width }} 1x, {{ settings.logo | image_url: width: logo_width | times: 2 }} 2x"
+              alt="{{ settings.logo.alt | default: shop.name | escape }}"
+              width="{{ logo_width }}"
+              height="auto"
+              loading="eager"
+              class="header__logo-image"
+            >
+          {%- else -%}
+            <h1 class="header__logo-text">{{ shop.name }}</h1>
+          {%- endif -%}
+        </a>
+      </div>
+
+      {%- comment -%} Navegación Principal {%- endcomment -%}
+      <nav class="header__nav" role="navigation">
+        <ul class="header__menu">
+          {%- for link in section.settings.menu.links -%}
+            <li class="header__menu-item{% if link.links != blank %} has-dropdown{% endif %}">
+              <a
+                href="{{ link.url }}"
+                class="header__menu-link{% if link.active %} is-active{% endif %}"
+              >
+                {{ link.title }}
+              </a>
+
+              {%- if link.links != blank -%}
+                <div class="header__dropdown">
+                  {%- for child_link in link.links -%}
+                    <a href="{{ child_link.url }}" class="header__dropdown-link">
+                      {{ child_link.title }}
+                    </a>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      {%- comment -%} Acciones del Header {%- endcomment -%}
+      <div class="header__actions">
+
+        {%- comment -%} Búsqueda {%- endcomment -%}
+        <button class="header__action-btn" aria-label="Buscar" data-search-toggle>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+        </button>
+
+        {%- comment -%} Cuenta {%- endcomment -%}
+        <a href="{{ routes.account_url }}" class="header__action-btn" aria-label="Mi cuenta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        {%- comment -%} Carrito {%- endcomment -%}
+        <button class="header__action-btn" aria-label="Carrito" data-cart-toggle>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+        </button>
+
+        {%- comment -%} Menú móvil {%- endcomment -%}
+        <button class="header__mobile-toggle" aria-label="Menú" data-mobile-menu-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menú principal",
+      "default": "main-menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

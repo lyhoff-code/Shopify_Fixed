@@ -1,0 +1,246 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Etiquetado \"{{ tags }}\"",
+      "page": "Página {{ page }}"
+    },
+    "breadcrumbs": {
+      "home": "Inicio"
+    },
+    "404": {
+      "title": "Página no encontrada",
+      "subtext": "La página que buscas no existe."
+    },
+    "password_page": {
+      "opening_soon": "Abrimos pronto",
+      "login_form_heading": "Acceder usando contraseña:",
+      "login_form_password_label": "Contraseña",
+      "login_form_password_placeholder": "Tu contraseña",
+      "login_form_submit": "Entrar",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "¡Te notificaremos cuando abramos!",
+      "admin_link_html": "¿Eres el propietario?",
+      "powered_by_shopify_html": "Esta tienda usa {{ shopify }}"
+    },
+    "social": {
+      "share_on_facebook": "Compartir",
+      "share_on_twitter": "Tuitear",
+      "share_on_pinterest": "Pin it"
+    },
+    "search": {
+      "title": "Buscar",
+      "placeholder": "Buscar...",
+      "submit": "Buscar",
+      "results_for": "Resultados para \"{{ terms }}\"",
+      "no_results": "No se encontraron resultados"
+    },
+    "newsletter": {
+      "label": "Email",
+      "success": "¡Gracias por suscribirte!",
+      "button": "Suscribirse"
+    },
+    "payment": {
+      "method": "Métodos de pago"
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "Ir al contenido",
+    "close": "Cerrar",
+    "unit_price_separator": "por"
+  },
+  "blogs": {
+    "article": {
+      "author_on_date_html": "Publicado por {{ author }} el {{ date }}",
+      "older_post": "Publicación anterior",
+      "newer_post": "Publicación más reciente",
+      "tags": "Etiquetas",
+      "comment_meta_html": "{{ author }} el {{ date }}",
+      "read_more": "Leer más"
+    },
+    "comments": {
+      "title": "Comentarios",
+      "success": "¡Gracias por tu comentario!",
+      "success_moderated": "Tu comentario ha sido enviado y será revisado.",
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "post": "Publicar comentario"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Tu carrito",
+      "note": "Notas del pedido",
+      "remove": "Eliminar",
+      "subtotal": "Subtotal",
+      "shipping_at_checkout": "Envío calculado al finalizar",
+      "update": "Actualizar carrito",
+      "checkout": "Finalizar compra",
+      "empty": "Tu carrito está vacío",
+      "continue_browsing": "Continuar comprando",
+      "close_cart": "Cerrar carrito"
+    }
+  },
+  "collections": {
+    "general": {
+      "title": "Colecciones",
+      "no_matches": "No se encontraron productos"
+    },
+    "sorting": {
+      "title": "Ordenar por",
+      "featured": "Destacados",
+      "best_selling": "Más vendidos",
+      "az": "A-Z",
+      "za": "Z-A",
+      "price_ascending": "Precio: Menor a Mayor",
+      "price_descending": "Precio: Mayor a Menor",
+      "date_descending": "Más recientes",
+      "date_ascending": "Más antiguos"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "phone": "Teléfono",
+      "message": "Mensaje",
+      "send": "Enviar",
+      "post_success": "¡Gracias por contactarnos! Te responderemos pronto."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Mi cuenta",
+      "details": "Detalles de la cuenta",
+      "view_addresses": "Ver direcciones",
+      "return": "Volver a detalles"
+    },
+    "activate_account": {
+      "title": "Activar cuenta",
+      "subtext": "Crea tu contraseña para activar tu cuenta.",
+      "password": "Contraseña",
+      "password_confirm": "Confirmar contraseña",
+      "submit": "Activar cuenta",
+      "cancel": "Rechazar invitación"
+    },
+    "addresses": {
+      "title": "Tus direcciones",
+      "default": "Predeterminada",
+      "add_new": "Agregar nueva dirección",
+      "edit_address": "Editar dirección",
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "company": "Empresa",
+      "address1": "Dirección",
+      "address2": "Departamento, suite, etc.",
+      "city": "Ciudad",
+      "country": "País",
+      "province": "Provincia",
+      "zip": "Código postal",
+      "phone": "Teléfono",
+      "set_default": "Establecer como dirección predeterminada",
+      "add": "Agregar dirección",
+      "update": "Actualizar dirección",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "delete_confirm": "¿Eliminar esta dirección?"
+    },
+    "login": {
+      "title": "Iniciar sesión",
+      "email": "Email",
+      "password": "Contraseña",
+      "forgot_password": "¿Olvidaste tu contraseña?",
+      "sign_in": "Iniciar sesión",
+      "guest_title": "Continuar como invitado",
+      "guest_continue": "Continuar"
+    },
+    "orders": {
+      "title": "Historial de pedidos",
+      "order_number": "Pedido",
+      "date": "Fecha",
+      "payment_status": "Estado de pago",
+      "fulfillment_status": "Estado de envío",
+      "total": "Total",
+      "none": "Aún no has realizado ningún pedido."
+    },
+    "recover_password": {
+      "title": "Restablecer contraseña",
+      "email": "Email",
+      "submit": "Enviar",
+      "cancel": "Cancelar",
+      "subtext": "Te enviaremos un email para restablecer tu contraseña.",
+      "success": "Te enviamos un email con instrucciones."
+    },
+    "register": {
+      "title": "Crear cuenta",
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "email": "Email",
+      "password": "Contraseña",
+      "submit": "Crear cuenta"
+    },
+    "reset_password": {
+      "title": "Restablecer contraseña",
+      "subtext": "Ingresa una nueva contraseña para {{ email }}",
+      "password": "Contraseña",
+      "password_confirm": "Confirmar contraseña",
+      "submit": "Restablecer contraseña"
+    }
+  },
+  "homepage": {
+    "onboarding": {
+      "product_title": "Nombre del producto",
+      "product_description": "Descripción del producto",
+      "collection_title": "Nombre de colección"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "Carrito"
+    },
+    "customer": {
+      "account": "Mi cuenta",
+      "log_out": "Cerrar sesión",
+      "log_in": "Iniciar sesión",
+      "create_account": "Crear cuenta"
+    },
+    "footer": {
+      "copyright": "Derechos reservados"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Agregar al carrito",
+      "description": "Descripción",
+      "on_sale": "Oferta",
+      "quantity": "Cantidad",
+      "sold_out": "Agotado",
+      "unavailable": "No disponible",
+      "from": "Desde",
+      "unit_price_label": "Precio unitario",
+      "include_taxes": "Impuestos incluidos",
+      "shipping_policy_html": "Envío calculado al finalizar"
+    }
+  },
+  "sections": {
+    "cart": {
+      "cart_error": "Error al actualizar el carrito",
+      "cart_quantity_error_html": "Solo puedes agregar [quantity] de este artículo"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Tu tarjeta de regalo",
+      "subtext": "Tu tarjeta de regalo",
+      "gift_card_code": "Código de tarjeta de regalo",
+      "shop_link": "Ir a la tienda",
+      "remaining_html": "Saldo: {{ balance }}",
+      "add_to_apple_wallet": "Agregar a Apple Wallet",
+      "qr_image_alt": "Código QR",
+      "copy_code": "Copiar código",
+      "expired": "Expirada",
+      "copy_code_success": "Código copiado"
+    }
+  }
+}

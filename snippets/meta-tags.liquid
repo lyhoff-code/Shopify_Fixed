@@ -1,0 +1,31 @@
+{%- comment -%}
+  SNIPPET: Meta Tags para SEO y Redes Sociales
+{%- endcomment -%}
+
+{%- comment -%} Open Graph / Facebook {%- endcomment -%}
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:type" content="{% if template.name == 'product' %}product{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page_title | escape }}">
+{%- if page_description -%}
+  <meta property="og:description" content="{{ page_description | escape }}">
+{%- endif -%}
+
+{%- if template.name == 'product' -%}
+  <meta property="og:image" content="{{ product.featured_image | image_url: width: 1200 }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="product:price:amount" content="{{ product.price | money_without_currency }}">
+  <meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
+{%- elsif template.name == 'collection' and collection.image -%}
+  <meta property="og:image" content="{{ collection.image | image_url: width: 1200 }}">
+{%- elsif settings.og_image -%}
+  <meta property="og:image" content="{{ settings.og_image | image_url: width: 1200 }}">
+{%- endif -%}
+
+{%- comment -%} Twitter Card {%- endcomment -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+{%- if page_description -%}
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+{%- endif -%}

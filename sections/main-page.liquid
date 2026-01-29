@@ -1,0 +1,22 @@
+{%- comment -%}
+  SECCIÓN: Página de Contenido Principal
+{%- endcomment -%}
+
+<section class="page-content" style="padding: 80px 0;">
+  <div class="container container--narrow">
+    <h1 style="text-align: center; margin-bottom: 40px;">{{ page.title | default: 'Título de la Página' }}</h1>
+
+    <div class="page-content__body" style="line-height: 1.8;">
+      {{ page.content | default: '<p>Contenido de la página aquí. Puedes agregar texto, imágenes, videos y más desde el editor de Shopify.</p>' }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Página Principal",
+  "tag": "section",
+  "class": "section-main-page",
+  "settings": []
+}
+{% endschema %}

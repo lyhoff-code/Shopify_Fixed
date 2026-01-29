@@ -1,0 +1,261 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Tienda Profesional",
+    "theme_version": "1.0.0",
+    "theme_author": "Custom Design",
+    "theme_documentation_url": "https://help.shopify.com/",
+    "theme_support_url": "https://help.shopify.com/"
+  },
+  {
+    "name": "Colores",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Colores principales"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Color primario",
+        "default": "#2C3E50"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Color secundario",
+        "default": "#E74C3C"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Color de acento",
+        "default": "#3498DB"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Color del texto",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "color_text_light",
+        "label": "Color del texto claro",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Color de fondo",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_background_secondary",
+        "label": "Color de fondo secundario",
+        "default": "#F8F9FA"
+      }
+    ]
+  },
+  {
+    "name": "Tipografía",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Fuente de títulos",
+        "default": "montserrat_n7"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Fuente del cuerpo",
+        "default": "open_sans_n4"
+      },
+      {
+        "type": "range",
+        "id": "font_size_base",
+        "label": "Tamaño de fuente base",
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "default": 16,
+        "unit": "px"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo de la tienda",
+        "info": "Recomendado: PNG transparente de 400x100px"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Ancho del logo",
+        "min": 50,
+        "max": 300,
+        "step": 10,
+        "default": 150,
+        "unit": "px"
+      },
+      {
+        "type": "checkbox",
+        "id": "header_sticky",
+        "label": "Header fijo al hacer scroll",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "header_background",
+        "label": "Color de fondo del header",
+        "default": "#FFFFFF"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "color",
+        "id": "footer_background",
+        "label": "Color de fondo del footer",
+        "default": "#2C3E50"
+      },
+      {
+        "type": "color",
+        "id": "footer_text_color",
+        "label": "Color del texto del footer",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "richtext",
+        "id": "footer_about",
+        "label": "Texto sobre la empresa",
+        "default": "<p>Tu tienda de confianza con los mejores productos y el mejor servicio.</p>"
+      }
+    ]
+  },
+  {
+    "name": "Redes Sociales",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Enlaces a redes sociales"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter/X URL"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest URL"
+      }
+    ]
+  },
+  {
+    "name": "Productos",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Mostrar proveedor/marca",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale_badge",
+        "label": "Mostrar etiqueta de oferta",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "product_image_ratio",
+        "label": "Proporción de imagen de producto",
+        "options": [
+          { "value": "square", "label": "Cuadrada (1:1)" },
+          { "value": "portrait", "label": "Vertical (3:4)" },
+          { "value": "landscape", "label": "Horizontal (4:3)" }
+        ],
+        "default": "square"
+      }
+    ]
+  },
+  {
+    "name": "Carrito",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Tipo de carrito",
+        "options": [
+          { "value": "drawer", "label": "Cajón lateral" },
+          { "value": "page", "label": "Página completa" }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Permitir notas en el pedido",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Barra de Anuncios",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "announcement_bar_enabled",
+        "label": "Mostrar barra de anuncios",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Texto del anuncio",
+        "default": "¡Envío gratis en pedidos mayores a $500!"
+      },
+      {
+        "type": "color",
+        "id": "announcement_bg_color",
+        "label": "Color de fondo",
+        "default": "#E74C3C"
+      },
+      {
+        "type": "color",
+        "id": "announcement_text_color",
+        "label": "Color del texto",
+        "default": "#FFFFFF"
+      }
+    ]
+  }
+]

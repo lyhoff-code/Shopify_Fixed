@@ -1,0 +1,215 @@
+{%- comment -%}
+  SECCIÓN: Testimonios de Clientes
+
+  ═══════════════════════════════════════════════════════════════════════════
+  IMÁGENES NECESARIAS:
+  ═══════════════════════════════════════════════════════════════════════════
+
+  📸 FOTOS DE CLIENTES (AVATARES):
+     - Tamaño: 100x100px o 150x150px
+     - Formato: JPG o PNG
+     - Tipo de imagen: Foto de perfil del cliente que da el testimonio
+     - Características:
+       • Foto real del cliente (con permiso)
+       • Rostro visible y sonriente
+       • Buena iluminación
+       • Fondo neutro o difuminado
+     - Si no tienes fotos reales:
+       • Puedes usar ilustraciones de avatar
+       • O iniciales con fondo de color
+     - Consejo: Fotos reales generan más confianza
+  ═══════════════════════════════════════════════════════════════════════════
+{%- endcomment -%}
+
+<section class="testimonials-section">
+  <div class="container">
+
+    {%- comment -%} Encabezado de la sección {%- endcomment -%}
+    <div class="section-header">
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="section-description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Grid de Testimonios {%- endcomment -%}
+    <div class="testimonials-grid">
+      {%- for block in section.blocks -%}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          {%- comment -%} Estrellas {%- endcomment -%}
+          <div class="testimonial-card__stars">
+            {%- for i in (1..5) -%}
+              {%- if i <= block.settings.rating -%}
+                <svg class="testimonial-card__star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              {%- else -%}
+                <svg class="testimonial-card__star" style="color: #ddd;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          {%- comment -%} Texto del testimonio {%- endcomment -%}
+          <p class="testimonial-card__text">"{{ block.settings.text }}"</p>
+
+          {%- comment -%} Autor {%- endcomment -%}
+          <div class="testimonial-card__author">
+            {%- if block.settings.avatar != blank -%}
+              <img
+                src="{{ block.settings.avatar | image_url: width: 100 }}"
+                alt="{{ block.settings.name | escape }}"
+                loading="lazy"
+                class="testimonial-card__avatar"
+              >
+            {%- else -%}
+              <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.25rem;">
+                {{ block.settings.name | slice: 0 }}
+              </div>
+            {%- endif -%}
+            <div class="testimonial-card__author-info">
+              <p class="testimonial-card__author-name">{{ block.settings.name }}</p>
+              {%- if block.settings.role != blank -%}
+                <p class="testimonial-card__author-role">{{ block.settings.role }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+
+      {%- comment -%} Placeholders si no hay bloques {%- endcomment -%}
+      {%- if section.blocks.size == 0 -%}
+        {%- for i in (1..3) -%}
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              {%- for j in (1..5) -%}
+                <svg class="testimonial-card__star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              {%- endfor -%}
+            </div>
+            <p class="testimonial-card__text">"Excelente experiencia de compra. Los productos llegaron rápido y en perfectas condiciones. Definitivamente volveré a comprar."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.25rem;">
+                C
+              </div>
+              <div class="testimonial-card__author-info">
+                <p class="testimonial-card__author-name">Cliente {{ i }}</p>
+                <p class="testimonial-card__author-role">Cliente Verificado</p>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonios",
+  "tag": "section",
+  "class": "section-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Testimonios"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Lo Que Dicen Nuestros Clientes"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Miles de clientes satisfechos confían en nosotros."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonio",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Foto del cliente",
+          "info": "Recomendado: 100x100px cuadrada"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nombre",
+          "default": "María García"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Rol/Ubicación",
+          "default": "Cliente Verificada"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Calificación",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonio",
+          "default": "Excelente calidad en todos los productos. El envío fue rápido y la atención al cliente excepcional. Muy recomendado!"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonios",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "María García",
+            "role": "Cliente Verificada",
+            "rating": 5,
+            "text": "Excelente calidad en todos los productos. El envío fue rápido y la atención al cliente excepcional. Muy recomendado!"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Carlos Rodríguez",
+            "role": "Cliente Frecuente",
+            "rating": 5,
+            "text": "Llevo más de un año comprando aquí y nunca me han decepcionado. Los productos son tal como se muestran en las fotos."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Ana Martínez",
+            "role": "Cliente Verificada",
+            "rating": 5,
+            "text": "La mejor tienda online que he encontrado. Precios justos, envío rápido y productos de primera calidad. 100% recomendable."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

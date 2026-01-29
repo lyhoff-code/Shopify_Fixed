@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+
+  <title>
+    {{ page_title }}
+    {%- if current_tags %} – {{ 'general.meta.tags' | t: tags: current_tags | join: ', ' }}{% endif -%}
+    {%- if current_page != 1 %} – {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} – {{ shop.name }}{% endunless -%}
+  </title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  {% render 'meta-tags' %}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {%- endif -%}
+
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+
+  {%- unless settings.font_heading.system? and settings.font_body.system? -%}
+    <link rel="preload" as="font" href="{{ settings.font_heading | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="{{ settings.font_body | font_url }}" type="font/woff2" crossorigin>
+  {%- endunless -%}
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
+
+  <style>
+    :root {
+      --color-primary: {{ settings.color_primary }};
+      --color-secondary: {{ settings.color_secondary }};
+      --color-accent: {{ settings.color_accent }};
+      --color-text: {{ settings.color_text }};
+      --color-text-light: {{ settings.color_text_light }};
+      --color-background: {{ settings.color_background }};
+      --color-background-secondary: {{ settings.color_background_secondary }};
+      --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+      --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+      --font-size-base: {{ settings.font_size_base }}px;
+      --header-background: {{ settings.header_background }};
+      --footer-background: {{ settings.footer_background }};
+      --footer-text-color: {{ settings.footer_text_color }};
+      --announcement-bg: {{ settings.announcement_bg_color }};
+      --announcement-text: {{ settings.announcement_text_color }};
+    }
+
+    {{ settings.font_heading | font_face: font_display: 'swap' }}
+    {{ settings.font_body | font_face: font_display: 'swap' }}
+  </style>
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    window.shopUrl = '{{ request.origin }}';
+    window.routes = {
+      cart_add_url: '{{ routes.cart_add_url }}',
+      cart_change_url: '{{ routes.cart_change_url }}',
+      cart_update_url: '{{ routes.cart_update_url }}',
+      cart_url: '{{ routes.cart_url }}',
+      predictive_search_url: '{{ routes.predictive_search_url }}'
+    };
+    window.cartStrings = {
+      error: '{{ 'sections.cart.cart_error' | t }}',
+      quantityError: '{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}'
+    };
+  </script>
+
+  {{ content_for_header }}
+</head>
+
+<body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
+  <a class="skip-to-content-link visually-hidden" href="#MainContent">
+    {{ 'accessibility.skip_to_content' | t }}
+  </a>
+
+  {%- if settings.announcement_bar_enabled -%}
+    {% render 'announcement-bar' %}
+  {%- endif -%}
+
+  {% section 'header' %}
+
+  <main id="MainContent" class="main-content" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  {%- if settings.cart_type == 'drawer' -%}
+    {% render 'cart-drawer' %}
+  {%- endif -%}
+
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  <script src="{{ 'custom.js' | asset_url }}" defer></script>
+
+  {%- if request.design_mode -%}
+    <script src="{{ 'theme-editor.js' | asset_url }}" defer></script>
+  {%- endif -%}
+</body>
+</html>

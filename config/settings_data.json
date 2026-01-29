@@ -1,0 +1,55 @@
+{
+  "current": {
+    "color_primary": "#2C3E50",
+    "color_secondary": "#E74C3C",
+    "color_accent": "#3498DB",
+    "color_text": "#333333",
+    "color_text_light": "#666666",
+    "color_background": "#FFFFFF",
+    "color_background_secondary": "#F8F9FA",
+    "font_heading": "montserrat_n7",
+    "font_body": "open_sans_n4",
+    "font_size_base": 16,
+    "logo_width": 150,
+    "header_sticky": true,
+    "header_background": "#FFFFFF",
+    "footer_background": "#2C3E50",
+    "footer_text_color": "#FFFFFF",
+    "footer_about": "<p>Tu tienda de confianza con los mejores productos y el mejor servicio.</p>",
+    "social_facebook": "",
+    "social_instagram": "",
+    "social_twitter": "",
+    "social_youtube": "",
+    "social_tiktok": "",
+    "social_pinterest": "",
+    "show_vendor": true,
+    "show_sale_badge": true,
+    "product_image_ratio": "square",
+    "cart_type": "drawer",
+    "cart_notes_enable": true,
+    "announcement_bar_enabled": true,
+    "announcement_text": "¡Envío gratis en pedidos mayores a $500!",
+    "announcement_bg_color": "#E74C3C",
+    "announcement_text_color": "#FFFFFF",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "hero-banner",
+      "featured-collections",
+      "featured-products",
+      "video-section",
+      "image-with-text",
+      "testimonials",
+      "newsletter",
+      "trust-badges"
+    ]
+  }
+}

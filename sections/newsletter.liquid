@@ -1,0 +1,108 @@
+{%- comment -%}
+  SECCIÓN: Newsletter / Suscripción
+
+  ═══════════════════════════════════════════════════════════════════════════
+  NOTAS:
+  ═══════════════════════════════════════════════════════════════════════════
+
+  Esta sección no requiere imágenes. Usa un fondo con gradiente de colores
+  de la marca para mantener la coherencia visual.
+
+  Puedes personalizar los colores desde la configuración del tema.
+  ═══════════════════════════════════════════════════════════════════════════
+{%- endcomment -%}
+
+<section class="newsletter-section" style="{% if section.settings.custom_background %}background: {{ section.settings.background_color }};{% endif %}">
+  <div class="container">
+    <div class="newsletter__wrapper">
+      {%- if section.settings.title != blank -%}
+        <h2 class="newsletter__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p class="newsletter__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      {%- form 'customer', id: 'newsletter-form', class: 'newsletter__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        <input
+          type="email"
+          name="contact[email]"
+          id="newsletter-email"
+          class="newsletter__input"
+          placeholder="{{ section.settings.placeholder }}"
+          required
+          autocomplete="email"
+        >
+
+        <button type="submit" class="btn btn--secondary newsletter__submit">
+          {{ section.settings.button_text }}
+        </button>
+      {%- endform -%}
+
+      {%- if section.settings.disclaimer != blank -%}
+        <p class="newsletter__disclaimer" style="font-size: 0.8125rem; opacity: 0.8; margin-top: 15px;">
+          {{ section.settings.disclaimer }}
+        </p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "tag": "section",
+  "class": "section-newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Únete a Nuestra Comunidad"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Suscríbete para recibir ofertas exclusivas, novedades y descuentos especiales directamente en tu correo."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Texto del campo de email",
+      "default": "Tu correo electrónico"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto del botón",
+      "default": "Suscribirse"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Texto legal (opcional)",
+      "default": "Al suscribirte aceptas nuestra política de privacidad. Puedes darte de baja en cualquier momento."
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_background",
+      "label": "Usar color de fondo personalizado",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo",
+      "default": "#2C3E50"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}
