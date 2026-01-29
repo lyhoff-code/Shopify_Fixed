@@ -31,7 +31,12 @@
   ═══════════════════════════════════════════════════════════════════════════
 {%- endcomment -%}
 
-{%- assign layout_reverse = section.settings.layout == 'image_right' -%}
+{%- liquid
+  assign layout_reverse = false
+  if section.settings.layout == 'image_right'
+    assign layout_reverse = true
+  endif
+-%}
 
 <section class="image-text-section{% if layout_reverse %} image-text-section--reverse{% endif %}{% if section.settings.background_color != 'white' %} image-text-section--{{ section.settings.background_color }}{% endif %}" style="{% if section.settings.background_color == 'custom' %}background-color: {{ section.settings.custom_background }};{% endif %}">
   <div class="container">
