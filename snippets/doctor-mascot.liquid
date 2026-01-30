@@ -1,147 +1,235 @@
-<!-- Dr. James - Skincare Expert Mascot -->
+<!-- Dr. James - Modern 3D/4D Skincare Expert -->
 <div id="doctor-mascot" class="doctor-mascot" aria-hidden="true">
   <div class="doctor-container">
     <div class="doctor-character">
-      <!-- Doctor SVG Character -->
-      <svg viewBox="0 0 120 160" class="doctor-svg">
-        <!-- Body / Lab Coat -->
-        <path class="doctor-coat" d="M30 75 L30 140 L90 140 L90 75 Q90 60 60 55 Q30 60 30 75 Z" fill="#FFFFFF" stroke="#e0e0e0" stroke-width="1"/>
+      <!-- Modern 3D Doctor Character -->
+      <div class="doctor-3d-wrapper">
+        <svg viewBox="0 0 140 180" class="doctor-svg-modern">
+          <defs>
+            <!-- Gradients for 3D effect -->
+            <linearGradient id="coatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FFFFFF"/>
+              <stop offset="50%" style="stop-color:#F8F9FA"/>
+              <stop offset="100%" style="stop-color:#E8ECEF"/>
+            </linearGradient>
+            <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FFE4D6"/>
+              <stop offset="100%" style="stop-color:#F5D0C0"/>
+            </linearGradient>
+            <linearGradient id="hairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#5D4037"/>
+              <stop offset="100%" style="stop-color:#3E2723"/>
+            </linearGradient>
+            <linearGradient id="scrubsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#4FC3F7"/>
+              <stop offset="100%" style="stop-color:#0288D1"/>
+            </linearGradient>
+            <!-- Shadow filter -->
+            <filter id="shadow3d" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="3" dy="5" stdDeviation="4" flood-opacity="0.2"/>
+            </filter>
+            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
 
-        <!-- Coat lapels -->
-        <path d="M45 75 L60 95 L60 140" stroke="#e8e8e8" stroke-width="2" fill="none"/>
-        <path d="M75 75 L60 95" stroke="#e8e8e8" stroke-width="2" fill="none"/>
+          <!-- Body Shadow -->
+          <ellipse cx="75" cy="172" rx="35" ry="6" fill="rgba(0,0,0,0.1)" class="body-shadow"/>
 
-        <!-- Coat buttons -->
-        <circle cx="60" cy="105" r="3" fill="#2D5A4A"/>
-        <circle cx="60" cy="120" r="3" fill="#2D5A4A"/>
+          <!-- Modern Lab Coat / Scrubs -->
+          <g class="doctor-body" filter="url(#shadow3d)">
+            <!-- Scrubs underneath -->
+            <path d="M45 85 L45 160 L105 160 L105 85 Q105 70 75 65 Q45 70 45 85 Z" fill="url(#scrubsGradient)"/>
 
-        <!-- Stethoscope -->
-        <path class="stethoscope" d="M45 70 Q35 80 40 100" stroke="#333" stroke-width="3" fill="none"/>
-        <circle cx="40" cy="103" r="6" fill="#333"/>
-        <circle cx="40" cy="103" r="3" fill="#666"/>
+            <!-- Lab Coat -->
+            <path class="coat-main" d="M35 90 L35 165 C35 168 38 170 42 170 L58 170 L58 100 L82 100 L82 170 L98 170 C102 170 105 168 105 165 L105 90 Q105 75 75 68 Q45 75 35 90 Z" fill="url(#coatGradient)" stroke="#DDD" stroke-width="0.5"/>
 
-        <!-- Neck -->
-        <rect x="52" y="45" width="16" height="15" fill="#F5D6C6" rx="3"/>
+            <!-- Coat pocket -->
+            <rect x="42" y="115" width="15" height="18" rx="2" fill="#F0F0F0" stroke="#DDD" stroke-width="0.5"/>
+            <rect x="44" y="117" width="4" height="1" fill="#2D5A4A"/>
+            <rect x="44" y="120" width="6" height="1" fill="#E0E0E0"/>
 
-        <!-- Shirt collar -->
-        <path d="M48 55 L52 65 L60 60 L68 65 L72 55" fill="#87CEEB" stroke="#6BB3D9" stroke-width="1"/>
+            <!-- Pen in pocket -->
+            <rect x="52" y="112" width="3" height="12" rx="1" fill="#1A1A1A"/>
+            <circle cx="53.5" cy="111" r="2" fill="#2D5A4A"/>
 
-        <!-- Tie -->
-        <path d="M57 60 L60 75 L63 60 Z" fill="#2D5A4A"/>
-        <rect x="57" y="75" width="6" height="20" fill="#2D5A4A"/>
-        <path d="M55 95 L60 105 L65 95 Z" fill="#2D5A4A"/>
+            <!-- Coat buttons -->
+            <circle cx="70" cy="105" r="3" fill="#E8E8E8" stroke="#CCC" stroke-width="0.5"/>
+            <circle cx="70" cy="120" r="3" fill="#E8E8E8" stroke="#CCC" stroke-width="0.5"/>
+            <circle cx="70" cy="135" r="3" fill="#E8E8E8" stroke="#CCC" stroke-width="0.5"/>
+          </g>
 
-        <!-- Head -->
-        <ellipse class="doctor-head" cx="60" cy="32" rx="25" ry="28" fill="#F5D6C6"/>
+          <!-- Stethoscope Modern -->
+          <g class="stethoscope-modern">
+            <path d="M55 80 Q40 95 45 125" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <ellipse cx="45" cy="128" rx="8" ry="10" fill="#444"/>
+            <ellipse cx="45" cy="128" rx="5" ry="7" fill="#666"/>
+            <circle cx="45" cy="128" r="3" fill="#888"/>
+          </g>
 
-        <!-- Hair -->
-        <path class="doctor-hair" d="M35 28 Q35 8 60 5 Q85 8 85 28 Q85 20 75 18 Q60 15 45 18 Q35 20 35 28 Z" fill="#5D4037"/>
+          <!-- Neck -->
+          <rect x="62" y="55" width="16" height="18" fill="url(#skinGradient)" rx="4"/>
 
-        <!-- Side hair -->
-        <path d="M35 28 Q33 35 35 42" stroke="#5D4037" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <path d="M85 28 Q87 35 85 42" stroke="#5D4037" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <!-- Head with 3D effect -->
+          <g class="doctor-head-group" filter="url(#shadow3d)">
+            <!-- Head shape -->
+            <ellipse class="head-main" cx="70" cy="38" rx="30" ry="32" fill="url(#skinGradient)"/>
 
-        <!-- Ears -->
-        <ellipse cx="35" cy="35" rx="5" ry="7" fill="#F5D6C6"/>
-        <ellipse cx="85" cy="35" rx="5" ry="7" fill="#F5D6C6"/>
+            <!-- Ear left -->
+            <ellipse cx="40" cy="42" rx="5" ry="8" fill="url(#skinGradient)"/>
+            <ellipse cx="41" cy="42" rx="3" ry="5" fill="#E8C4B8"/>
 
-        <!-- Eyebrows -->
-        <g class="doctor-eyebrows">
-          <path d="M42 22 Q48 19 54 22" stroke="#5D4037" stroke-width="2" fill="none"/>
-          <path d="M66 22 Q72 19 78 22" stroke="#5D4037" stroke-width="2" fill="none"/>
-        </g>
+            <!-- Ear right -->
+            <ellipse cx="100" cy="42" rx="5" ry="8" fill="url(#skinGradient)"/>
+            <ellipse cx="99" cy="42" rx="3" ry="5" fill="#E8C4B8"/>
 
-        <!-- Eyes -->
-        <g class="doctor-eyes">
-          <ellipse class="doctor-eye left" cx="48" cy="30" rx="6" ry="7" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
-          <ellipse class="doctor-eye right" cx="72" cy="30" rx="6" ry="7" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
-          <circle class="doctor-pupil left" cx="49" cy="31" r="3.5" fill="#4A7C59"/>
-          <circle class="doctor-pupil right" cx="73" cy="31" r="3.5" fill="#4A7C59"/>
-          <circle class="doctor-eye-shine left" cx="50" cy="29" r="1.5" fill="#FFFFFF"/>
-          <circle class="doctor-eye-shine right" cx="74" cy="29" r="1.5" fill="#FFFFFF"/>
-        </g>
+            <!-- Modern styled hair -->
+            <path class="hair-main" d="M40 35 Q38 10 70 5 Q102 10 100 35 Q100 25 90 20 Q75 12 55 20 Q45 25 40 35 Z" fill="url(#hairGradient)"/>
+            <!-- Hair highlight -->
+            <path d="M50 25 Q60 15 75 18" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-        <!-- Nose -->
-        <path d="M60 33 Q62 38 60 42 Q58 40 58 38" fill="#E8C4B8" stroke="none"/>
+            <!-- Eyebrows -->
+            <g class="eyebrows-modern">
+              <path d="M50 28 Q57 24 64 28" stroke="#5D4037" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M76 28 Q83 24 90 28" stroke="#5D4037" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </g>
 
-        <!-- Mouth -->
-        <path class="doctor-mouth" d="M52 48 Q60 54 68 48" stroke="#C97B7B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- Modern Glasses -->
+            <g class="glasses-modern">
+              <rect x="46" y="32" width="20" height="14" rx="3" fill="rgba(200,220,255,0.3)" stroke="#333" stroke-width="1.5"/>
+              <rect x="74" y="32" width="20" height="14" rx="3" fill="rgba(200,220,255,0.3)" stroke="#333" stroke-width="1.5"/>
+              <path d="M66 38 L74 38" stroke="#333" stroke-width="1.5"/>
+              <path d="M46 38 L40 36" stroke="#333" stroke-width="1.5"/>
+              <path d="M94 38 L100 36" stroke="#333" stroke-width="1.5"/>
+              <!-- Lens reflection -->
+              <path d="M50 35 L54 35" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M78 35 L82 35" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            </g>
 
-        <!-- Smile teeth (shown on hover) -->
-        <path class="doctor-teeth" d="M54 49 Q60 52 66 49 L66 51 Q60 54 54 51 Z" fill="#FFFFFF" opacity="0"/>
+            <!-- Eyes with depth -->
+            <g class="eyes-modern">
+              <!-- Left eye -->
+              <ellipse cx="56" cy="40" rx="8" ry="9" fill="#FFFFFF"/>
+              <ellipse cx="56" cy="40" rx="7" ry="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="0.5"/>
+              <circle class="iris-left" cx="57" cy="41" r="5" fill="#4A7C59"/>
+              <circle class="iris-left-inner" cx="57" cy="41" r="3" fill="#2D5A4A"/>
+              <circle class="pupil-left" cx="57" cy="41" r="2" fill="#1A1A1A"/>
+              <ellipse class="eye-shine" cx="59" cy="39" rx="2" ry="1.5" fill="#FFFFFF"/>
+              <circle class="eye-shine-small" cx="55" cy="43" r="1" fill="rgba(255,255,255,0.5)"/>
 
-        <!-- Glasses -->
-        <g class="doctor-glasses">
-          <rect x="40" y="26" width="16" height="12" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
-          <rect x="64" y="26" width="16" height="12" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
-          <path d="M56 30 L64 30" stroke="#333" stroke-width="1.5"/>
-          <path d="M40 30 L35 28" stroke="#333" stroke-width="1.5"/>
-          <path d="M80 30 L85 28" stroke="#333" stroke-width="1.5"/>
-        </g>
+              <!-- Right eye -->
+              <ellipse cx="84" cy="40" rx="8" ry="9" fill="#FFFFFF"/>
+              <ellipse cx="84" cy="40" rx="7" ry="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="0.5"/>
+              <circle class="iris-right" cx="85" cy="41" r="5" fill="#4A7C59"/>
+              <circle class="iris-right-inner" cx="85" cy="41" r="3" fill="#2D5A4A"/>
+              <circle class="pupil-right" cx="85" cy="41" r="2" fill="#1A1A1A"/>
+              <ellipse class="eye-shine" cx="87" cy="39" rx="2" ry="1.5" fill="#FFFFFF"/>
+              <circle class="eye-shine-small" cx="83" cy="43" r="1" fill="rgba(255,255,255,0.5)"/>
+            </g>
 
-        <!-- Name badge -->
-        <rect x="70" y="80" width="18" height="25" rx="2" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
-        <rect x="72" y="83" width="14" height="3" fill="#2D5A4A"/>
-        <text x="79" y="98" text-anchor="middle" font-size="5" fill="#333">Dr. James</text>
-        <circle cx="79" cy="92" r="4" fill="#E8E8E8"/>
+            <!-- Nose modern -->
+            <path d="M70 45 Q72 50 70 54 Q68 52 68 48" fill="#E8C4B8"/>
 
-        <!-- Arms -->
-        <g class="doctor-arms">
-          <path class="doctor-arm left" d="M30 80 Q15 90 20 110" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
-          <path class="doctor-arm right" d="M90 80 Q105 90 100 110" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
-          <!-- Hands -->
-          <circle cx="20" cy="112" r="8" fill="#F5D6C6"/>
-          <circle cx="100" cy="112" r="8" fill="#F5D6C6"/>
-        </g>
+            <!-- Mouth -->
+            <g class="mouth-modern">
+              <path class="smile-line" d="M60 60 Q70 68 80 60" stroke="#C97B7B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <!-- Teeth when smiling -->
+              <path class="teeth" d="M62 61 Q70 65 78 61 L78 63 Q70 67 62 63 Z" fill="#FFFFFF" opacity="0"/>
+            </g>
 
-        <!-- Waving hand (animated) -->
-        <g class="doctor-wave" style="transform-origin: 100px 80px;">
-          <path d="M90 80 Q110 70 115 85" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
-          <circle cx="117" cy="87" r="8" fill="#F5D6C6"/>
-          <!-- Fingers waving -->
-          <path d="M120 82 L125 78" stroke="#F5D6C6" stroke-width="3" stroke-linecap="round"/>
-          <path d="M122 86 L128 84" stroke="#F5D6C6" stroke-width="3" stroke-linecap="round"/>
-          <path d="M122 90 L127 90" stroke="#F5D6C6" stroke-width="3" stroke-linecap="round"/>
-        </g>
-      </svg>
+            <!-- Cheek blush -->
+            <ellipse cx="45" cy="52" rx="6" ry="4" fill="#FFB4A2" opacity="0.4"/>
+            <ellipse cx="95" cy="52" rx="6" ry="4" fill="#FFB4A2" opacity="0.4"/>
+          </g>
 
-      <!-- Speech bubble -->
-      <div class="doctor-speech">
-        <span class="doctor-speech-text">Hi! I'm Dr. James! 👨‍⚕️</span>
+          <!-- Modern ID Badge -->
+          <g class="id-badge" filter="url(#shadow3d)">
+            <rect x="88" y="90" width="22" height="32" rx="3" fill="#FFFFFF" stroke="#DDD" stroke-width="0.5"/>
+            <rect x="90" y="93" width="18" height="4" rx="1" fill="#2D5A4A"/>
+            <circle cx="99" cy="106" r="6" fill="#F0F0F0"/>
+            <circle cx="99" cy="106" r="5" fill="url(#skinGradient)"/>
+            <text x="99" y="120" text-anchor="middle" font-size="5" font-weight="600" fill="#333">Dr. James</text>
+            <text x="99" y="126" text-anchor="middle" font-size="3.5" fill="#666">Skincare MD</text>
+          </g>
+
+          <!-- Animated waving arm -->
+          <g class="waving-arm">
+            <path d="M105 95 Q125 85 130 100" stroke="url(#coatGradient)" stroke-width="14" fill="none" stroke-linecap="round"/>
+            <!-- Hand -->
+            <circle cx="132" cy="102" r="10" fill="url(#skinGradient)"/>
+            <!-- Fingers -->
+            <path d="M136 96 L142 92" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M138 100 L145 98" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M138 104 L144 104" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M136 108 L141 110" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
+          </g>
+        </svg>
+
+        <!-- 3D Floating elements -->
+        <div class="floating-elements">
+          <span class="float-icon float-1">💊</span>
+          <span class="float-icon float-2">🧴</span>
+          <span class="float-icon float-3">✨</span>
+        </div>
+      </div>
+
+      <!-- Modern speech bubble -->
+      <div class="doctor-speech-modern">
+        <div class="speech-inner">
+          <span class="doctor-speech-text">Hi! I'm Dr. James! 👨‍⚕️</span>
+        </div>
+        <div class="speech-tail"></div>
       </div>
     </div>
 
-    <!-- Action buttons -->
-    <div class="doctor-actions">
-      <button class="doctor-action-btn" data-action="quiz" title="Skin Analysis">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-          <rect x="9" y="3" width="6" height="4" rx="1"/>
-          <path d="M9 14l2 2 4-4"/>
-        </svg>
+    <!-- Modern action buttons -->
+    <div class="doctor-actions-modern">
+      <button class="action-btn-3d" data-action="quiz" title="Skin Analysis">
+        <div class="btn-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+            <rect x="9" y="3" width="6" height="4" rx="1"/>
+            <path d="M9 14l2 2 4-4"/>
+          </svg>
+        </div>
+        <span class="btn-label">Skin Quiz</span>
       </button>
-      <button class="doctor-action-btn" data-action="chat" title="Ask Dr. James">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
+      <button class="action-btn-3d" data-action="chat" title="Chat">
+        <div class="btn-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <span class="btn-label">Chat</span>
       </button>
-      <button class="doctor-action-btn" data-action="help" title="Get Help">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
-        </svg>
+      <button class="action-btn-3d" data-action="help" title="Help">
+        <div class="btn-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+          </svg>
+        </div>
+        <span class="btn-label">Help</span>
       </button>
     </div>
   </div>
 
-  <!-- Toggle button -->
-  <button class="doctor-toggle" aria-label="Talk to Dr. James">
-    <span class="doctor-toggle-icon">👨‍⚕️</span>
+  <!-- Modern toggle button -->
+  <button class="doctor-toggle-modern" aria-label="Talk to Dr. James">
+    <div class="toggle-inner">
+      <span class="toggle-icon">👨‍⚕️</span>
+    </div>
+    <div class="toggle-ring"></div>
+    <div class="toggle-ring ring-2"></div>
   </button>
 </div>
 
 <style>
-/* Doctor Mascot Styles */
+/* Modern 3D Doctor Mascot */
 .doctor-mascot {
   position: fixed;
   bottom: 20px;
@@ -154,217 +242,319 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(0);
+  transform: scale(0) rotateY(-30deg);
   opacity: 0;
   transform-origin: bottom left;
-  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s ease;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease;
+  perspective: 1000px;
 }
 
 .doctor-mascot.active .doctor-container {
-  transform: scale(1);
+  transform: scale(1) rotateY(0deg);
   opacity: 1;
 }
 
 .doctor-character {
   position: relative;
   cursor: pointer;
+  transform-style: preserve-3d;
 }
 
-.doctor-svg {
-  width: 100px;
-  height: 130px;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+.doctor-3d-wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: float3d 4s ease-in-out infinite;
 }
 
-/* Animations */
-.doctor-eyes {
-  animation: doctorBlink 4s ease-in-out infinite;
+@keyframes float3d {
+  0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+  25% { transform: translateY(-8px) rotateX(2deg) rotateY(3deg); }
+  50% { transform: translateY(-5px) rotateX(0deg) rotateY(0deg); }
+  75% { transform: translateY(-8px) rotateX(-2deg) rotateY(-3deg); }
 }
 
-@keyframes doctorBlink {
-  0%, 45%, 55%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(0.1); }
+.doctor-svg-modern {
+  width: 120px;
+  height: 155px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
 }
 
-.doctor-pupil {
-  animation: doctorLook 5s ease-in-out infinite;
+/* Body shadow animation */
+.body-shadow {
+  animation: shadowPulse 4s ease-in-out infinite;
 }
 
-@keyframes doctorLook {
+@keyframes shadowPulse {
+  0%, 100% { rx: 35; opacity: 0.1; }
+  50% { rx: 30; opacity: 0.15; }
+}
+
+/* Eye animations */
+.eyes-modern {
+  animation: blink3d 4s ease-in-out infinite;
+}
+
+@keyframes blink3d {
+  0%, 42%, 48%, 100% { transform: scaleY(1); }
+  45% { transform: scaleY(0.1); }
+}
+
+.iris-left, .iris-right, .pupil-left, .pupil-right,
+.iris-left-inner, .iris-right-inner {
+  animation: eyeLook3d 6s ease-in-out infinite;
+}
+
+@keyframes eyeLook3d {
   0%, 100% { transform: translateX(0); }
-  30% { transform: translateX(1.5px); }
-  70% { transform: translateX(-1.5px); }
+  20% { transform: translateX(2px); }
+  40% { transform: translateX(-1px); }
+  60% { transform: translateX(1px); }
+  80% { transform: translateX(-2px); }
 }
 
-.doctor-wave {
-  animation: doctorWave 1.5s ease-in-out infinite;
-  display: none;
+/* Waving arm */
+.waving-arm {
+  animation: wave3d 1.2s ease-in-out infinite;
+  transform-origin: 105px 95px;
 }
 
-.doctor-mascot.active .doctor-wave {
-  display: block;
-}
-
-.doctor-mascot.active .doctor-arm.right {
-  display: none;
-}
-
-@keyframes doctorWave {
+@keyframes wave3d {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-15deg); }
-  75% { transform: rotate(15deg); }
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
 }
 
-.doctor-coat {
-  animation: doctorBreathe 3s ease-in-out infinite;
+/* Floating elements */
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-@keyframes doctorBreathe {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(1.01); }
+.float-icon {
+  position: absolute;
+  font-size: 16px;
+  animation: floatIcon 3s ease-in-out infinite;
 }
 
-.stethoscope {
-  animation: stethoscopeSwing 4s ease-in-out infinite;
-  transform-origin: 45px 70px;
+.float-1 {
+  top: 10px;
+  right: -10px;
+  animation-delay: 0s;
 }
 
-@keyframes stethoscopeSwing {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(3deg); }
+.float-2 {
+  top: 40px;
+  left: -15px;
+  animation-delay: 1s;
 }
 
-/* Hover states */
-.doctor-character:hover .doctor-mouth {
-  d: path("M50 46 Q60 56 70 46");
+.float-3 {
+  bottom: 50px;
+  right: -5px;
+  animation-delay: 2s;
 }
 
-.doctor-character:hover .doctor-teeth {
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+}
+
+/* Hover effects */
+.doctor-character:hover .doctor-3d-wrapper {
+  animation-play-state: paused;
+  transform: translateY(-10px) scale(1.05);
+}
+
+.doctor-character:hover .smile-line {
+  d: path("M58 58 Q70 72 82 58");
+}
+
+.doctor-character:hover .teeth {
   opacity: 1;
 }
 
-.doctor-character:hover .doctor-eyebrows {
-  transform: translateY(-2px);
+.doctor-character:hover .eyebrows-modern {
+  transform: translateY(-3px);
 }
 
-/* Speech bubble */
-.doctor-speech {
+/* Modern speech bubble */
+.doctor-speech-modern {
   position: absolute;
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: #fff;
-  padding: 12px 18px;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  white-space: nowrap;
+  margin-bottom: 15px;
   opacity: 0;
-  transform: translateX(-50%) translateY(10px);
-  transition: all 0.3s ease;
+  transform: translateX(-50%) translateY(15px) scale(0.9);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   pointer-events: none;
-  margin-bottom: 10px;
 }
 
-.doctor-speech::after {
-  content: '';
+.speech-inner {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+  padding: 14px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  white-space: nowrap;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+.speech-tail {
   position: absolute;
-  bottom: -8px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #fff;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.doctor-character:hover .doctor-speech,
-.doctor-mascot.speaking .doctor-speech {
+.doctor-character:hover .doctor-speech-modern,
+.doctor-mascot.speaking .doctor-speech-modern {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
 .doctor-speech-text {
   font-size: 14px;
   color: #1A1A1A;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Action buttons */
-.doctor-actions {
+/* Modern action buttons */
+.doctor-actions-modern {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 15px;
   opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease 0.1s;
+  transform: translateY(-15px) rotateX(-20deg);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
+  perspective: 500px;
 }
 
-.doctor-mascot.active .doctor-actions {
+.doctor-mascot.active .doctor-actions-modern {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) rotateX(0deg);
 }
 
-.doctor-action-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.action-btn-3d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
   border: none;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.action-btn-3d:hover {
+  transform: translateY(-5px);
+}
+
+.btn-inner {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #FFFFFF, #E6E6E6);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.1), -5px -5px 15px rgba(255,255,255,0.8);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #2D5A4A;
   transition: all 0.3s ease;
+}
+
+.action-btn-3d:hover .btn-inner {
+  background: linear-gradient(145deg, #2D5A4A, #3d7a64);
+  color: #fff;
+  box-shadow: 5px 5px 20px rgba(45,90,74,0.3), -2px -2px 10px rgba(255,255,255,0.5);
+}
+
+.btn-inner svg {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.action-btn-3d:hover .btn-label {
   color: #2D5A4A;
 }
 
-.doctor-action-btn:hover {
-  transform: scale(1.1);
-  background: #2D5A4A;
-  color: #fff;
-}
-
-.doctor-action-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-/* Toggle button */
-.doctor-toggle {
+/* Modern toggle button */
+.doctor-toggle-modern {
   position: absolute;
   bottom: 0;
   left: 0;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-inner {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  border: none;
-  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
-  box-shadow: 0 4px 15px rgba(45, 90, 74, 0.4);
-  cursor: pointer;
-  font-size: 28px;
+  background: linear-gradient(145deg, #3d7a64, #2D5A4A);
+  box-shadow: 5px 5px 20px rgba(45,90,74,0.4), -3px -3px 15px rgba(255,255,255,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  z-index: 2;
 }
 
-.doctor-toggle:hover {
+.toggle-inner:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(45, 90, 74, 0.5);
+  box-shadow: 8px 8px 25px rgba(45,90,74,0.5), -3px -3px 15px rgba(255,255,255,0.3);
 }
 
-.doctor-mascot.active .doctor-toggle {
-  transform: scale(0.8);
-  opacity: 0.7;
+.toggle-icon {
+  font-size: 28px;
+  animation: iconPulse3d 2s ease-in-out infinite;
 }
 
-.doctor-toggle-icon {
-  animation: doctorToggleBounce 2s ease-in-out infinite;
+@keyframes iconPulse3d {
+  0%, 100% { transform: scale(1) rotateY(0deg); }
+  50% { transform: scale(1.1) rotateY(10deg); }
 }
 
-@keyframes doctorToggleBounce {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+.toggle-ring {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid rgba(45,90,74,0.3);
+  animation: ringPulse3d 2s ease-out infinite;
+}
+
+.ring-2 {
+  animation-delay: 1s;
+}
+
+@keyframes ringPulse3d {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.doctor-mascot.active .doctor-toggle-modern {
+  transform: scale(0.7);
+  opacity: 0.5;
 }
 
 /* Mobile */
@@ -374,20 +564,29 @@
     left: 15px;
   }
 
-  .doctor-svg {
-    width: 80px;
-    height: 104px;
+  .doctor-svg-modern {
+    width: 100px;
+    height: 130px;
   }
 
-  .doctor-toggle {
+  .toggle-inner {
     width: 50px;
     height: 50px;
-    font-size: 24px;
   }
 
-  .doctor-action-btn {
-    width: 36px;
-    height: 36px;
+  .toggle-ring {
+    width: 55px;
+    height: 55px;
+  }
+
+  .btn-inner {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+  }
+
+  .btn-label {
+    font-size: 10px;
   }
 }
 </style>
@@ -395,45 +594,37 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const mascot = document.getElementById('doctor-mascot');
-  const toggle = mascot.querySelector('.doctor-toggle');
+  const toggle = mascot.querySelector('.doctor-toggle-modern');
   const character = mascot.querySelector('.doctor-character');
   const speechText = mascot.querySelector('.doctor-speech-text');
-  const actionBtns = mascot.querySelectorAll('.doctor-action-btn');
+  const actionBtns = mascot.querySelectorAll('.action-btn-3d');
 
-  // Messages for different situations
   const messages = {
     greeting: [
       "Hi! I'm Dr. James! 👨‍⚕️",
-      "Welcome! How's your skin today?",
-      "Hello! Ready for expert advice? ✨",
-      "Good to see you! 💚"
+      "Welcome! Let's talk skincare! ✨",
+      "Hello! Your skin expert is here! 💚",
+      "Hey there! Ready for glowing skin? 🌟"
     ],
     tips: [
-      "Don't forget your SPF today! ☀️",
-      "Hydration is key to healthy skin!",
-      "Always patch test new products!",
-      "Your skin changes with seasons 🍂",
-      "Sleep is the best anti-aging secret!",
-      "Vitamin C works wonders! ✨"
+      "SPF every day - even indoors! ☀️",
+      "Hydration = Happy skin! 💧",
+      "Vitamin C in the AM, Retinol PM! ✨",
+      "Always cleanse before bed! 🌙",
+      "Patch test new products! 🧪",
+      "Your skin barrier is everything! 🛡️"
     ],
     product: [
-      "This is a great choice! 👍",
-      "Excellent for your skin type!",
-      "I recommend this one! 💯",
-      "Clinically proven formula!"
-    ],
-    encouragement: [
-      "You're making great choices!",
-      "Your skin will thank you! 💚",
-      "Consistency is key!",
-      "You've got this! 💪"
+      "Excellent choice! Clinically proven! 👍",
+      "This one's amazing for results! 💯",
+      "My personal recommendation! ⭐",
+      "Your skin will love this! 💚"
     ]
   };
 
   let isActive = false;
   let tipInterval;
 
-  // Toggle mascot
   toggle.addEventListener('click', function() {
     isActive = !isActive;
     mascot.classList.toggle('active', isActive);
@@ -446,33 +637,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Character click
   character.addEventListener('click', function() {
-    const allMessages = [...messages.tips, ...messages.encouragement];
-    speak(allMessages[Math.floor(Math.random() * allMessages.length)]);
+    speak(getRandomMessage('tips'));
   });
 
-  // Action buttons
   actionBtns.forEach(btn => {
     btn.addEventListener('click', function() {
       const action = this.dataset.action;
 
       switch(action) {
         case 'quiz':
-          speak("Let me analyze your skin! 🔬");
-          setTimeout(() => {
-            window.dispatchEvent(new CustomEvent('openSkinQuiz'));
-          }, 500);
+          speak("Let's analyze your skin! 🔬");
+          setTimeout(() => window.dispatchEvent(new CustomEvent('openSkinQuiz')), 500);
           break;
         case 'chat':
-          speak("Let's chat! I'm here to help! 💬");
+          speak("Opening chat! 💬");
           setTimeout(() => {
-            const chatToggle = document.querySelector('.chatbot-toggle-btn');
-            if (chatToggle) chatToggle.click();
+            const chatBtn = document.querySelector('.chatbot-toggle-btn');
+            if (chatBtn) chatBtn.click();
           }, 300);
           break;
         case 'help':
-          speak("I'll guide you! 🤝");
+          speak("I'll help you! 🤝");
           window.location.href = '/pages/faq';
           break;
       }
@@ -482,7 +668,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function speak(message) {
     speechText.textContent = message;
     mascot.classList.add('speaking');
-    setTimeout(() => mascot.classList.remove('speaking'), 3500);
+    setTimeout(() => mascot.classList.remove('speaking'), 4000);
   }
 
   function getRandomMessage(category) {
@@ -492,28 +678,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function startTips() {
     tipInterval = setInterval(() => {
-      if (isActive && Math.random() > 0.6) {
+      if (isActive && Math.random() > 0.65) {
         speak(getRandomMessage('tips'));
       }
-    }, 12000);
+    }, 10000);
   }
 
   function stopTips() {
     clearInterval(tipInterval);
   }
 
-  // React to page events
   window.addEventListener('productAdded', () => {
-    if (isActive) {
-      speak(getRandomMessage('product'));
-    }
+    if (isActive) speak(getRandomMessage('product'));
   });
 
-  // Auto-show after delay
   setTimeout(() => {
-    if (!isActive) {
-      toggle.click();
-    }
-  }, 4000);
+    if (!isActive) toggle.click();
+  }, 3500);
 });
 </script>
