@@ -1,0 +1,475 @@
+<!-- Animated Brand Mascot - "Leafy" the organic guide -->
+<div id="leafy-mascot" class="leafy-mascot" aria-hidden="true">
+  <div class="leafy-container">
+    <div class="leafy-character">
+      <!-- Main body - animated leaf creature -->
+      <svg viewBox="0 0 120 140" class="leafy-svg">
+        <!-- Body (leaf shape) -->
+        <path class="leafy-body" d="M60 20 C20 40, 10 80, 30 110 C40 125, 55 130, 60 130 C65 130, 80 125, 90 110 C110 80, 100 40, 60 20 Z" fill="#2D5A4A"/>
+
+        <!-- Face highlight -->
+        <ellipse class="leafy-face" cx="60" cy="75" rx="35" ry="40" fill="#3d7a64"/>
+
+        <!-- Eyes -->
+        <g class="leafy-eyes">
+          <ellipse class="leafy-eye left" cx="45" cy="65" rx="8" ry="10" fill="#fff"/>
+          <ellipse class="leafy-eye right" cx="75" cy="65" rx="8" ry="10" fill="#fff"/>
+          <circle class="leafy-pupil left" cx="47" cy="67" r="5" fill="#1A1A1A"/>
+          <circle class="leafy-pupil right" cx="77" cy="67" r="5" fill="#1A1A1A"/>
+          <circle class="leafy-eye-shine left" cx="49" cy="64" r="2" fill="#fff"/>
+          <circle class="leafy-eye-shine right" cx="79" cy="64" r="2" fill="#fff"/>
+        </g>
+
+        <!-- Eyebrows -->
+        <g class="leafy-eyebrows">
+          <path class="leafy-eyebrow left" d="M35 52 Q45 48 52 52" stroke="#1A1A1A" stroke-width="2" fill="none"/>
+          <path class="leafy-eyebrow right" d="M68 52 Q75 48 85 52" stroke="#1A1A1A" stroke-width="2" fill="none"/>
+        </g>
+
+        <!-- Mouth -->
+        <path class="leafy-mouth" d="M50 90 Q60 100 70 90" stroke="#1A1A1A" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- Blush -->
+        <ellipse class="leafy-blush left" cx="32" cy="80" rx="8" ry="5" fill="#ff9999" opacity="0.5"/>
+        <ellipse class="leafy-blush right" cx="88" cy="80" rx="8" ry="5" fill="#ff9999" opacity="0.5"/>
+
+        <!-- Stem/hair -->
+        <path class="leafy-stem" d="M60 20 Q60 5 65 0" stroke="#2D5A4A" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle class="leafy-berry" cx="65" cy="0" r="5" fill="#8BC34A"/>
+
+        <!-- Arms -->
+        <g class="leafy-arms">
+          <path class="leafy-arm left" d="M25 80 Q10 75 5 85" stroke="#2D5A4A" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path class="leafy-arm right" d="M95 80 Q110 75 115 85" stroke="#2D5A4A" stroke-width="8" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+
+      <!-- Speech bubble -->
+      <div class="leafy-speech">
+        <span class="leafy-speech-text">Hi! I'm Leafy! 🌿</span>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="leafy-actions">
+      <button class="leafy-action-btn" data-action="quiz" title="Take Skin Quiz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9 9h.01M15 9h.01M9 15c.83.83 2.17 1.5 3 1.5s2.17-.67 3-1.5"/>
+        </svg>
+      </button>
+      <button class="leafy-action-btn" data-action="chat" title="Chat with me">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+      <button class="leafy-action-btn" data-action="help" title="Need help?">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toggle button -->
+  <button class="leafy-toggle" aria-label="Toggle Leafy mascot">
+    <span class="leafy-toggle-icon">🌿</span>
+  </button>
+</div>
+
+<style>
+/* Leafy Mascot Styles */
+.leafy-mascot {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  z-index: 9998;
+  font-family: var(--font-body, system-ui, sans-serif);
+}
+
+.leafy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: bottom left;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s ease;
+}
+
+.leafy-mascot.active .leafy-container {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.leafy-character {
+  position: relative;
+  cursor: pointer;
+}
+
+.leafy-svg {
+  width: 80px;
+  height: 95px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+/* Animations */
+.leafy-body {
+  animation: leafy-breathe 3s ease-in-out infinite;
+}
+
+@keyframes leafy-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.leafy-eyes {
+  animation: leafy-blink 4s ease-in-out infinite;
+}
+
+@keyframes leafy-blink {
+  0%, 45%, 55%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+
+.leafy-pupil {
+  animation: leafy-look 6s ease-in-out infinite;
+}
+
+@keyframes leafy-look {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+}
+
+.leafy-stem {
+  animation: leafy-wave 2s ease-in-out infinite;
+  transform-origin: 60px 20px;
+}
+
+@keyframes leafy-wave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.leafy-berry {
+  animation: leafy-bounce 2s ease-in-out infinite;
+}
+
+@keyframes leafy-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.leafy-arms {
+  animation: leafy-arms-move 3s ease-in-out infinite;
+}
+
+@keyframes leafy-arms-move {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Hover states */
+.leafy-character:hover .leafy-mouth {
+  d: path("M45 88 Q60 105 75 88");
+}
+
+.leafy-character:hover .leafy-eyebrows {
+  transform: translateY(-3px);
+}
+
+/* Speech bubble */
+.leafy-speech {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.leafy-speech::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+}
+
+.leafy-character:hover .leafy-speech,
+.leafy-mascot.speaking .leafy-speech {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.leafy-speech-text {
+  font-size: 14px;
+  color: #1A1A1A;
+  font-weight: 500;
+}
+
+/* Action buttons */
+.leafy-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease 0.1s;
+}
+
+.leafy-mascot.active .leafy-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.leafy-action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #2D5A4A;
+}
+
+.leafy-action-btn:hover {
+  transform: scale(1.1);
+  background: #2D5A4A;
+  color: #fff;
+}
+
+.leafy-action-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Toggle button */
+.leafy-toggle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
+  box-shadow: 0 4px 15px rgba(45, 90, 74, 0.4);
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.leafy-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(45, 90, 74, 0.5);
+}
+
+.leafy-mascot.active .leafy-toggle {
+  transform: scale(0.8);
+  opacity: 0.7;
+}
+
+.leafy-toggle-icon {
+  animation: leafy-toggle-bounce 2s ease-in-out infinite;
+}
+
+@keyframes leafy-toggle-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Emotions */
+.leafy-mascot.happy .leafy-mouth {
+  d: path("M45 85 Q60 105 75 85");
+}
+
+.leafy-mascot.surprised .leafy-eye {
+  ry: 12;
+}
+
+.leafy-mascot.thinking .leafy-eyebrows {
+  transform: translateY(-5px) rotate(-5deg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .leafy-mascot {
+    bottom: 80px;
+    left: 10px;
+  }
+
+  .leafy-svg {
+    width: 60px;
+    height: 72px;
+  }
+
+  .leafy-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .leafy-action-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mascot = document.getElementById('leafy-mascot');
+  const toggle = mascot.querySelector('.leafy-toggle');
+  const character = mascot.querySelector('.leafy-character');
+  const speechText = mascot.querySelector('.leafy-speech-text');
+  const actionBtns = mascot.querySelectorAll('.leafy-action-btn');
+
+  // Messages for different situations
+  const messages = {
+    greeting: [
+      "Hi! I'm Leafy! 🌿",
+      "Welcome to pure beauty! ✨",
+      "Nature says hello! 🌱",
+      "Ready for organic care? 💚"
+    ],
+    browsing: [
+      "Need help finding something?",
+      "I love that product! 💚",
+      "Great choice! 🌟",
+      "This one's a bestseller!"
+    ],
+    cart: [
+      "Great picks! 🛒",
+      "Your skin will thank you!",
+      "Almost there! 💫",
+      "Free shipping over $99! 📦"
+    ],
+    checkout: [
+      "You're gonna love these! 💚",
+      "Secure checkout ahead! 🔒",
+      "So excited for you! ✨"
+    ],
+    idle: [
+      "Click me for a skin quiz! 💆",
+      "Got questions? I can help!",
+      "Psst... check our bestsellers!",
+      "Want 15% off? 👀"
+    ]
+  };
+
+  let isActive = false;
+  let messageInterval;
+
+  // Toggle mascot
+  toggle.addEventListener('click', function() {
+    isActive = !isActive;
+    mascot.classList.toggle('active', isActive);
+
+    if (isActive) {
+      speak(getRandomMessage('greeting'));
+      startIdleMessages();
+    } else {
+      stopIdleMessages();
+    }
+  });
+
+  // Character click
+  character.addEventListener('click', function() {
+    speak(getRandomMessage('idle'));
+    mascot.classList.add('happy');
+    setTimeout(() => mascot.classList.remove('happy'), 1000);
+  });
+
+  // Action buttons
+  actionBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const action = this.dataset.action;
+
+      switch(action) {
+        case 'quiz':
+          speak("Let's find your perfect routine! 💆");
+          setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('openSkinQuiz'));
+          }, 500);
+          break;
+        case 'chat':
+          speak("Opening chat! 💬");
+          setTimeout(() => {
+            const chatToggle = document.querySelector('.chatbot-toggle');
+            if (chatToggle) chatToggle.click();
+          }, 300);
+          break;
+        case 'help':
+          speak("I'm here to help! 🤗");
+          showHelpOptions();
+          break;
+      }
+    });
+  });
+
+  function speak(message) {
+    speechText.textContent = message;
+    mascot.classList.add('speaking');
+    setTimeout(() => mascot.classList.remove('speaking'), 3000);
+  }
+
+  function getRandomMessage(category) {
+    const msgs = messages[category];
+    return msgs[Math.floor(Math.random() * msgs.length)];
+  }
+
+  function startIdleMessages() {
+    messageInterval = setInterval(() => {
+      if (isActive && Math.random() > 0.7) {
+        speak(getRandomMessage('idle'));
+      }
+    }, 8000);
+  }
+
+  function stopIdleMessages() {
+    clearInterval(messageInterval);
+  }
+
+  function showHelpOptions() {
+    // Trigger help modal or FAQ
+    window.location.href = '/pages/faq';
+  }
+
+  // React to page events
+  window.addEventListener('productAdded', () => {
+    if (isActive) {
+      speak(getRandomMessage('cart'));
+      mascot.classList.add('happy');
+      setTimeout(() => mascot.classList.remove('happy'), 2000);
+    }
+  });
+
+  // Auto-show after delay
+  setTimeout(() => {
+    if (!isActive) {
+      toggle.click();
+    }
+  }, 5000);
+});
+</script>

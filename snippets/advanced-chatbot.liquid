@@ -1,0 +1,804 @@
+<!-- Advanced AI Chatbot with Avatar -->
+<div id="chatbot-advanced" class="chatbot-advanced">
+  <!-- Chat toggle button -->
+  <button class="chatbot-toggle-btn" aria-label="Open chat">
+    <span class="chatbot-toggle-avatar">
+      <svg viewBox="0 0 50 50" class="chatbot-avatar-svg">
+        <circle cx="25" cy="25" r="23" fill="#2D5A4A"/>
+        <circle cx="25" cy="20" r="8" fill="#fff"/>
+        <path d="M12 35 Q25 45 38 35" fill="#fff"/>
+        <circle class="chatbot-eye left" cx="20" cy="18" r="2" fill="#2D5A4A"/>
+        <circle class="chatbot-eye right" cx="30" cy="18" r="2" fill="#2D5A4A"/>
+      </svg>
+    </span>
+    <span class="chatbot-toggle-badge">1</span>
+    <span class="chatbot-toggle-pulse"></span>
+  </button>
+
+  <!-- Chat window -->
+  <div class="chatbot-window">
+    <!-- Header -->
+    <div class="chatbot-header">
+      <div class="chatbot-header-avatar">
+        <svg viewBox="0 0 50 50" class="chatbot-avatar-svg">
+          <circle cx="25" cy="25" r="23" fill="#2D5A4A"/>
+          <circle cx="25" cy="20" r="8" fill="#fff"/>
+          <path d="M12 35 Q25 45 38 35" fill="#fff"/>
+          <circle class="chatbot-eye left" cx="20" cy="18" r="2" fill="#2D5A4A"/>
+          <circle class="chatbot-eye right" cx="30" cy="18" r="2" fill="#2D5A4A"/>
+        </svg>
+        <span class="chatbot-status-dot"></span>
+      </div>
+      <div class="chatbot-header-info">
+        <h4>Sage</h4>
+        <p>Your Skincare Expert 🌿</p>
+      </div>
+      <div class="chatbot-header-actions">
+        <button class="chatbot-minimize" aria-label="Minimize">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+        <button class="chatbot-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages area -->
+    <div class="chatbot-messages" id="chatbot-messages">
+      <!-- Messages populated by JS -->
+    </div>
+
+    <!-- Quick actions -->
+    <div class="chatbot-quick-actions" id="chatbot-quick-actions">
+      <button class="quick-action" data-action="skincare">💆 Skincare advice</button>
+      <button class="quick-action" data-action="products">🛍️ Product help</button>
+      <button class="quick-action" data-action="order">📦 Order status</button>
+      <button class="quick-action" data-action="quiz">✨ Take skin quiz</button>
+    </div>
+
+    <!-- Input area -->
+    <div class="chatbot-input-area">
+      <div class="chatbot-input-wrapper">
+        <button class="chatbot-emoji-btn" aria-label="Add emoji">😊</button>
+        <input type="text" class="chatbot-input" placeholder="Ask me anything..." id="chatbot-input">
+        <button class="chatbot-send" aria-label="Send message" id="chatbot-send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="chatbot-powered">
+        <span>Powered by AI 🧠</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Advanced Chatbot Styles */
+.chatbot-advanced {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: var(--font-body, system-ui, sans-serif);
+}
+
+/* Toggle Button */
+.chatbot-toggle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
+  box-shadow: 0 4px 20px rgba(45, 90, 74, 0.4);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: visible;
+}
+
+.chatbot-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(45, 90, 74, 0.5);
+}
+
+.chatbot-advanced.open .chatbot-toggle-btn {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chatbot-toggle-avatar {
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+
+.chatbot-avatar-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chatbot-eye {
+  animation: chatbotBlink 3s ease-in-out infinite;
+}
+
+@keyframes chatbotBlink {
+  0%, 45%, 55%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+
+.chatbot-toggle-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 22px;
+  height: 22px;
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.chatbot-toggle-pulse {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid #2D5A4A;
+  animation: togglePulse 2s ease-out infinite;
+}
+
+@keyframes togglePulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Chat Window */
+.chatbot-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 380px;
+  height: 550px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.8) translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: bottom right;
+}
+
+.chatbot-advanced.open .chatbot-window {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Header */
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
+  color: #fff;
+}
+
+.chatbot-header-avatar {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin-right: 12px;
+}
+
+.chatbot-header-avatar .chatbot-avatar-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chatbot-header-avatar .chatbot-avatar-svg circle:first-child {
+  fill: #fff;
+}
+
+.chatbot-header-avatar .chatbot-avatar-svg circle:nth-child(2) {
+  fill: #2D5A4A;
+}
+
+.chatbot-header-avatar .chatbot-avatar-svg path {
+  fill: #2D5A4A;
+}
+
+.chatbot-status-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background: #2ecc71;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+}
+
+.chatbot-header-info {
+  flex: 1;
+}
+
+.chatbot-header-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.chatbot-header-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.chatbot-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chatbot-header-actions button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.chatbot-header-actions button:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.chatbot-header-actions button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Messages */
+.chatbot-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #f8f9fa;
+}
+
+.chat-message {
+  display: flex;
+  gap: 10px;
+  animation: messageSlide 0.3s ease;
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message.user {
+  flex-direction: row-reverse;
+}
+
+.chat-message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2D5A4A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.chat-message.user .chat-message-avatar {
+  background: #e0e0e0;
+}
+
+.chat-message-content {
+  max-width: 75%;
+}
+
+.chat-message-bubble {
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.chat-message:not(.user) .chat-message-bubble {
+  background: #fff;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.chat-message.user .chat-message-bubble {
+  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message-time {
+  font-size: 0.7rem;
+  color: #999;
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+.chat-message.user .chat-message-time {
+  text-align: right;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: #fff;
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  width: fit-content;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: #2D5A4A;
+  border-radius: 50%;
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-8px); }
+}
+
+/* Quick Actions */
+.chatbot-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.quick-action {
+  padding: 8px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.quick-action:hover {
+  border-color: #2D5A4A;
+  background: rgba(45, 90, 74, 0.05);
+}
+
+/* Input Area */
+.chatbot-input-area {
+  padding: 15px 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.chatbot-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f5f5;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+
+.chatbot-emoji-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.chatbot-emoji-btn:hover {
+  background: #e0e0e0;
+}
+
+.chatbot-input {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 10px 0;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.chatbot-send {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.chatbot-send:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-send svg {
+  width: 18px;
+  height: 18px;
+}
+
+.chatbot-powered {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: #999;
+}
+
+/* Product cards in chat */
+.chat-product-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.chat-product-image {
+  width: 60px;
+  height: 60px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.chat-product-info h5 {
+  margin: 0 0 4px 0;
+  font-size: 0.9rem;
+}
+
+.chat-product-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.chat-product-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #2D5A4A;
+  color: #fff;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .chatbot-advanced {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .chatbot-window {
+    width: calc(100vw - 20px);
+    height: calc(100vh - 100px);
+    bottom: 70px;
+    right: -10px;
+    border-radius: 15px;
+  }
+
+  .chatbot-toggle-btn {
+    width: 55px;
+    height: 55px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const chatbot = document.getElementById('chatbot-advanced');
+  const toggleBtn = chatbot.querySelector('.chatbot-toggle-btn');
+  const closeBtn = chatbot.querySelector('.chatbot-close');
+  const minimizeBtn = chatbot.querySelector('.chatbot-minimize');
+  const messagesContainer = document.getElementById('chatbot-messages');
+  const input = document.getElementById('chatbot-input');
+  const sendBtn = document.getElementById('chatbot-send');
+  const quickActions = document.getElementById('chatbot-quick-actions');
+  const badge = chatbot.querySelector('.chatbot-toggle-badge');
+
+  // AI Knowledge Base
+  const knowledge = {
+    greetings: {
+      patterns: ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'hola'],
+      responses: [
+        "Hello! 🌿 I'm Sage, your personal skincare expert. How can I help you glow today?",
+        "Hi there! ✨ Welcome! I'm here to help you find your perfect skincare routine. What brings you here today?",
+        "Hey! 💚 So happy you're here. I can help with product recommendations, skincare advice, or order questions. What would you like to know?"
+      ]
+    },
+    skincare: {
+      patterns: ['routine', 'skincare', 'skin care', 'advice', 'help skin', 'skin type'],
+      responses: [
+        "I'd love to help with your skincare routine! 💆 For the best recommendations, I suggest taking our quick Skin Quiz - it only takes 2 minutes and gives you a personalized routine. Would you like to try it?",
+        "Great question! ✨ The basic steps for any routine are: 1) Cleanser, 2) Serum, 3) Moisturizer, 4) SPF (morning). Want me to recommend specific products for your skin type?"
+      ],
+      followUp: "What's your main skin concern? (aging, acne, dryness, dullness, sensitivity)"
+    },
+    products: {
+      patterns: ['product', 'recommend', 'best', 'serum', 'cream', 'cleanser', 'moisturizer'],
+      responses: [
+        "Our bestsellers are amazing! 🌟\n\n🧴 **Vitamin C Serum** - Brightening powerhouse\n💧 **Hyaluronic Acid Cream** - Deep hydration\n🌙 **Retinol Night Serum** - Anti-aging hero\n\nWhich one interests you?",
+        "I can definitely help with product recommendations! Our customers love our organic formulas. Are you looking for something specific - like anti-aging, hydration, or brightening?"
+      ]
+    },
+    orders: {
+      patterns: ['order', 'shipping', 'delivery', 'track', 'where is my', 'status'],
+      responses: [
+        "📦 For order tracking, you can:\n\n1. Check your email for tracking info\n2. Visit our Track Order page\n3. Give me your order number and I'll help!\n\nWe ship within 1-2 business days, and delivery takes 3-5 days.",
+        "I can help with your order! 🚚 Free shipping on orders over $99. Standard delivery is 3-5 business days. Do you have an order number you'd like me to look up?"
+      ]
+    },
+    returns: {
+      patterns: ['return', 'refund', 'exchange', 'money back', 'not happy'],
+      responses: [
+        "We have a 30-day satisfaction guarantee! 💚\n\nIf you're not happy with a product, you can return it for a full refund (unopened) or store credit (opened). Just email us at hello@organicskincare.com with your order number.",
+        "Sorry to hear something isn't working for you! 😔 We stand behind our products with a 30-day guarantee. Contact our team and we'll make it right!"
+      ]
+    },
+    ingredients: {
+      patterns: ['ingredient', 'organic', 'natural', 'chemical', 'paraben', 'vegan', 'cruelty'],
+      responses: [
+        "Great question about our ingredients! 🌿\n\n✅ 95%+ certified organic\n✅ 100% vegan & cruelty-free\n❌ No parabens, sulfates, or synthetic fragrances\n\nWe believe in full transparency. You can see every ingredient on our Our Ingredients page!",
+        "We're obsessed with clean beauty! 💚 Every ingredient is carefully selected for effectiveness AND safety. No nasty chemicals ever. Want to know about a specific ingredient?"
+      ]
+    },
+    pricing: {
+      patterns: ['price', 'cost', 'expensive', 'discount', 'sale', 'coupon', 'code'],
+      responses: [
+        "💰 Here's how to save:\n\n🎁 **WELCOME15** - 15% off first order\n📦 **Free shipping** on orders $99+\n💎 **Rewards program** - earn points on every purchase!\n\nWould you like me to apply a code for you?",
+        "We believe in quality at fair prices! 💚 While our products aren't the cheapest, they're concentrated so you use less. Plus, use code **WELCOME15** for 15% off your first order!"
+      ]
+    },
+    default: [
+      "I'm not quite sure about that, but I'd love to help! 🤔 You can:\n\n• Ask about products or skincare advice\n• Check order status\n• Learn about our ingredients\n\nOr would you like to speak with a human? Email us at hello@organicskincare.com!",
+      "Hmm, let me think... 🤔 I might need a bit more info! Try asking about:\n\n• Product recommendations\n• Skincare routines\n• Shipping & orders\n• Our ingredients\n\nI'm here to help!"
+    ]
+  };
+
+  let isOpen = false;
+  let conversationHistory = [];
+
+  // Open/Close handlers
+  toggleBtn.addEventListener('click', () => toggleChat(true));
+  closeBtn.addEventListener('click', () => toggleChat(false));
+  minimizeBtn.addEventListener('click', () => toggleChat(false));
+
+  function toggleChat(open) {
+    isOpen = open;
+    chatbot.classList.toggle('open', open);
+    badge.style.display = 'none';
+
+    if (open && conversationHistory.length === 0) {
+      setTimeout(() => {
+        addBotMessage(getRandomResponse(knowledge.greetings.responses));
+      }, 500);
+    }
+  }
+
+  // Send message
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    addUserMessage(text);
+    input.value = '';
+
+    // Show typing
+    showTyping();
+
+    // Process response
+    setTimeout(() => {
+      hideTyping();
+      const response = getAIResponse(text);
+      addBotMessage(response);
+    }, 1000 + Math.random() * 1000);
+  }
+
+  function getAIResponse(text) {
+    const lowerText = text.toLowerCase();
+
+    // Check each category
+    for (const [category, data] of Object.entries(knowledge)) {
+      if (category === 'default') continue;
+
+      if (data.patterns.some(pattern => lowerText.includes(pattern))) {
+        return getRandomResponse(data.responses);
+      }
+    }
+
+    return getRandomResponse(knowledge.default);
+  }
+
+  function getRandomResponse(responses) {
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  function addUserMessage(text) {
+    const html = `
+      <div class="chat-message user">
+        <div class="chat-message-avatar">👤</div>
+        <div class="chat-message-content">
+          <div class="chat-message-bubble">${escapeHtml(text)}</div>
+          <div class="chat-message-time">${getTime()}</div>
+        </div>
+      </div>
+    `;
+    messagesContainer.insertAdjacentHTML('beforeend', html);
+    scrollToBottom();
+    conversationHistory.push({ role: 'user', content: text });
+  }
+
+  function addBotMessage(text) {
+    // Parse markdown-like formatting
+    const formatted = text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+
+    const html = `
+      <div class="chat-message bot">
+        <div class="chat-message-avatar">🌿</div>
+        <div class="chat-message-content">
+          <div class="chat-message-bubble">${formatted}</div>
+          <div class="chat-message-time">${getTime()}</div>
+        </div>
+      </div>
+    `;
+    messagesContainer.insertAdjacentHTML('beforeend', html);
+    scrollToBottom();
+    conversationHistory.push({ role: 'bot', content: text });
+  }
+
+  function showTyping() {
+    const html = `
+      <div class="chat-message bot" id="typing-message">
+        <div class="chat-message-avatar">🌿</div>
+        <div class="chat-message-content">
+          <div class="typing-indicator">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+          </div>
+        </div>
+      </div>
+    `;
+    messagesContainer.insertAdjacentHTML('beforeend', html);
+    scrollToBottom();
+  }
+
+  function hideTyping() {
+    const typing = document.getElementById('typing-message');
+    if (typing) typing.remove();
+  }
+
+  function scrollToBottom() {
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function getTime() {
+    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Quick actions
+  quickActions.querySelectorAll('.quick-action').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const action = this.dataset.action;
+
+      switch(action) {
+        case 'skincare':
+          input.value = "I need skincare advice";
+          sendMessage();
+          break;
+        case 'products':
+          input.value = "Can you recommend some products?";
+          sendMessage();
+          break;
+        case 'order':
+          input.value = "I want to track my order";
+          sendMessage();
+          break;
+        case 'quiz':
+          addBotMessage("Great choice! 🌟 Our Skin Quiz will help you find your perfect routine. Let me open it for you!");
+          setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('openSkinQuiz'));
+          }, 1000);
+          break;
+      }
+    });
+  });
+
+  // Show badge notification after delay
+  setTimeout(() => {
+    if (!isOpen) {
+      badge.style.display = 'flex';
+    }
+  }, 10000);
+});
+</script>

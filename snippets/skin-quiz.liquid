@@ -1,0 +1,842 @@
+<!-- Interactive Skin Quiz -->
+<div id="skin-quiz-modal" class="skin-quiz-modal" aria-hidden="true">
+  <div class="skin-quiz-overlay"></div>
+  <div class="skin-quiz-container">
+    <button class="skin-quiz-close" aria-label="Close quiz">&times;</button>
+
+    <!-- Progress bar -->
+    <div class="skin-quiz-progress">
+      <div class="skin-quiz-progress-bar" style="width: 0%"></div>
+      <span class="skin-quiz-progress-text">Question 1 of 5</span>
+    </div>
+
+    <!-- Quiz content -->
+    <div class="skin-quiz-content">
+      <!-- Step 1: Skin Type -->
+      <div class="skin-quiz-step active" data-step="1">
+        <div class="skin-quiz-icon">
+          <svg viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#2D5A4A" stroke-width="2"/>
+            <circle cx="40" cy="35" r="15" fill="#2D5A4A" opacity="0.2"/>
+            <path d="M25 55 Q40 65 55 55" stroke="#2D5A4A" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="skin-quiz-question">What's your skin type?</h3>
+        <div class="skin-quiz-options">
+          <button class="skin-quiz-option" data-value="dry">
+            <span class="option-icon">🏜️</span>
+            <span class="option-text">Dry</span>
+            <span class="option-desc">Tight, flaky, needs moisture</span>
+          </button>
+          <button class="skin-quiz-option" data-value="oily">
+            <span class="option-icon">💧</span>
+            <span class="option-text">Oily</span>
+            <span class="option-desc">Shiny, enlarged pores</span>
+          </button>
+          <button class="skin-quiz-option" data-value="combination">
+            <span class="option-icon">⚖️</span>
+            <span class="option-text">Combination</span>
+            <span class="option-desc">Oily T-zone, dry cheeks</span>
+          </button>
+          <button class="skin-quiz-option" data-value="normal">
+            <span class="option-icon">✨</span>
+            <span class="option-text">Normal</span>
+            <span class="option-desc">Balanced, few issues</span>
+          </button>
+          <button class="skin-quiz-option" data-value="sensitive">
+            <span class="option-icon">🌸</span>
+            <span class="option-text">Sensitive</span>
+            <span class="option-desc">Easily irritated, reactive</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Main Concerns -->
+      <div class="skin-quiz-step" data-step="2">
+        <div class="skin-quiz-icon">
+          <svg viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#2D5A4A" stroke-width="2"/>
+            <path d="M25 40 L35 50 L55 30" stroke="#2D5A4A" stroke-width="3" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="skin-quiz-question">What's your main skin concern?</h3>
+        <p class="skin-quiz-subtitle">Select up to 2</p>
+        <div class="skin-quiz-options multi">
+          <button class="skin-quiz-option" data-value="aging">
+            <span class="option-icon">⏳</span>
+            <span class="option-text">Anti-Aging</span>
+            <span class="option-desc">Fine lines, wrinkles, firmness</span>
+          </button>
+          <button class="skin-quiz-option" data-value="acne">
+            <span class="option-icon">🔴</span>
+            <span class="option-text">Acne & Breakouts</span>
+            <span class="option-desc">Pimples, blackheads</span>
+          </button>
+          <button class="skin-quiz-option" data-value="pigmentation">
+            <span class="option-icon">🎨</span>
+            <span class="option-text">Dark Spots</span>
+            <span class="option-desc">Uneven tone, hyperpigmentation</span>
+          </button>
+          <button class="skin-quiz-option" data-value="hydration">
+            <span class="option-icon">💦</span>
+            <span class="option-text">Hydration</span>
+            <span class="option-desc">Dryness, dehydration</span>
+          </button>
+          <button class="skin-quiz-option" data-value="texture">
+            <span class="option-icon">🪞</span>
+            <span class="option-text">Texture & Pores</span>
+            <span class="option-desc">Rough skin, large pores</span>
+          </button>
+          <button class="skin-quiz-option" data-value="dullness">
+            <span class="option-icon">💡</span>
+            <span class="option-text">Dullness</span>
+            <span class="option-desc">Lack of glow, tired skin</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Age Range -->
+      <div class="skin-quiz-step" data-step="3">
+        <div class="skin-quiz-icon">
+          <svg viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#2D5A4A" stroke-width="2"/>
+            <text x="40" y="48" text-anchor="middle" fill="#2D5A4A" font-size="24" font-weight="bold">?</text>
+          </svg>
+        </div>
+        <h3 class="skin-quiz-question">What's your age range?</h3>
+        <div class="skin-quiz-options">
+          <button class="skin-quiz-option" data-value="18-25">
+            <span class="option-text">18-25</span>
+          </button>
+          <button class="skin-quiz-option" data-value="26-35">
+            <span class="option-text">26-35</span>
+          </button>
+          <button class="skin-quiz-option" data-value="36-45">
+            <span class="option-text">36-45</span>
+          </button>
+          <button class="skin-quiz-option" data-value="46-55">
+            <span class="option-text">46-55</span>
+          </button>
+          <button class="skin-quiz-option" data-value="55+">
+            <span class="option-text">55+</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: Current Routine -->
+      <div class="skin-quiz-step" data-step="4">
+        <div class="skin-quiz-icon">
+          <svg viewBox="0 0 80 80">
+            <rect x="25" y="20" width="30" height="45" rx="5" fill="none" stroke="#2D5A4A" stroke-width="2"/>
+            <circle cx="40" cy="35" r="8" fill="#2D5A4A" opacity="0.3"/>
+            <line x1="30" y1="50" x2="50" y2="50" stroke="#2D5A4A" stroke-width="2"/>
+            <line x1="30" y1="56" x2="45" y2="56" stroke="#2D5A4A" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="skin-quiz-question">How would you describe your current skincare routine?</h3>
+        <div class="skin-quiz-options">
+          <button class="skin-quiz-option" data-value="minimal">
+            <span class="option-icon">🌱</span>
+            <span class="option-text">Minimal</span>
+            <span class="option-desc">Cleanser + moisturizer</span>
+          </button>
+          <button class="skin-quiz-option" data-value="basic">
+            <span class="option-icon">🌿</span>
+            <span class="option-text">Basic</span>
+            <span class="option-desc">A few essential products</span>
+          </button>
+          <button class="skin-quiz-option" data-value="moderate">
+            <span class="option-icon">🌳</span>
+            <span class="option-text">Moderate</span>
+            <span class="option-desc">Full AM/PM routine</span>
+          </button>
+          <button class="skin-quiz-option" data-value="extensive">
+            <span class="option-icon">🌲</span>
+            <span class="option-text">Extensive</span>
+            <span class="option-desc">Multi-step skincare enthusiast</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 5: Preferences -->
+      <div class="skin-quiz-step" data-step="5">
+        <div class="skin-quiz-icon">
+          <svg viewBox="0 0 80 80">
+            <path d="M40 15 L45 30 L60 30 L48 40 L53 55 L40 45 L27 55 L32 40 L20 30 L35 30 Z" fill="#2D5A4A"/>
+          </svg>
+        </div>
+        <h3 class="skin-quiz-question">What matters most to you?</h3>
+        <p class="skin-quiz-subtitle">Select up to 2</p>
+        <div class="skin-quiz-options multi">
+          <button class="skin-quiz-option" data-value="organic">
+            <span class="option-icon">🌿</span>
+            <span class="option-text">100% Organic</span>
+          </button>
+          <button class="skin-quiz-option" data-value="results">
+            <span class="option-icon">📈</span>
+            <span class="option-text">Fast Results</span>
+          </button>
+          <button class="skin-quiz-option" data-value="gentle">
+            <span class="option-icon">🕊️</span>
+            <span class="option-text">Extra Gentle</span>
+          </button>
+          <button class="skin-quiz-option" data-value="sustainable">
+            <span class="option-icon">♻️</span>
+            <span class="option-text">Sustainable</span>
+          </button>
+          <button class="skin-quiz-option" data-value="affordable">
+            <span class="option-icon">💰</span>
+            <span class="option-text">Value for Money</span>
+          </button>
+          <button class="skin-quiz-option" data-value="luxury">
+            <span class="option-icon">👑</span>
+            <span class="option-text">Luxury Experience</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="skin-quiz-step results" data-step="results">
+        <div class="skin-quiz-results-header">
+          <div class="results-confetti" id="quiz-confetti"></div>
+          <h3>Your Personalized Routine is Ready! ✨</h3>
+          <p>Based on your answers, we've curated the perfect products for you.</p>
+        </div>
+
+        <div class="skin-quiz-profile">
+          <div class="profile-badge">
+            <span class="profile-type" id="quiz-profile-type">Balanced Glow Seeker</span>
+          </div>
+        </div>
+
+        <div class="skin-quiz-recommendations" id="quiz-recommendations">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="skin-quiz-discount">
+          <span class="discount-badge">EXCLUSIVE OFFER</span>
+          <h4>Get 20% Off Your First Order!</h4>
+          <p>Use code: <strong>MYROUTINE20</strong></p>
+          <a href="/collections/all" class="skin-quiz-cta">Shop Your Routine</a>
+        </div>
+
+        <button class="skin-quiz-retake">Retake Quiz</button>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="skin-quiz-nav">
+      <button class="skin-quiz-prev" disabled>← Back</button>
+      <button class="skin-quiz-next" disabled>Next →</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.skin-quiz-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.skin-quiz-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.skin-quiz-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+}
+
+.skin-quiz-container {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.skin-quiz-modal.active .skin-quiz-container {
+  transform: scale(1) translateY(0);
+}
+
+.skin-quiz-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.skin-quiz-close:hover {
+  background: #e0e0e0;
+  transform: rotate(90deg);
+}
+
+/* Progress */
+.skin-quiz-progress {
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.skin-quiz-progress-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #2D5A4A, #3d7a64);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+.skin-quiz-progress-text {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Content */
+.skin-quiz-content {
+  padding: 30px;
+}
+
+.skin-quiz-step {
+  display: none;
+  animation: fadeInUp 0.4s ease;
+}
+
+.skin-quiz-step.active {
+  display: block;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skin-quiz-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.skin-quiz-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.skin-quiz-question {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #1A1A1A;
+}
+
+.skin-quiz-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Options */
+.skin-quiz-options {
+  display: grid;
+  gap: 12px;
+}
+
+.skin-quiz-options.multi {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.skin-quiz-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.skin-quiz-option:hover {
+  border-color: #2D5A4A;
+  background: #f8faf9;
+}
+
+.skin-quiz-option.selected {
+  border-color: #2D5A4A;
+  background: linear-gradient(135deg, rgba(45,90,74,0.1) 0%, rgba(45,90,74,0.05) 100%);
+}
+
+.option-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.option-text {
+  font-weight: 600;
+  color: #1A1A1A;
+  font-size: 1rem;
+}
+
+.option-desc {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Navigation */
+.skin-quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-top: 1px solid #eee;
+}
+
+.skin-quiz-prev,
+.skin-quiz-next {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.skin-quiz-prev {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.skin-quiz-prev:hover:not(:disabled) {
+  background: #e0e0e0;
+}
+
+.skin-quiz-next {
+  background: linear-gradient(135deg, #2D5A4A, #3d7a64);
+  color: #fff;
+}
+
+.skin-quiz-next:hover:not(:disabled) {
+  transform: translateX(5px);
+}
+
+.skin-quiz-prev:disabled,
+.skin-quiz-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Results */
+.skin-quiz-results-header {
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.skin-quiz-results-header h3 {
+  font-size: 1.75rem;
+  margin-bottom: 10px;
+  color: #1A1A1A;
+}
+
+.skin-quiz-profile {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.profile-badge {
+  display: inline-block;
+  padding: 10px 30px;
+  background: linear-gradient(135deg, #2D5A4A, #3d7a64);
+  border-radius: 30px;
+}
+
+.profile-type {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.skin-quiz-recommendations {
+  display: grid;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.recommendation-card {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  align-items: center;
+}
+
+.recommendation-step {
+  width: 40px;
+  height: 40px;
+  background: #2D5A4A;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.recommendation-info h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.recommendation-info p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.skin-quiz-discount {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(45,90,74,0.1) 0%, rgba(45,90,74,0.05) 100%);
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.discount-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  background: #2D5A4A;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.skin-quiz-discount h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.skin-quiz-discount strong {
+  color: #2D5A4A;
+  font-size: 1.25rem;
+}
+
+.skin-quiz-cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #2D5A4A, #3d7a64);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.skin-quiz-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(45,90,74,0.3);
+}
+
+.skin-quiz-retake {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.skin-quiz-retake:hover {
+  color: #2D5A4A;
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .skin-quiz-container {
+    width: 95%;
+    border-radius: 15px;
+  }
+
+  .skin-quiz-options.multi {
+    grid-template-columns: 1fr;
+  }
+
+  .skin-quiz-question {
+    font-size: 1.25rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('skin-quiz-modal');
+  const overlay = modal.querySelector('.skin-quiz-overlay');
+  const closeBtn = modal.querySelector('.skin-quiz-close');
+  const prevBtn = modal.querySelector('.skin-quiz-prev');
+  const nextBtn = modal.querySelector('.skin-quiz-next');
+  const progressBar = modal.querySelector('.skin-quiz-progress-bar');
+  const progressText = modal.querySelector('.skin-quiz-progress-text');
+  const retakeBtn = modal.querySelector('.skin-quiz-retake');
+
+  let currentStep = 1;
+  const totalSteps = 5;
+  const answers = {};
+
+  // Open quiz
+  window.addEventListener('openSkinQuiz', () => openQuiz());
+
+  // Also add a trigger for nav link
+  document.querySelectorAll('[href*="skin-quiz"], .skin-quiz-trigger').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openQuiz();
+    });
+  });
+
+  function openQuiz() {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeQuiz() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close handlers
+  closeBtn.addEventListener('click', closeQuiz);
+  overlay.addEventListener('click', closeQuiz);
+
+  // Option selection
+  modal.querySelectorAll('.skin-quiz-option').forEach(option => {
+    option.addEventListener('click', function() {
+      const step = this.closest('.skin-quiz-step');
+      const isMulti = step.querySelector('.skin-quiz-options').classList.contains('multi');
+
+      if (isMulti) {
+        const selected = step.querySelectorAll('.skin-quiz-option.selected');
+        if (this.classList.contains('selected')) {
+          this.classList.remove('selected');
+        } else if (selected.length < 2) {
+          this.classList.add('selected');
+        }
+      } else {
+        step.querySelectorAll('.skin-quiz-option').forEach(o => o.classList.remove('selected'));
+        this.classList.add('selected');
+      }
+
+      updateNavigation();
+    });
+  });
+
+  // Navigation
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 1) {
+      goToStep(currentStep - 1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    saveAnswer();
+    if (currentStep < totalSteps) {
+      goToStep(currentStep + 1);
+    } else {
+      showResults();
+    }
+  });
+
+  retakeBtn.addEventListener('click', () => {
+    currentStep = 1;
+    Object.keys(answers).forEach(key => delete answers[key]);
+    modal.querySelectorAll('.skin-quiz-option.selected').forEach(o => o.classList.remove('selected'));
+    goToStep(1);
+  });
+
+  function goToStep(step) {
+    currentStep = step;
+
+    modal.querySelectorAll('.skin-quiz-step').forEach(s => s.classList.remove('active'));
+    modal.querySelector(`[data-step="${step}"]`).classList.add('active');
+
+    updateProgress();
+    updateNavigation();
+  }
+
+  function updateProgress() {
+    const progress = ((currentStep - 1) / totalSteps) * 100;
+    progressBar.style.width = progress + '%';
+    progressText.textContent = `Question ${currentStep} of ${totalSteps}`;
+  }
+
+  function updateNavigation() {
+    prevBtn.disabled = currentStep === 1;
+
+    const currentStepEl = modal.querySelector(`[data-step="${currentStep}"]`);
+    const hasSelection = currentStepEl.querySelector('.skin-quiz-option.selected');
+    nextBtn.disabled = !hasSelection;
+    nextBtn.textContent = currentStep === totalSteps ? 'See Results' : 'Next →';
+  }
+
+  function saveAnswer() {
+    const stepEl = modal.querySelector(`[data-step="${currentStep}"]`);
+    const selected = stepEl.querySelectorAll('.skin-quiz-option.selected');
+    const values = Array.from(selected).map(o => o.dataset.value);
+    answers[`step${currentStep}`] = values;
+  }
+
+  function showResults() {
+    modal.querySelectorAll('.skin-quiz-step').forEach(s => s.classList.remove('active'));
+    modal.querySelector('[data-step="results"]').classList.add('active');
+
+    progressBar.style.width = '100%';
+    progressText.textContent = 'Complete!';
+
+    // Generate profile based on answers
+    const profile = generateProfile();
+    document.getElementById('quiz-profile-type').textContent = profile.type;
+    document.getElementById('quiz-recommendations').innerHTML = profile.recommendations;
+
+    // Hide nav for results
+    modal.querySelector('.skin-quiz-nav').style.display = 'none';
+
+    // Confetti!
+    createConfetti();
+  }
+
+  function generateProfile() {
+    const skinType = answers.step1?.[0] || 'normal';
+    const concerns = answers.step2 || [];
+    const age = answers.step3?.[0] || '26-35';
+
+    const profiles = {
+      dry: { type: 'Hydration Hero', emoji: '💧' },
+      oily: { type: 'Balance Master', emoji: '⚖️' },
+      combination: { type: 'Harmony Seeker', emoji: '🌿' },
+      normal: { type: 'Glow Getter', emoji: '✨' },
+      sensitive: { type: 'Gentle Guardian', emoji: '🌸' }
+    };
+
+    const profile = profiles[skinType];
+
+    const recommendations = `
+      <div class="recommendation-card">
+        <span class="recommendation-step">1</span>
+        <div class="recommendation-info">
+          <h4>Gentle Organic Cleanser</h4>
+          <p>Perfect for ${skinType} skin - removes impurities without stripping</p>
+        </div>
+      </div>
+      <div class="recommendation-card">
+        <span class="recommendation-step">2</span>
+        <div class="recommendation-info">
+          <h4>Vitamin C Brightening Serum</h4>
+          <p>Addresses ${concerns[0] || 'dullness'} with powerful antioxidants</p>
+        </div>
+      </div>
+      <div class="recommendation-card">
+        <span class="recommendation-step">3</span>
+        <div class="recommendation-info">
+          <h4>${skinType === 'oily' ? 'Lightweight Gel Moisturizer' : 'Rich Botanical Cream'}</h4>
+          <p>Ideal hydration level for your ${skinType} skin type</p>
+        </div>
+      </div>
+      <div class="recommendation-card">
+        <span class="recommendation-step">4</span>
+        <div class="recommendation-info">
+          <h4>Mineral SPF 30 Sunscreen</h4>
+          <p>Essential daily protection with organic ingredients</p>
+        </div>
+      </div>
+    `;
+
+    return {
+      type: `${profile.emoji} ${profile.type}`,
+      recommendations
+    };
+  }
+
+  function createConfetti() {
+    const container = document.getElementById('quiz-confetti');
+    const colors = ['#2D5A4A', '#3d7a64', '#8BC34A', '#FFD700', '#FF6B6B'];
+
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement('div');
+      confetti.style.cssText = `
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        left: ${Math.random() * 100}%;
+        top: -10px;
+        border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+        animation: confettiFall ${2 + Math.random() * 2}s ease-out forwards;
+        animation-delay: ${Math.random() * 0.5}s;
+      `;
+      container.appendChild(confetti);
+    }
+
+    // Add keyframes if not exists
+    if (!document.getElementById('confetti-styles')) {
+      const style = document.createElement('style');
+      style.id = 'confetti-styles';
+      style.textContent = `
+        @keyframes confettiFall {
+          to {
+            transform: translateY(300px) rotate(720deg);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Clean up
+    setTimeout(() => {
+      container.innerHTML = '';
+    }, 4000);
+  }
+
+  // Initialize
+  updateProgress();
+  updateNavigation();
+});
+</script>
