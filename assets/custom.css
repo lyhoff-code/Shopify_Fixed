@@ -1,33 +1,881 @@
 /**
- * ESTILOS PERSONALIZADOS
- *
- * Este archivo es para agregar estilos adicionales o
- * sobrescribir los estilos del tema principal.
- *
- * Puedes personalizar colores, fuentes, espaciados, etc.
+ * NORDIC PURE ORGANIC - ANIMACIONES Y CHATBOT
+ * Estilo: Moderno, Tecnológico, Orgánico
  */
 
 /* ==========================================================================
-   PERSONALIZACIONES ADICIONALES
+   1. ANIMACIONES DE SCROLL (Reveal on Scroll)
    ========================================================================== */
 
-/* Ejemplo: Cambiar el color de los enlaces al hacer hover */
-/*
-a:hover {
-  color: #your-color-here;
+/* Estado inicial - elementos ocultos */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-*/
 
-/* Ejemplo: Agregar sombra a las tarjetas de producto */
-/*
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación fade in desde la izquierda */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animación fade in desde la derecha */
+.animate-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animación scale up */
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delays para animaciones en cascada */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ==========================================================================
+   2. HOVER EFFECTS MODERNOS
+   ========================================================================== */
+
+/* Efecto hover en imágenes con zoom suave */
+.hover-zoom {
+  overflow: hidden;
+}
+
+.hover-zoom img {
+  transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Efecto magnetic button */
+.btn-magnetic {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.02);
+}
+
+/* Efecto línea que crece debajo del texto */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   3. EFECTOS PARALLAX SUAVE
+   ========================================================================== */
+
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   4. GLASSMORPHISM EFFECTS
+   ========================================================================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   5. CURSOR PERSONALIZADO (opcional)
+   ========================================================================== */
+
+.custom-cursor {
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-outline {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-outline.hover {
+  width: 60px;
+  height: 60px;
+  background: rgba(45, 90, 74, 0.1);
+}
+
+/* ==========================================================================
+   6. CHATBOT MODERNO - NORDIC PURE AI
+   ========================================================================== */
+
+/* Botón flotante del chatbot */
+.chatbot-trigger {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #1e4538 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(45, 90, 74, 0.4);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.chatbot-trigger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chatbot-trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(45, 90, 74, 0.5);
+}
+
+.chatbot-trigger:hover::before {
+  opacity: 1;
+}
+
+.chatbot-trigger svg {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.chatbot-trigger.is-open svg {
+  transform: rotate(180deg);
+}
+
+/* Pulse animation */
+.chatbot-trigger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  animation: pulse-ring 2s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Ventana del chatbot */
+.chatbot-window {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  width: 400px;
+  height: 600px;
+  max-height: calc(100vh - 150px);
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.chatbot-window.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Header del chatbot */
+.chatbot-header {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #1e4538 100%);
+  padding: 24px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.chatbot-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.chatbot-header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.chatbot-avatar {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.chatbot-avatar svg {
+  width: 24px;
+  height: 24px;
+}
+
+.chatbot-avatar::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background: #4ade80;
+  border-radius: 50%;
+  border: 2px solid var(--color-secondary);
+}
+
+.chatbot-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.chatbot-info p {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chatbot-info p::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.chatbot-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.chatbot-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.chatbot-close svg {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+}
+
+/* Mensajes del chatbot */
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fafafa;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* Mensaje individual */
+.chat-message {
+  display: flex;
+  gap: 12px;
+  max-width: 85%;
+  animation: message-in 0.3s ease;
+}
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message--bot {
+  align-self: flex-start;
+}
+
+.chat-message--user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.chat-message__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chat-message--user .chat-message__avatar {
+  background: var(--color-primary);
+}
+
+.chat-message__avatar svg {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+.chat-message__content {
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border-top-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.chat-message--user .chat-message__content {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 18px;
+  border-top-right-radius: 4px;
+}
+
+.chat-message__text {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.chat-message__time {
+  font-size: 0.6875rem;
+  color: #999;
+  margin-top: 6px;
+  display: block;
+}
+
+.chat-message--user .chat-message__time {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Typing indicator */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 18px;
+  border-top-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    background: #ccc;
+  }
+  30% {
+    transform: translateY(-8px);
+    background: var(--color-secondary);
+  }
+}
+
+/* Quick replies / Chips */
+.chat-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chat-quick-reply {
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chat-quick-reply:hover {
+  background: var(--color-secondary);
+  color: #fff;
+  border-color: var(--color-secondary);
+}
+
+/* Input del chatbot */
+.chatbot-input {
+  padding: 20px 24px;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+}
+
+.chatbot-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f5f5;
+  border-radius: 28px;
+  padding: 6px 6px 6px 20px;
+  transition: all 0.3s ease;
+}
+
+.chatbot-input-wrapper:focus-within {
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--color-secondary);
+}
+
+.chatbot-input-wrapper input {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 0.9375rem;
+  padding: 10px 0;
+  color: var(--color-text);
+}
+
+.chatbot-input-wrapper input::placeholder {
+  color: #999;
+}
+
+.chatbot-input-wrapper input:focus {
+  outline: none;
+}
+
+.chatbot-send {
+  width: 44px;
+  height: 44px;
+  background: var(--color-secondary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.chatbot-send:hover {
+  background: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.chatbot-send:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.chatbot-send svg {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  transform: rotate(-45deg);
+}
+
+/* Powered by */
+.chatbot-powered {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.6875rem;
+  color: #999;
+  background: #fff;
+}
+
+/* ==========================================================================
+   7. LOADING ANIMATIONS
+   ========================================================================== */
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Page loader */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #f0f0f0;
+  border-top-color: var(--color-secondary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   8. SMOOTH SCROLL SECTIONS
+   ========================================================================== */
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.section-reveal.is-revealed {
+  animation: reveal-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-children.is-visible > * {
+  animation: stagger-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.stagger-children.is-visible > *:nth-child(1) { animation-delay: 0s; }
+.stagger-children.is-visible > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children.is-visible > *:nth-child(3) { animation-delay: 0.2s; }
+.stagger-children.is-visible > *:nth-child(4) { animation-delay: 0.3s; }
+.stagger-children.is-visible > *:nth-child(5) { animation-delay: 0.4s; }
+.stagger-children.is-visible > *:nth-child(6) { animation-delay: 0.5s; }
+.stagger-children.is-visible > *:nth-child(7) { animation-delay: 0.6s; }
+.stagger-children.is-visible > *:nth-child(8) { animation-delay: 0.7s; }
+
+@keyframes stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   9. RESPONSIVE CHATBOT
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .chatbot-window {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .chatbot-trigger {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .chatbot-trigger::after {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   10. PRODUCTO HOVER EFFECTS MEJORADOS
+   ========================================================================== */
+
 .product-card {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
-*/
 
-/* Ejemplo: Personalizar el estilo de los botones */
-/*
-.btn--primary {
-  border-radius: 30px;
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(45, 90, 74, 0.03) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
 }
-*/
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+/* Badge animado */
+.product-card__badge {
+  animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 90, 74, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(45, 90, 74, 0); }
+}
+
+/* ==========================================================================
+   11. HERO BANNER ANIMADO
+   ========================================================================== */
+
+.hero-banner__title {
+  overflow: hidden;
+}
+
+.hero-banner__title span {
+  display: inline-block;
+  animation: title-reveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes title-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-banner__description {
+  animation: fade-up 1s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+.hero-banner__buttons {
+  animation: fade-up 1s 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+/* ==========================================================================
+   12. NEWSLETTER SECTION MEJORADA
+   ========================================================================== */
+
+.newsletter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 50%);
+  animation: float 20s infinite linear;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, -20px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}

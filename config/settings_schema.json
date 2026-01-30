@@ -8,75 +8,75 @@
     "theme_support_url": "https://help.shopify.com/"
   },
   {
-    "name": "Colores",
+    "name": "Colors",
     "settings": [
       {
         "type": "header",
-        "content": "Paleta Nordic Pure"
+        "content": "Nordic Pure Palette"
       },
       {
         "type": "color",
         "id": "color_primary",
-        "label": "Color primario (botones)",
+        "label": "Primary color (buttons)",
         "default": "#1A1A1A"
       },
       {
         "type": "color",
         "id": "color_secondary",
-        "label": "Color secundario (acentos)",
+        "label": "Secondary color (accents)",
         "default": "#2D5A4A"
       },
       {
         "type": "color",
         "id": "color_accent",
-        "label": "Color de acento",
+        "label": "Accent color",
         "default": "#2D5A4A"
       },
       {
         "type": "color",
         "id": "color_text",
-        "label": "Color del texto",
+        "label": "Text color",
         "default": "#1A1A1A"
       },
       {
         "type": "color",
         "id": "color_text_light",
-        "label": "Color del texto secundario",
+        "label": "Secondary text color",
         "default": "#6B6B6B"
       },
       {
         "type": "color",
         "id": "color_background",
-        "label": "Color de fondo",
+        "label": "Background color",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "color_background_secondary",
-        "label": "Color de fondo secundario",
+        "label": "Secondary background color",
         "default": "#F5F5F5"
       }
     ]
   },
   {
-    "name": "Tipografía",
+    "name": "Typography",
     "settings": [
       {
         "type": "font_picker",
         "id": "font_heading",
-        "label": "Fuente de títulos",
+        "label": "Heading font",
         "default": "cormorant_garamond_n6"
       },
       {
         "type": "font_picker",
         "id": "font_body",
-        "label": "Fuente del cuerpo",
+        "label": "Body font",
         "default": "assistant_n4"
       },
       {
         "type": "range",
         "id": "font_size_base",
-        "label": "Tamaño de fuente base",
+        "label": "Base font size",
         "min": 14,
         "max": 20,
         "step": 1,
@@ -91,13 +91,13 @@
       {
         "type": "image_picker",
         "id": "logo",
-        "label": "Logo de la tienda",
-        "info": "Recomendado: PNG transparente, minimalista"
+        "label": "Store logo",
+        "info": "Recommended: Transparent PNG, minimalist design"
       },
       {
         "type": "range",
         "id": "logo_width",
-        "label": "Ancho del logo",
+        "label": "Logo width",
         "min": 50,
         "max": 300,
         "step": 10,
@@ -107,13 +107,13 @@
       {
         "type": "checkbox",
         "id": "header_sticky",
-        "label": "Header fijo al hacer scroll",
+        "label": "Sticky header on scroll",
         "default": true
       },
       {
         "type": "color",
         "id": "header_background",
-        "label": "Color de fondo del header",
+        "label": "Header background color",
         "default": "#FFFFFF"
       }
     ]
@@ -124,29 +124,29 @@
       {
         "type": "color",
         "id": "footer_background",
-        "label": "Color de fondo del footer",
+        "label": "Footer background color",
         "default": "#1A1A1A"
       },
       {
         "type": "color",
         "id": "footer_text_color",
-        "label": "Color del texto del footer",
+        "label": "Footer text color",
         "default": "#FFFFFF"
       },
       {
         "type": "richtext",
         "id": "footer_about",
-        "label": "Texto sobre la empresa",
-        "default": "<p>Productos orgánicos de la más alta calidad. Formulaciones puras, resultados reales.</p>"
+        "label": "About text",
+        "default": "<p>Premium organic skincare. Pure formulations, real results.</p>"
       }
     ]
   },
   {
-    "name": "Redes Sociales",
+    "name": "Social Media",
     "settings": [
       {
         "type": "header",
-        "content": "Enlaces a redes sociales"
+        "content": "Social media links"
       },
       {
         "type": "text",
@@ -181,79 +181,79 @@
     ]
   },
   {
-    "name": "Productos",
+    "name": "Products",
     "settings": [
       {
         "type": "checkbox",
         "id": "show_vendor",
-        "label": "Mostrar proveedor/marca",
+        "label": "Show vendor/brand",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "show_sale_badge",
-        "label": "Mostrar etiqueta de oferta",
+        "label": "Show sale badge",
         "default": true
       },
       {
         "type": "select",
         "id": "product_image_ratio",
-        "label": "Proporción de imagen de producto",
+        "label": "Product image ratio",
         "options": [
-          { "value": "square", "label": "Cuadrada (1:1)" },
-          { "value": "portrait", "label": "Vertical (3:4)" },
-          { "value": "landscape", "label": "Horizontal (4:3)" }
+          { "value": "square", "label": "Square (1:1)" },
+          { "value": "portrait", "label": "Portrait (3:4)" },
+          { "value": "landscape", "label": "Landscape (4:3)" }
         ],
         "default": "portrait"
       }
     ]
   },
   {
-    "name": "Carrito",
+    "name": "Cart",
     "settings": [
       {
         "type": "select",
         "id": "cart_type",
-        "label": "Tipo de carrito",
+        "label": "Cart type",
         "options": [
-          { "value": "drawer", "label": "Cajón lateral" },
-          { "value": "page", "label": "Página completa" }
+          { "value": "drawer", "label": "Side drawer" },
+          { "value": "page", "label": "Full page" }
         ],
         "default": "drawer"
       },
       {
         "type": "checkbox",
         "id": "cart_notes_enable",
-        "label": "Permitir notas en el pedido",
+        "label": "Allow order notes",
         "default": true
       }
     ]
   },
   {
-    "name": "Barra de Anuncios",
+    "name": "Announcement Bar",
     "settings": [
       {
         "type": "checkbox",
         "id": "announcement_bar_enabled",
-        "label": "Mostrar barra de anuncios",
+        "label": "Show announcement bar",
         "default": true
       },
       {
         "type": "text",
         "id": "announcement_text",
-        "label": "Texto del anuncio",
-        "default": "Envío gratis en pedidos +$999 · Ingredientes 100% naturales"
+        "label": "Announcement text",
+        "default": "Free shipping on orders over $99 · 100% Natural Ingredients"
       },
       {
         "type": "color",
         "id": "announcement_bg_color",
-        "label": "Color de fondo",
+        "label": "Background color",
         "default": "#1A1A1A"
       },
       {
         "type": "color",
         "id": "announcement_text_color",
-        "label": "Color del texto",
+        "label": "Text color",
         "default": "#FFFFFF"
       }
     ]
