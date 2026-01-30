@@ -1,0 +1,32 @@
+{%- comment -%}
+  Countdown Timer Component
+  Usage: {% render 'countdown-timer', end_date: '2025-12-31', title: 'Sale ends in' %}
+{%- endcomment -%}
+
+{%- assign end_date = end_date | default: 'tomorrow' -%}
+{%- assign timer_title = title | default: 'Limited Time Offer' -%}
+
+<div class="countdown-timer" data-countdown data-end-date="{{ end_date }}">
+  <p class="countdown-timer__title">{{ timer_title }}</p>
+  <div class="countdown-timer__display">
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-days>00</span>
+      <span class="countdown-timer__label">Days</span>
+    </div>
+    <span class="countdown-timer__separator">:</span>
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-hours>00</span>
+      <span class="countdown-timer__label">Hours</span>
+    </div>
+    <span class="countdown-timer__separator">:</span>
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-minutes>00</span>
+      <span class="countdown-timer__label">Min</span>
+    </div>
+    <span class="countdown-timer__separator">:</span>
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-seconds>00</span>
+      <span class="countdown-timer__label">Sec</span>
+    </div>
+  </div>
+</div>

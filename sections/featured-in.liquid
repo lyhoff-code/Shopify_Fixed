@@ -1,0 +1,92 @@
+{%- comment -%}
+  As Featured In Section
+  Shows logos of press/media mentions
+{%- endcomment -%}
+
+<section class="featured-in-section">
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <p class="featured-in__title">{{ section.settings.title }}</p>
+    {%- endif -%}
+
+    <div class="featured-in__logos">
+      {%- for block in section.blocks -%}
+        <div class="featured-in__logo" {{ block.shopify_attributes }}>
+          {%- if block.settings.logo != blank -%}
+            <img
+              src="{{ block.settings.logo | image_url: width: 200 }}"
+              alt="{{ block.settings.name | default: 'Press logo' }}"
+              loading="lazy"
+              width="150"
+              height="50"
+            >
+          {%- else -%}
+            <span class="featured-in__logo-text">{{ block.settings.name | default: 'Publication' }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+
+      {%- if section.blocks.size == 0 -%}
+        {%- comment -%} Placeholder logos {%- endcomment -%}
+        <div class="featured-in__logo"><span class="featured-in__logo-text">VOGUE</span></div>
+        <div class="featured-in__logo"><span class="featured-in__logo-text">ELLE</span></div>
+        <div class="featured-in__logo"><span class="featured-in__logo-text">FORBES</span></div>
+        <div class="featured-in__logo"><span class="featured-in__logo-text">ALLURE</span></div>
+        <div class="featured-in__logo"><span class="featured-in__logo-text">GLAMOUR</span></div>
+        <div class="featured-in__logo"><span class="featured-in__logo-text">BAZAAR</span></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "As Featured In",
+  "tag": "section",
+  "class": "section-featured-in",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "As Featured In"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Publication Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Publication name",
+          "default": "Publication"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "As Featured In",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "VOGUE" } },
+        { "type": "logo", "settings": { "name": "ELLE" } },
+        { "type": "logo", "settings": { "name": "FORBES" } },
+        { "type": "logo", "settings": { "name": "ALLURE" } },
+        { "type": "logo", "settings": { "name": "GLAMOUR" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

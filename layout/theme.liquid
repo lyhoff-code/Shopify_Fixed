@@ -86,6 +86,8 @@
     {% render 'announcement-bar' %}
   {%- endif -%}
 
+  {% render 'free-shipping-bar' %}
+
   {% section 'header' %}
 
   <main id="MainContent" class="main-content" role="main" tabindex="-1">
@@ -104,5 +106,7 @@
   {%- if request.design_mode -%}
     <script src="{{ 'theme-editor.js' | asset_url }}" defer></script>
   {%- endif -%}
+
+  {% render 'welcome-popup' %}
 </body>
 </html>

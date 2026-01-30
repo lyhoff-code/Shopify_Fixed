@@ -13,6 +13,12 @@
         "button_2_text": "Our Science"
       }
     },
+    "featured-in": {
+      "type": "featured-in",
+      "settings": {
+        "title": "As Featured In"
+      }
+    },
     "featured-collections": {
       "type": "featured-collections",
       "settings": {
@@ -115,12 +121,22 @@
         "badge-4": { "type": "badge", "settings": { "icon": "support", "title": "Expert Support", "text": "Personalized advice" } }
       },
       "block_order": ["badge-1", "badge-2", "badge-3", "badge-4"]
+    },
+    "ingredients-showcase": {
+      "type": "ingredients-showcase",
+      "settings": {
+        "subtitle": "Pure Ingredients",
+        "title": "Nature's Most Powerful Elements",
+        "description": "Each ingredient is carefully selected for its proven benefits. No fillers, no compromises."
+      }
     }
   },
   "order": [
     "hero-banner",
+    "featured-in",
     "featured-collections",
     "featured-products",
+    "ingredients-showcase",
     "video-section",
     "image-with-text",
     "testimonials",

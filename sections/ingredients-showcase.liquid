@@ -1,0 +1,213 @@
+{%- comment -%}
+  Ingredients Showcase Section
+  Highlights key ingredients with icons
+{%- endcomment -%}
+
+<section class="ingredients-section">
+  <div class="container">
+    <div class="section-header">
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="section-description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ingredients-grid">
+      {%- for block in section.blocks -%}
+        <div class="ingredient-card" {{ block.shopify_attributes }}>
+          <div class="ingredient-card__icon">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 120 }}"
+                alt="{{ block.settings.name }}"
+                loading="lazy"
+              >
+            {%- else -%}
+              {%- case block.settings.icon -%}
+                {%- when 'leaf' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                  </svg>
+                {%- when 'droplet' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                  </svg>
+                {%- when 'sun' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                {%- when 'flower' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                {%- when 'sparkle' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"></path>
+                  </svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                  </svg>
+                {%- endcase -%}
+            {%- endif -%}
+          </div>
+          <h3 class="ingredient-card__name">{{ block.settings.name }}</h3>
+          <p class="ingredient-card__benefit">{{ block.settings.benefit }}</p>
+          {%- if block.settings.percentage != blank -%}
+            <div class="ingredient-card__percentage">
+              <div class="ingredient-card__percentage-bar">
+                <div class="ingredient-card__percentage-fill" style="width: {{ block.settings.percentage }}%"></div>
+              </div>
+              <span class="ingredient-card__percentage-text">{{ block.settings.percentage }}% effective</span>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+
+      {%- if section.blocks.size == 0 -%}
+        {%- comment -%} Placeholder ingredients {%- endcomment -%}
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+            </svg>
+          </div>
+          <h3 class="ingredient-card__name">Vitamin C</h3>
+          <p class="ingredient-card__benefit">Brightens skin and reduces dark spots</p>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+          </div>
+          <h3 class="ingredient-card__name">Hyaluronic Acid</h3>
+          <p class="ingredient-card__benefit">Deep hydration for plump skin</p>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            </svg>
+          </div>
+          <h3 class="ingredient-card__name">Retinol</h3>
+          <p class="ingredient-card__benefit">Reduces wrinkles and fine lines</p>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"></path>
+            </svg>
+          </div>
+          <h3 class="ingredient-card__name">Niacinamide</h3>
+          <p class="ingredient-card__benefit">Minimizes pores and evens tone</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Showcase",
+  "tag": "section",
+  "class": "section-ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Powered by Nature"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Key Ingredients"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Science-backed, nature-derived ingredients for visible results."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom image (optional)"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "sun", "label": "Sun" },
+            { "value": "flower", "label": "Flower" },
+            { "value": "sparkle", "label": "Sparkle" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Ingredient name",
+          "default": "Vitamin C"
+        },
+        {
+          "type": "textarea",
+          "id": "benefit",
+          "label": "Benefit description",
+          "default": "Brightens skin and reduces dark spots"
+        },
+        {
+          "type": "range",
+          "id": "percentage",
+          "label": "Effectiveness percentage",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 0,
+          "info": "Set to 0 to hide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Showcase",
+      "blocks": [
+        { "type": "ingredient", "settings": { "icon": "sun", "name": "Vitamin C", "benefit": "Brightens skin and reduces dark spots", "percentage": 95 } },
+        { "type": "ingredient", "settings": { "icon": "droplet", "name": "Hyaluronic Acid", "benefit": "Deep hydration for plump, dewy skin", "percentage": 98 } },
+        { "type": "ingredient", "settings": { "icon": "leaf", "name": "Retinol", "benefit": "Reduces wrinkles and fine lines", "percentage": 92 } },
+        { "type": "ingredient", "settings": { "icon": "sparkle", "name": "Niacinamide", "benefit": "Minimizes pores and evens skin tone", "percentage": 94 } }
+      ]
+    }
+  ]
+}
+{% endschema %}
