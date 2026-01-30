@@ -1,0 +1,91 @@
+<section class="collection-header scroll-reveal">
+  <div class="collection-header__container">
+    <div class="collection-header__content">
+      {%- if collection.image != blank -%}
+        <div class="collection-header__image">
+          <img src="{{ collection.image | image_url: width: 1200 }}"
+               alt="{{ collection.title }}"
+               loading="eager">
+        </div>
+      {%- endif -%}
+
+      <div class="collection-header__text">
+        <h1 class="collection-header__title">{{ collection.title }}</h1>
+        {%- if collection.description != blank -%}
+          <div class="collection-header__description">
+            {{ collection.description }}
+          </div>
+        {%- endif -%}
+        <p class="collection-header__count">
+          {{ collection.products_count }} {{ collection.products_count | pluralize: 'product', 'products' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .collection-header {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    text-align: center;
+  }
+
+  .collection-header__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .collection-header__image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .collection-header__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .collection-header__title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .collection-header__description {
+    font-size: 1.125rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .collection-header__count {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-secondary, #2D5A4A);
+  }
+
+  @media (max-width: 768px) {
+    .collection-header {
+      padding: 60px 20px;
+    }
+
+    .collection-header__title {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Collection Header",
+  "settings": []
+}
+{% endschema %}

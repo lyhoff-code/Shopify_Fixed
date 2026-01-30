@@ -1,0 +1,185 @@
+<section class="ingredients-hero scroll-reveal">
+  <div class="ingredients-hero__container">
+    <span class="ingredients-hero__subtitle">{{ section.settings.subtitle }}</span>
+    <h1 class="ingredients-hero__title">{{ section.settings.title }}</h1>
+    <p class="ingredients-hero__description">{{ section.settings.description }}</p>
+
+    <div class="ingredients-hero__stats">
+      {%- for block in section.blocks -%}
+        <div class="stat-item" {{ block.shopify_attributes }}>
+          <span class="stat-item__number" data-count="{{ block.settings.number }}">0</span>
+          <span class="stat-item__suffix">{{ block.settings.suffix }}</span>
+          <span class="stat-item__label">{{ block.settings.label }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ingredients-hero {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    text-align: center;
+  }
+
+  .ingredients-hero__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .ingredients-hero__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 20px;
+  }
+
+  .ingredients-hero__title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .ingredients-hero__description {
+    font-size: 1.125rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  .ingredients-hero__stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-item__number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--color-secondary, #2D5A4A);
+    line-height: 1;
+  }
+
+  .stat-item__suffix {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-secondary, #2D5A4A);
+  }
+
+  .stat-item__label {
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .ingredients-hero__title {
+      font-size: 2rem;
+    }
+
+    .ingredients-hero__stats {
+      gap: 40px;
+    }
+
+    .stat-item__number {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Ingredients Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our Ingredients"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Nature's Most Powerful Elements"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We carefully select each ingredient for its proven benefits. Every component serves a purpose, backed by scientific research and sourced from certified organic farms around the world."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "95"
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffix",
+          "default": "%"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Organic Ingredients"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Hero",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "number": "95",
+            "suffix": "%+",
+            "label": "Organic Ingredients"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "50",
+            "suffix": "+",
+            "label": "Botanical Extracts"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "0",
+            "suffix": "",
+            "label": "Harmful Chemicals"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

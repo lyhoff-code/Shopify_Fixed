@@ -1,0 +1,232 @@
+<section class="timeline-section scroll-reveal">
+  <div class="timeline-section__container">
+    <div class="timeline-section__header">
+      <span class="timeline-section__subtitle">{{ section.settings.subtitle }}</span>
+      <h2 class="timeline-section__title">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="timeline">
+      {%- for block in section.blocks -%}
+        <div class="timeline-item scroll-reveal" {{ block.shopify_attributes }}>
+          <div class="timeline-item__marker">
+            <span class="timeline-item__year">{{ block.settings.year }}</span>
+          </div>
+          <div class="timeline-item__content">
+            <h3 class="timeline-item__title">{{ block.settings.title }}</h3>
+            <p class="timeline-item__description">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-section {
+    padding: 80px 20px;
+    background: #f8f9fa;
+  }
+
+  .timeline-section__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline-section__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .timeline-section__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+  }
+
+  .timeline-section__title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-secondary, #2D5A4A);
+    opacity: 0.3;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 40px;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-item__marker {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--color-secondary, #2D5A4A);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timeline-item__year {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .timeline-item__content {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .timeline-item__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .timeline-item__description {
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .timeline {
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      left: 10px;
+    }
+
+    .timeline-item__marker {
+      left: -30px;
+      width: 22px;
+      height: 22px;
+    }
+
+    .timeline-item__year {
+      font-size: 0.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Timeline",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our Journey"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Milestones"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Milestone",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2018"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The Beginning"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Founded in a small kitchen with a passion for clean beauty and a vision to transform the skincare industry."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeline",
+      "blocks": [
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2018",
+            "title": "The Beginning",
+            "description": "Founded in a small kitchen with a passion for clean beauty and a vision to transform the skincare industry."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2019",
+            "title": "First Product Launch",
+            "description": "Released our signature Vitamin C Serum, which quickly became a customer favorite and industry bestseller."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2020",
+            "title": "Going Carbon Neutral",
+            "description": "Achieved carbon-neutral certification and switched to 100% recyclable packaging materials."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2021",
+            "title": "100,000 Happy Customers",
+            "description": "Reached a major milestone with over 100,000 customers trusting us with their skincare routine."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2023",
+            "title": "Global Expansion",
+            "description": "Expanded to 30+ countries, bringing clean organic skincare to customers worldwide."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

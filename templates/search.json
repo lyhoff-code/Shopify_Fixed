@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main-search": {
+      "type": "search-results",
+      "settings": {}
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "subtitle": "Popular Products",
+        "title": "Best Sellers",
+        "description": "Our most loved products by customers.",
+        "products_count": 4,
+        "show_view_all": true,
+        "view_all_text": "View All"
+      }
+    }
+  },
+  "order": [
+    "main-search",
+    "featured-products"
+  ]
+}

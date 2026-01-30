@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main-404": {
+      "type": "page-404",
+      "settings": {
+        "title": "Page Not Found",
+        "description": "Sorry, the page you're looking for doesn't exist or has been moved. Let's get you back on track.",
+        "home_button": "Back to Home",
+        "shop_button": "Browse Products",
+        "search_text": "Or try searching for what you need:"
+      }
+    }
+  },
+  "order": [
+    "main-404"
+  ]
+}

@@ -1,0 +1,318 @@
+<section class="search-section">
+  <div class="search-section__container">
+    <div class="search-section__header scroll-reveal">
+      <h1 class="search-section__title">
+        {%- if search.performed -%}
+          {%- if search.results_count == 0 -%}
+            No results for "{{ search.terms }}"
+          {%- else -%}
+            {{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} for "{{ search.terms }}"
+          {%- endif -%}
+        {%- else -%}
+          Search Our Store
+        {%- endif -%}
+      </h1>
+
+      <form action="/search" method="get" class="search-section__form">
+        <input type="text"
+               name="q"
+               value="{{ search.terms }}"
+               placeholder="Search products, ingredients..."
+               autocomplete="off"
+               required>
+        <button type="submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <div class="search-section__results">
+          <div class="search-grid">
+            {%- for item in search.results -%}
+              <div class="search-result-item scroll-reveal">
+                {%- if item.featured_image != blank -%}
+                  <a href="{{ item.url }}" class="search-result-item__image">
+                    <img src="{{ item.featured_image | image_url: width: 300 }}"
+                         alt="{{ item.title }}"
+                         loading="lazy">
+                  </a>
+                {%- endif -%}
+                <div class="search-result-item__content">
+                  <span class="search-result-item__type">{{ item.object_type | capitalize }}</span>
+                  <h3 class="search-result-item__title">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                  </h3>
+                  {%- if item.object_type == 'product' -%}
+                    <p class="search-result-item__price">{{ item.price | money }}</p>
+                  {%- else -%}
+                    <p class="search-result-item__excerpt">{{ item.content | strip_html | truncate: 100 }}</p>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          {%- if paginate.pages > 1 -%}
+            <div class="search-section__pagination">
+              {%- if paginate.previous -%}
+                <a href="{{ paginate.previous.url }}" class="pagination-btn">Previous</a>
+              {%- endif -%}
+              <span class="pagination-info">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+              {%- if paginate.next -%}
+                <a href="{{ paginate.next.url }}" class="pagination-btn">Next</a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        <div class="search-section__empty scroll-reveal">
+          <p>We couldn't find any results for "{{ search.terms }}". Try searching with different keywords.</p>
+          <div class="search-section__suggestions">
+            <h3>Popular Searches</h3>
+            <div class="suggestion-tags">
+              <a href="/search?q=serum">Serum</a>
+              <a href="/search?q=moisturizer">Moisturizer</a>
+              <a href="/search?q=vitamin+c">Vitamin C</a>
+              <a href="/search?q=cleanser">Cleanser</a>
+              <a href="/search?q=eye+cream">Eye Cream</a>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="search-section__suggestions scroll-reveal">
+        <h3>Popular Searches</h3>
+        <div class="suggestion-tags">
+          <a href="/search?q=serum">Serum</a>
+          <a href="/search?q=moisturizer">Moisturizer</a>
+          <a href="/search?q=vitamin+c">Vitamin C</a>
+          <a href="/search?q=cleanser">Cleanser</a>
+          <a href="/search?q=eye+cream">Eye Cream</a>
+          <a href="/search?q=organic">Organic</a>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .search-section {
+    padding: 80px 20px;
+    min-height: 60vh;
+  }
+
+  .search-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .search-section__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .search-section__title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 32px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .search-section__form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid var(--color-primary, #1A1A1A);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
+  .search-section__form input {
+    flex: 1;
+    padding: 16px 24px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .search-section__form button {
+    padding: 16px 24px;
+    background: var(--color-primary, #1A1A1A);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .search-section__form button:hover {
+    background: var(--color-secondary, #2D5A4A);
+  }
+
+  .search-section__form button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .search-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .search-result-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .search-result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .search-result-item__image {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .search-result-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .search-result-item:hover .search-result-item__image img {
+    transform: scale(1.05);
+  }
+
+  .search-result-item__content {
+    padding: 20px;
+  }
+
+  .search-result-item__type {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .search-result-item__title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .search-result-item__title a {
+    color: var(--color-primary, #1A1A1A);
+    text-decoration: none;
+  }
+
+  .search-result-item__title a:hover {
+    color: var(--color-secondary, #2D5A4A);
+  }
+
+  .search-result-item__price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .search-result-item__excerpt {
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .search-section__empty {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .search-section__empty > p {
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .search-section__suggestions {
+    text-align: center;
+  }
+
+  .search-section__suggestions h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .suggestion-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .suggestion-tags a {
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--color-primary, #1A1A1A);
+    font-size: 0.875rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .suggestion-tags a:hover {
+    background: var(--color-primary, #1A1A1A);
+    color: #fff;
+  }
+
+  .search-section__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 60px;
+  }
+
+  .pagination-btn {
+    padding: 12px 24px;
+    background: var(--color-primary, #1A1A1A);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .pagination-btn:hover {
+    background: var(--color-secondary, #2D5A4A);
+  }
+
+  .pagination-info {
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .search-section__title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "settings": []
+}
+{% endschema %}

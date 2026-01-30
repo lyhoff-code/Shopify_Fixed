@@ -1,0 +1,202 @@
+<section class="team-section scroll-reveal">
+  <div class="team-section__container">
+    <div class="team-section__header">
+      <span class="team-section__subtitle">{{ section.settings.subtitle }}</span>
+      <h2 class="team-section__title">{{ section.settings.title }}</h2>
+      <p class="team-section__description">{{ section.settings.description }}</p>
+    </div>
+
+    <div class="team-section__grid">
+      {%- for block in section.blocks -%}
+        <div class="team-member scroll-reveal" {{ block.shopify_attributes }}>
+          <div class="team-member__image">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 400 }}"
+                   alt="{{ block.settings.name }}"
+                   loading="lazy">
+            {%- else -%}
+              <div class="team-member__placeholder">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="50" fill="#f5f5f5"/>
+                  <path d="M50 30C44.5 30 40 34.5 40 40C40 45.5 44.5 50 50 50C55.5 50 60 45.5 60 40C60 34.5 55.5 30 50 30ZM30 70C30 60 40 55 50 55C60 55 70 60 70 70V75H30V70Z" fill="#ccc"/>
+                </svg>
+              </div>
+            {%- endif -%}
+          </div>
+          <h3 class="team-member__name">{{ block.settings.name }}</h3>
+          <span class="team-member__role">{{ block.settings.role }}</span>
+          <p class="team-member__bio">{{ block.settings.bio }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-section {
+    padding: 80px 20px;
+    background: #fff;
+  }
+
+  .team-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .team-section__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+  }
+
+  .team-section__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+  }
+
+  .team-section__title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .team-section__description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .team-section__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+
+  .team-member {
+    text-align: center;
+  }
+
+  .team-member__image img,
+  .team-member__placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 24px;
+  }
+
+  .team-member__name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .team-member__role {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .team-member__bio {
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.6;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Team Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our Team"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Meet the Experts"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Scientists, herbalists, and skincare enthusiasts united by a passion for clean beauty."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Dr. Sarah Chen"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "Founder & Chief Scientist"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Bio",
+          "default": "With over 15 years in cosmetic chemistry, Sarah leads our product development with a focus on efficacy and safety."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team Section",
+      "blocks": [
+        {
+          "type": "team_member",
+          "settings": {
+            "name": "Dr. Sarah Chen",
+            "role": "Founder & Chief Scientist",
+            "bio": "With over 15 years in cosmetic chemistry, Sarah leads our product development with a focus on efficacy and safety."
+          }
+        },
+        {
+          "type": "team_member",
+          "settings": {
+            "name": "Marcus Rivera",
+            "role": "Head of Sustainability",
+            "bio": "Marcus ensures our operations remain carbon-neutral and our packaging stays eco-friendly."
+          }
+        },
+        {
+          "type": "team_member",
+          "settings": {
+            "name": "Dr. Emily Okafor",
+            "role": "Lead Herbalist",
+            "bio": "Emily sources our botanical ingredients from certified organic farms around the world."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

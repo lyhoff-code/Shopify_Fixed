@@ -1,0 +1,301 @@
+<section class="ingredients-grid-section scroll-reveal">
+  <div class="ingredients-grid-section__container">
+    <div class="ingredients-grid-section__header">
+      <span class="ingredients-grid-section__subtitle">{{ section.settings.subtitle }}</span>
+      <h2 class="ingredients-grid-section__title">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="ingredients-grid">
+      {%- for block in section.blocks -%}
+        <div class="ingredient-card scroll-reveal" {{ block.shopify_attributes }}>
+          <div class="ingredient-card__image">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 400 }}"
+                   alt="{{ block.settings.name }}"
+                   loading="lazy">
+            {%- else -%}
+              <div class="ingredient-card__placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                  <path d="M12 2C6.5 2 2 6.5 2 12c0 5.5 4.5 10 10 10s10-4.5 10-10c0-5.5-4.5-10-10-10z"/>
+                  <path d="M12 6v12M8 10c2 0 4 2 4 4s-2 4-4 4M16 10c-2 0-4 2-4 4s2 4 4 4"/>
+                </svg>
+              </div>
+            {%- endif -%}
+          </div>
+          <div class="ingredient-card__content">
+            <h3 class="ingredient-card__name">{{ block.settings.name }}</h3>
+            <span class="ingredient-card__source">{{ block.settings.source }}</span>
+            <p class="ingredient-card__description">{{ block.settings.description }}</p>
+            <ul class="ingredient-card__benefits">
+              {%- assign benefits = block.settings.benefits | split: ',' -%}
+              {%- for benefit in benefits -%}
+                <li>{{ benefit | strip }}</li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ingredients-grid-section {
+    padding: 80px 20px;
+    background: #fff;
+  }
+
+  .ingredients-grid-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ingredients-grid-section__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .ingredients-grid-section__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+  }
+
+  .ingredients-grid-section__title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+  }
+
+  .ingredient-card {
+    display: flex;
+    gap: 24px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ingredient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .ingredient-card__image {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ingredient-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ingredient-card__placeholder {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+  }
+
+  .ingredient-card__placeholder svg {
+    width: 50%;
+    height: 50%;
+  }
+
+  .ingredient-card__content {
+    flex: 1;
+  }
+
+  .ingredient-card__name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .ingredient-card__source {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .ingredient-card__description {
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .ingredient-card__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ingredient-card__benefits li {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    background: var(--color-secondary, #2D5A4A);
+    color: #fff;
+    border-radius: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .ingredients-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ingredient-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .ingredient-card__image {
+      margin: 0 auto;
+    }
+
+    .ingredient-card__benefits {
+      justify-content: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Ingredients Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Star Ingredients"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What Goes Into Our Products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Vitamin C"
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source",
+          "default": "Kakadu Plum, Australia"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "A potent antioxidant that brightens skin, evens tone, and protects against environmental damage."
+        },
+        {
+          "type": "text",
+          "id": "benefits",
+          "label": "Benefits (comma-separated)",
+          "default": "Brightening, Anti-aging, Protection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Grid",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin C",
+            "source": "Kakadu Plum, Australia",
+            "description": "A potent antioxidant that brightens skin, evens tone, and protects against environmental damage.",
+            "benefits": "Brightening, Anti-aging, Protection"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hyaluronic Acid",
+            "source": "Bio-fermentation Process",
+            "description": "A powerful humectant that holds 1000x its weight in water, keeping skin plump and hydrated.",
+            "benefits": "Hydration, Plumping, Anti-wrinkle"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Retinol",
+            "source": "Rosehip, Chile",
+            "description": "A gentle, plant-derived form of Vitamin A that promotes cell turnover and collagen production.",
+            "benefits": "Renewal, Firming, Texture"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Niacinamide",
+            "source": "Natural Fermentation",
+            "description": "Vitamin B3 that strengthens the skin barrier, minimizes pores, and balances oil production.",
+            "benefits": "Barrier, Pores, Balance"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Bakuchiol",
+            "source": "Babchi Plant, India",
+            "description": "A natural retinol alternative that delivers anti-aging benefits without irritation.",
+            "benefits": "Anti-aging, Gentle, Plant-based"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Squalane",
+            "source": "Olive, Mediterranean",
+            "description": "A lightweight, non-comedogenic oil that mimics skin's natural sebum for deep moisture.",
+            "benefits": "Moisture, Non-greasy, Soothing"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

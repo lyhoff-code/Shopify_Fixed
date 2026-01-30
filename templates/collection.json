@@ -1,13 +1,41 @@
 {
   "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "settings": {}
+    },
     "main-collection": {
       "type": "main-collection",
       "settings": {
         "products_per_page": 12
       }
+    },
+    "trust-badges": {
+      "type": "trust-badges",
+      "settings": {},
+      "blocks": {
+        "badge-1": { "type": "badge", "settings": { "icon": "shipping", "title": "Free Shipping", "text": "On orders over $99" } },
+        "badge-2": { "type": "badge", "settings": { "icon": "return", "title": "30-Day Guarantee", "text": "Full satisfaction" } },
+        "badge-3": { "type": "badge", "settings": { "icon": "secure", "title": "Secure Payment", "text": "SSL encryption" } },
+        "badge-4": { "type": "badge", "settings": { "icon": "support", "title": "Expert Support", "text": "Personalized advice" } }
+      },
+      "block_order": ["badge-1", "badge-2", "badge-3", "badge-4"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "Stay Updated",
+        "description": "Subscribe to get notified about new products and exclusive offers.",
+        "placeholder": "Enter your email",
+        "button_text": "Subscribe",
+        "disclaimer": "We respect your privacy. Unsubscribe anytime."
+      }
     }
   },
   "order": [
-    "main-collection"
+    "collection-header",
+    "main-collection",
+    "trust-badges",
+    "newsletter"
   ]
 }

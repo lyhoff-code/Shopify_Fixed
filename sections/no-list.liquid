@@ -1,0 +1,172 @@
+<section class="no-list-section scroll-reveal">
+  <div class="no-list-section__container">
+    <div class="no-list-section__header">
+      <span class="no-list-section__subtitle">{{ section.settings.subtitle }}</span>
+      <h2 class="no-list-section__title">{{ section.settings.title }}</h2>
+      <p class="no-list-section__description">{{ section.settings.description }}</p>
+    </div>
+
+    <div class="no-list-grid">
+      {%- for block in section.blocks -%}
+        <div class="no-list-item scroll-reveal" {{ block.shopify_attributes }}>
+          <span class="no-list-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M15 9l-6 6M9 9l6 6"/>
+            </svg>
+          </span>
+          <span class="no-list-item__text">{{ block.settings.text }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .no-list-section {
+    padding: 80px 20px;
+    background: #1A1A1A;
+    color: #fff;
+  }
+
+  .no-list-section__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .no-list-section__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .no-list-section__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+  }
+
+  .no-list-section__title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .no-list-section__description {
+    font-size: 1.0625rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .no-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .no-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .no-list-item:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .no-list-item__icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    color: #e74c3c;
+  }
+
+  .no-list-item__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .no-list-item__text {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .no-list-section__title {
+      font-size: 2rem;
+    }
+
+    .no-list-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "No List Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our Promise"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What We Never Use"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We believe what you leave out is just as important as what you put in. These ingredients will never be found in our products."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Parabens"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "No List Section",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Parabens" } },
+        { "type": "item", "settings": { "text": "Sulfates (SLS/SLES)" } },
+        { "type": "item", "settings": { "text": "Phthalates" } },
+        { "type": "item", "settings": { "text": "Synthetic Fragrances" } },
+        { "type": "item", "settings": { "text": "Mineral Oil" } },
+        { "type": "item", "settings": { "text": "Formaldehyde" } },
+        { "type": "item", "settings": { "text": "Triclosan" } },
+        { "type": "item", "settings": { "text": "Oxybenzone" } },
+        { "type": "item", "settings": { "text": "Hydroquinone" } },
+        { "type": "item", "settings": { "text": "Artificial Dyes" } },
+        { "type": "item", "settings": { "text": "PEGs" } },
+        { "type": "item", "settings": { "text": "Silicones" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

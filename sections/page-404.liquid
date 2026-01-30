@@ -1,0 +1,235 @@
+<section class="page-404">
+  <div class="page-404__container">
+    <div class="page-404__content scroll-reveal">
+      <span class="page-404__code">404</span>
+      <h1 class="page-404__title">{{ section.settings.title }}</h1>
+      <p class="page-404__description">{{ section.settings.description }}</p>
+
+      <div class="page-404__actions">
+        <a href="/" class="page-404__btn page-404__btn--primary">
+          {{ section.settings.home_button }}
+        </a>
+        <a href="/collections/all" class="page-404__btn page-404__btn--secondary">
+          {{ section.settings.shop_button }}
+        </a>
+      </div>
+
+      <div class="page-404__search">
+        <p>{{ section.settings.search_text }}</p>
+        <form action="/search" method="get" class="page-404__search-form">
+          <input type="text" name="q" placeholder="Search products..." required>
+          <button type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="page-404__decoration">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+        <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+        <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+        <path d="M100 20 L100 40 M100 160 L100 180 M20 100 L40 100 M160 100 L180 100" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-404 {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-404__container {
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-404__code {
+    display: block;
+    font-size: 8rem;
+    font-weight: 200;
+    line-height: 1;
+    color: var(--color-secondary, #2D5A4A);
+    opacity: 0.2;
+    margin-bottom: -20px;
+  }
+
+  .page-404__title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .page-404__description {
+    font-size: 1.0625rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .page-404__actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  .page-404__btn {
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .page-404__btn--primary {
+    background: var(--color-primary, #1A1A1A);
+    color: #fff;
+  }
+
+  .page-404__btn--primary:hover {
+    background: var(--color-secondary, #2D5A4A);
+    transform: translateY(-2px);
+  }
+
+  .page-404__btn--secondary {
+    background: transparent;
+    color: var(--color-primary, #1A1A1A);
+    border: 1px solid var(--color-primary, #1A1A1A);
+  }
+
+  .page-404__btn--secondary:hover {
+    background: var(--color-primary, #1A1A1A);
+    color: #fff;
+  }
+
+  .page-404__search p {
+    font-size: 0.875rem;
+    color: #999;
+    margin-bottom: 16px;
+  }
+
+  .page-404__search-form {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .page-404__search-form input {
+    flex: 1;
+    padding: 14px 16px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .page-404__search-form button {
+    padding: 14px 20px;
+    background: var(--color-primary, #1A1A1A);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .page-404__search-form button:hover {
+    background: var(--color-secondary, #2D5A4A);
+  }
+
+  .page-404__search-form button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .page-404__decoration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    color: var(--color-secondary, #2D5A4A);
+    z-index: 0;
+    pointer-events: none;
+    animation: rotate 60s linear infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  @media (max-width: 768px) {
+    .page-404__code {
+      font-size: 5rem;
+    }
+
+    .page-404__title {
+      font-size: 1.5rem;
+    }
+
+    .page-404__actions {
+      flex-direction: column;
+    }
+
+    .page-404__btn {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "404 Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Page Not Found"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Sorry, the page you're looking for doesn't exist or has been moved. Let's get you back on track."
+    },
+    {
+      "type": "text",
+      "id": "home_button",
+      "label": "Home button text",
+      "default": "Back to Home"
+    },
+    {
+      "type": "text",
+      "id": "shop_button",
+      "label": "Shop button text",
+      "default": "Browse Products"
+    },
+    {
+      "type": "text",
+      "id": "search_text",
+      "label": "Search text",
+      "default": "Or try searching for what you need:"
+    }
+  ]
+}
+{% endschema %}

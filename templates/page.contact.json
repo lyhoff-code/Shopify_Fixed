@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "contact-form": {
+      "type": "contact-form",
+      "settings": {
+        "subtitle": "Get in Touch",
+        "title": "We'd Love to Hear From You",
+        "description": "Have a question about our products? Need help with an order? Our customer care team is here to help.",
+        "email": "hello@organicskincare.com",
+        "phone": "+1 (800) 123-4567",
+        "hours": "Mon-Fri: 9am - 6pm EST",
+        "address": "123 Green Valley Road, Brooklyn, NY 11201"
+      }
+    },
+    "faq-preview": {
+      "type": "faq-section",
+      "settings": {
+        "subtitle": "Quick Answers",
+        "title": "Common Questions",
+        "description": "Find quick answers to the most frequently asked questions.",
+        "show_contact": false
+      },
+      "blocks": {
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "category": "General",
+            "question": "What are your shipping times?",
+            "answer": "<p>Standard shipping takes 3-5 business days. Express shipping (1-2 days) is available at checkout. Free shipping on orders over $99.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "category": "General",
+            "question": "Can I modify or cancel my order?",
+            "answer": "<p>You can modify or cancel your order within 1 hour of placing it. After that, please contact us immediately and we'll do our best to accommodate your request.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "category": "General",
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not happy with your purchase, return unused products for a full refund.</p>"
+          }
+        }
+      },
+      "block_order": ["faq-1", "faq-2", "faq-3"]
+    },
+    "trust-badges": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge-1": { "type": "badge", "settings": { "icon": "shipping", "title": "Free Shipping", "text": "On orders over $99" } },
+        "badge-2": { "type": "badge", "settings": { "icon": "return", "title": "30-Day Guarantee", "text": "Full satisfaction" } },
+        "badge-3": { "type": "badge", "settings": { "icon": "secure", "title": "Secure Payment", "text": "SSL encryption" } },
+        "badge-4": { "type": "badge", "settings": { "icon": "support", "title": "Expert Support", "text": "Personalized advice" } }
+      },
+      "block_order": ["badge-1", "badge-2", "badge-3", "badge-4"]
+    }
+  },
+  "order": [
+    "contact-form",
+    "faq-preview",
+    "trust-badges"
+  ]
+}

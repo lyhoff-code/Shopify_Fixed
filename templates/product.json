@@ -4,19 +4,70 @@
       "type": "main-product",
       "settings": {}
     },
+    "product-benefits": {
+      "type": "trust-badges",
+      "settings": {},
+      "blocks": {
+        "badge-1": { "type": "badge", "settings": { "icon": "organic", "title": "Certified Organic", "text": "95%+ organic ingredients" } },
+        "badge-2": { "type": "badge", "settings": { "icon": "cruelty-free", "title": "Cruelty-Free", "text": "Never tested on animals" } },
+        "badge-3": { "type": "badge", "settings": { "icon": "vegan", "title": "100% Vegan", "text": "No animal ingredients" } },
+        "badge-4": { "type": "badge", "settings": { "icon": "sustainable", "title": "Sustainable", "text": "Eco-friendly packaging" } }
+      },
+      "block_order": ["badge-1", "badge-2", "badge-3", "badge-4"]
+    },
     "product-recommendations": {
       "type": "featured-products",
       "settings": {
-        "subtitle": "También te puede gustar",
-        "title": "Productos Relacionados",
-        "description": "Otros clientes también vieron estos productos.",
+        "subtitle": "You May Also Like",
+        "title": "Related Products",
+        "description": "Customers who viewed this also loved these products.",
         "products_count": 4,
         "show_view_all": false
       }
+    },
+    "reviews-section": {
+      "type": "testimonials",
+      "settings": {
+        "subtitle": "Customer Reviews",
+        "title": "What People Are Saying",
+        "description": "Real reviews from verified customers."
+      },
+      "blocks": {
+        "review-1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Amanda K.",
+            "role": "Verified Buyer",
+            "rating": 5,
+            "text": "This product has transformed my skincare routine. My skin feels softer and looks more radiant than ever. Worth every penny!"
+          }
+        },
+        "review-2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Michelle T.",
+            "role": "Verified Buyer",
+            "rating": 5,
+            "text": "Finally found a product that actually works without irritating my sensitive skin. I'm a customer for life now."
+          }
+        },
+        "review-3": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Rachel L.",
+            "role": "Verified Buyer",
+            "rating": 5,
+            "text": "The quality is exceptional. You can tell this is made with premium ingredients. My skin has never looked better."
+          }
+        }
+      },
+      "block_order": ["review-1", "review-2", "review-3"]
     }
   },
   "order": [
     "main-product",
-    "product-recommendations"
+    "product-benefits",
+    "product-recommendations",
+    "reviews-section"
   ]
 }

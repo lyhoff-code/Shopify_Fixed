@@ -1,0 +1,332 @@
+<section class="contact-section scroll-reveal">
+  <div class="contact-section__container">
+    <div class="contact-section__info">
+      <span class="contact-section__subtitle">{{ section.settings.subtitle }}</span>
+      <h1 class="contact-section__title">{{ section.settings.title }}</h1>
+      <p class="contact-section__description">{{ section.settings.description }}</p>
+
+      <div class="contact-section__details">
+        <div class="contact-detail">
+          <div class="contact-detail__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.5 1.21L8 11.5a11 11 0 005.5 5.5l2.11-2.23a1 1 0 011.21-.5l4.5 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Hours</h4>
+            <p>{{ section.settings.hours }}</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Address</h4>
+            <p>{{ section.settings.address }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-section__form">
+      <form action="/contact" method="post" class="contact-form">
+        <input type="hidden" name="form_type" value="contact">
+        <input type="hidden" name="utf8" value="✓">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-name">Name *</label>
+            <input type="text" id="contact-name" name="contact[name]" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email *</label>
+            <input type="email" id="contact-email" name="contact[email]" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-phone">Phone</label>
+          <input type="tel" id="contact-phone" name="contact[phone]">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-subject">Subject *</label>
+          <select id="contact-subject" name="contact[subject]" required>
+            <option value="">Select a topic...</option>
+            <option value="order">Order Inquiry</option>
+            <option value="product">Product Question</option>
+            <option value="return">Returns & Exchanges</option>
+            <option value="wholesale">Wholesale Inquiry</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">Message *</label>
+          <textarea id="contact-message" name="contact[message]" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="contact-form__submit">
+          Send Message
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: 80px 20px;
+    background: #fff;
+  }
+
+  .contact-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-section__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+  }
+
+  .contact-section__title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .contact-section__description {
+    font-size: 1.0625rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .contact-section__details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .contact-detail__icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    color: var(--color-secondary, #2D5A4A);
+  }
+
+  .contact-detail__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-detail h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .contact-detail a,
+  .contact-detail p {
+    font-size: 1rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-detail a:hover {
+    color: var(--color-secondary, #2D5A4A);
+  }
+
+  .contact-section__form {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 8px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary, #2D5A4A);
+    box-shadow: 0 0 0 3px rgba(45, 90, 74, 0.1);
+  }
+
+  .contact-form__submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--color-primary, #1A1A1A);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .contact-form__submit:hover {
+    background: var(--color-secondary, #2D5A4A);
+    transform: translateY(-2px);
+  }
+
+  .contact-form__submit svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section__container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-section__form {
+      padding: 24px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "We'd Love to Hear From You"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Have a question about our products? Need help with an order? Our customer care team is here to help."
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "hello@organicskincare.com"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+1 (800) 123-4567"
+    },
+    {
+      "type": "text",
+      "id": "hours",
+      "label": "Business Hours",
+      "default": "Mon-Fri: 9am - 6pm EST"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "123 Green Valley Road, Brooklyn, NY 11201"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}

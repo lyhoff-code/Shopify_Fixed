@@ -1,0 +1,158 @@
+{
+  "sections": {
+    "ingredients-hero": {
+      "type": "ingredients-hero",
+      "settings": {
+        "subtitle": "Our Ingredients",
+        "title": "Nature's Most Powerful Elements",
+        "description": "We carefully select each ingredient for its proven benefits. Every component serves a purpose, backed by scientific research and sourced from certified organic farms around the world."
+      },
+      "blocks": {
+        "stat-1": {
+          "type": "stat",
+          "settings": {
+            "number": "95",
+            "suffix": "%+",
+            "label": "Organic Ingredients"
+          }
+        },
+        "stat-2": {
+          "type": "stat",
+          "settings": {
+            "number": "50",
+            "suffix": "+",
+            "label": "Botanical Extracts"
+          }
+        },
+        "stat-3": {
+          "type": "stat",
+          "settings": {
+            "number": "0",
+            "suffix": "",
+            "label": "Harmful Chemicals"
+          }
+        }
+      },
+      "block_order": ["stat-1", "stat-2", "stat-3"]
+    },
+    "ingredients-grid": {
+      "type": "ingredients-grid",
+      "settings": {
+        "subtitle": "Star Ingredients",
+        "title": "What Goes Into Our Products"
+      },
+      "blocks": {
+        "ingredient-1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin C",
+            "source": "Kakadu Plum, Australia",
+            "description": "A potent antioxidant that brightens skin, evens tone, and protects against environmental damage.",
+            "benefits": "Brightening, Anti-aging, Protection"
+          }
+        },
+        "ingredient-2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hyaluronic Acid",
+            "source": "Bio-fermentation Process",
+            "description": "A powerful humectant that holds 1000x its weight in water, keeping skin plump and hydrated.",
+            "benefits": "Hydration, Plumping, Anti-wrinkle"
+          }
+        },
+        "ingredient-3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Retinol",
+            "source": "Rosehip, Chile",
+            "description": "A gentle, plant-derived form of Vitamin A that promotes cell turnover and collagen production.",
+            "benefits": "Renewal, Firming, Texture"
+          }
+        },
+        "ingredient-4": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Niacinamide",
+            "source": "Natural Fermentation",
+            "description": "Vitamin B3 that strengthens the skin barrier, minimizes pores, and balances oil production.",
+            "benefits": "Barrier, Pores, Balance"
+          }
+        },
+        "ingredient-5": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Bakuchiol",
+            "source": "Babchi Plant, India",
+            "description": "A natural retinol alternative that delivers anti-aging benefits without irritation.",
+            "benefits": "Anti-aging, Gentle, Plant-based"
+          }
+        },
+        "ingredient-6": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Squalane",
+            "source": "Olive, Mediterranean",
+            "description": "A lightweight, non-comedogenic oil that mimics skin's natural sebum for deep moisture.",
+            "benefits": "Moisture, Non-greasy, Soothing"
+          }
+        }
+      },
+      "block_order": ["ingredient-1", "ingredient-2", "ingredient-3", "ingredient-4", "ingredient-5", "ingredient-6"]
+    },
+    "no-list": {
+      "type": "no-list",
+      "settings": {
+        "subtitle": "Our Promise",
+        "title": "What We Never Use",
+        "description": "We believe what you leave out is just as important as what you put in. These ingredients will never be found in our products."
+      },
+      "blocks": {
+        "item-1": { "type": "item", "settings": { "text": "Parabens" } },
+        "item-2": { "type": "item", "settings": { "text": "Sulfates (SLS/SLES)" } },
+        "item-3": { "type": "item", "settings": { "text": "Phthalates" } },
+        "item-4": { "type": "item", "settings": { "text": "Synthetic Fragrances" } },
+        "item-5": { "type": "item", "settings": { "text": "Mineral Oil" } },
+        "item-6": { "type": "item", "settings": { "text": "Formaldehyde" } },
+        "item-7": { "type": "item", "settings": { "text": "Triclosan" } },
+        "item-8": { "type": "item", "settings": { "text": "Oxybenzone" } },
+        "item-9": { "type": "item", "settings": { "text": "Hydroquinone" } },
+        "item-10": { "type": "item", "settings": { "text": "Artificial Dyes" } },
+        "item-11": { "type": "item", "settings": { "text": "PEGs" } },
+        "item-12": { "type": "item", "settings": { "text": "Silicones" } }
+      },
+      "block_order": ["item-1", "item-2", "item-3", "item-4", "item-5", "item-6", "item-7", "item-8", "item-9", "item-10", "item-11", "item-12"]
+    },
+    "ingredients-showcase": {
+      "type": "ingredients-showcase",
+      "settings": {
+        "subtitle": "Effectiveness",
+        "title": "Proven Results",
+        "description": "Our ingredients are selected for their proven efficacy. See how each one performs in clinical studies."
+      }
+    },
+    "cta": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "image_right",
+        "background_color": "gray",
+        "subtitle": "Ready to Try?",
+        "title": "Experience the Difference",
+        "description": "<p>Discover what clean, effective skincare can do for you. All products come with our 30-day satisfaction guarantee.</p>",
+        "button_text": "Shop Now"
+      },
+      "blocks": {
+        "feature-1": { "type": "feature", "settings": { "text": "Free shipping on orders over $99" } },
+        "feature-2": { "type": "feature", "settings": { "text": "30-day money-back guarantee" } },
+        "feature-3": { "type": "feature", "settings": { "text": "Free skincare consultation" } }
+      },
+      "block_order": ["feature-1", "feature-2", "feature-3"]
+    }
+  },
+  "order": [
+    "ingredients-hero",
+    "ingredients-grid",
+    "no-list",
+    "ingredients-showcase",
+    "cta"
+  ]
+}

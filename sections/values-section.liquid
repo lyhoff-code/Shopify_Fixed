@@ -1,0 +1,218 @@
+<section class="values-section scroll-reveal">
+  <div class="values-section__container">
+    <div class="values-section__header">
+      <span class="values-section__subtitle">{{ section.settings.subtitle }}</span>
+      <h2 class="values-section__title">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="values-section__grid">
+      {%- for block in section.blocks -%}
+        <div class="value-card scroll-reveal" {{ block.shopify_attributes }}>
+          <div class="value-card__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'leaf' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2C6.5 2 2 6.5 2 12c0 5.5 4.5 10 10 10 1.5 0 3-.3 4.3-.9M12 2v10m0 0l6-6M12 12l4 4"/>
+                  <path d="M17 2c3 3 5 7 5 10 0 2-1 4-2 5.5"/>
+                </svg>
+              {%- when 'science' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M9 3h6M12 3v6m0 0l4 9H8l4-9z"/>
+                  <circle cx="12" cy="18" r="3"/>
+                </svg>
+              {%- when 'heart' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4C12 4 13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 13.5 12 21 12 21Z"/>
+                </svg>
+              {%- when 'globe' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M2 12h20M12 2c3 3 4.5 6 4.5 10s-1.5 7-4.5 10c-3-3-4.5-6-4.5-10s1.5-7 4.5-10z"/>
+                </svg>
+              {%- when 'shield' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2L4 6v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V6l-8-4z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+            {%- endcase -%}
+          </div>
+          <h3 class="value-card__title">{{ block.settings.title }}</h3>
+          <p class="value-card__description">{{ block.settings.description }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .values-section {
+    padding: 80px 20px;
+    background: #f8f9fa;
+  }
+
+  .values-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .values-section__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .values-section__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+  }
+
+  .values-section__title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .values-section__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  .value-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .value-card__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 24px;
+    color: var(--color-secondary, #2D5A4A);
+  }
+
+  .value-card__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .value-card__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .value-card__description {
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.6;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Values Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "What We Stand For"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Core Values"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf (Natural)" },
+            { "value": "science", "label": "Science" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "globe", "label": "Globe" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "100% Organic"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Every ingredient is certified organic and sourced from sustainable farms."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Values Section",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "icon": "leaf",
+            "title": "100% Organic",
+            "description": "Every ingredient is certified organic and sourced from sustainable farms around the world."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "science",
+            "title": "Science-Backed",
+            "description": "Our formulas are developed by cosmetic chemists and tested for efficacy."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Cruelty-Free",
+            "description": "We never test on animals. All our products are Leaping Bunny certified."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "globe",
+            "title": "Eco-Conscious",
+            "description": "Carbon-neutral operations and 100% recyclable packaging materials."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

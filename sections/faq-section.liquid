@@ -1,0 +1,394 @@
+<section class="faq-section scroll-reveal">
+  <div class="faq-section__container">
+    <div class="faq-section__header">
+      <span class="faq-section__subtitle">{{ section.settings.subtitle }}</span>
+      <h1 class="faq-section__title">{{ section.settings.title }}</h1>
+      <p class="faq-section__description">{{ section.settings.description }}</p>
+    </div>
+
+    <div class="faq-section__categories">
+      {%- assign categories = section.blocks | map: 'settings' | map: 'category' | uniq -%}
+      {%- if categories.size > 1 -%}
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-category="all">All</button>
+          {%- for category in categories -%}
+            <button class="faq-tab" data-category="{{ category | handleize }}">{{ category }}</button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="faq-section__list">
+      {%- for block in section.blocks -%}
+        <div class="faq-item scroll-reveal" data-category="{{ block.settings.category | handleize }}" {{ block.shopify_attributes }}>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>{{ block.settings.question }}</span>
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-content">
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_contact -%}
+      <div class="faq-section__contact">
+        <p>{{ section.settings.contact_text }}</p>
+        <a href="{{ section.settings.contact_link }}" class="faq-section__contact-btn">
+          {{ section.settings.contact_button }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 80px 20px;
+    background: #fff;
+  }
+
+  .faq-section__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-section__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .faq-section__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary, #2D5A4A);
+    margin-bottom: 16px;
+  }
+
+  .faq-section__title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: var(--color-primary, #1A1A1A);
+  }
+
+  .faq-section__description {
+    font-size: 1.0625rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .faq-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .faq-tab {
+    padding: 10px 24px;
+    border: 1px solid #e0e0e0;
+    background: transparent;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .faq-tab:hover,
+  .faq-tab.active {
+    background: var(--color-primary, #1A1A1A);
+    border-color: var(--color-primary, #1A1A1A);
+    color: #fff;
+  }
+
+  .faq-section__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .faq-item.hidden {
+    display: none;
+  }
+
+  .faq-item__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    color: var(--color-primary, #1A1A1A);
+    transition: background 0.3s ease;
+  }
+
+  .faq-item__question:hover {
+    background: #f8f9fa;
+  }
+
+  .faq-item__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.open .faq-item__icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-item__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-item.open .faq-item__answer {
+    max-height: 500px;
+  }
+
+  .faq-item__answer-content {
+    padding: 0 24px 20px;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  .faq-section__contact {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .faq-section__contact p {
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .faq-section__contact-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--color-primary, #1A1A1A);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .faq-section__contact-btn:hover {
+    background: var(--color-secondary, #2D5A4A);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .faq-section__title {
+      font-size: 2rem;
+    }
+
+    .faq-item__question {
+      padding: 16px 20px;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // FAQ accordion
+    document.querySelectorAll('.faq-item__question').forEach(function(button) {
+      button.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+
+        // Close all other items
+        document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+          if (openItem !== item) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current item
+        item.classList.toggle('open');
+        this.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    // Category tabs
+    document.querySelectorAll('.faq-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var category = this.dataset.category;
+
+        // Update active tab
+        document.querySelectorAll('.faq-tab').forEach(function(t) {
+          t.classList.remove('active');
+        });
+        this.classList.add('active');
+
+        // Filter items
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+          if (category === 'all' || item.dataset.category === category) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Support"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Find answers to common questions about our products, shipping, and policies."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact",
+      "label": "Show contact section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contact_text",
+      "label": "Contact text",
+      "default": "Can't find what you're looking for?"
+    },
+    {
+      "type": "text",
+      "id": "contact_button",
+      "label": "Contact button text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "Contact link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category",
+          "default": "General"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What makes your products organic?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>All our products are formulated with at least 95% certified organic ingredients. We work exclusively with certified organic farms and suppliers, and our products are verified by independent third-party organizations.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Products",
+            "question": "What makes your products organic?",
+            "answer": "<p>All our products are formulated with at least 95% certified organic ingredients. We work exclusively with certified organic farms and suppliers, and our products are verified by independent third-party organizations.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Products",
+            "question": "Are your products suitable for sensitive skin?",
+            "answer": "<p>Yes! Our formulas are specifically designed to be gentle on all skin types, including sensitive skin. We avoid harsh chemicals, synthetic fragrances, and known irritants. However, we always recommend patch testing any new product.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Shipping",
+            "question": "How long does shipping take?",
+            "answer": "<p>Standard shipping typically takes 3-5 business days within the continental US. Express shipping (1-2 business days) is available at checkout. International shipping varies by destination, usually 7-14 business days.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Shipping",
+            "question": "Do you offer free shipping?",
+            "answer": "<p>Yes! We offer free standard shipping on all orders over $99 within the United States. International orders may have different thresholds depending on the destination.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Returns",
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not completely happy with your purchase, you can return any unused products for a full refund. Used products may be eligible for store credit.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Returns",
+            "question": "How do I initiate a return?",
+            "answer": "<p>Simply contact our customer care team at hello@organicskincare.com with your order number. We'll provide you with a prepaid return label and process your refund within 5-7 business days of receiving the return.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

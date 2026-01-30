@@ -1,0 +1,156 @@
+{
+  "sections": {
+    "about-hero": {
+      "type": "about-hero",
+      "settings": {
+        "subtitle": "Our Story",
+        "title": "Purity Meets Science",
+        "description": "Founded in 2018, we set out with a simple mission: create skincare that works without compromising your health or the planet. Every formula is crafted with certified organic ingredients and backed by scientific research."
+      }
+    },
+    "values": {
+      "type": "values-section",
+      "settings": {
+        "subtitle": "What We Stand For",
+        "title": "Our Core Values"
+      },
+      "blocks": {
+        "value-1": {
+          "type": "value",
+          "settings": {
+            "icon": "leaf",
+            "title": "100% Organic",
+            "description": "Every ingredient is certified organic and sourced from sustainable farms around the world."
+          }
+        },
+        "value-2": {
+          "type": "value",
+          "settings": {
+            "icon": "science",
+            "title": "Science-Backed",
+            "description": "Our formulas are developed by cosmetic chemists and tested for efficacy."
+          }
+        },
+        "value-3": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Cruelty-Free",
+            "description": "We never test on animals. All our products are Leaping Bunny certified."
+          }
+        },
+        "value-4": {
+          "type": "value",
+          "settings": {
+            "icon": "globe",
+            "title": "Eco-Conscious",
+            "description": "Carbon-neutral operations and 100% recyclable packaging materials."
+          }
+        }
+      },
+      "block_order": ["value-1", "value-2", "value-3", "value-4"]
+    },
+    "timeline": {
+      "type": "timeline-section",
+      "settings": {
+        "subtitle": "Our Journey",
+        "title": "Milestones"
+      },
+      "blocks": {
+        "milestone-1": {
+          "type": "milestone",
+          "settings": {
+            "year": "2018",
+            "title": "The Beginning",
+            "description": "Founded in a small kitchen with a passion for clean beauty and a vision to transform the skincare industry."
+          }
+        },
+        "milestone-2": {
+          "type": "milestone",
+          "settings": {
+            "year": "2019",
+            "title": "First Product Launch",
+            "description": "Released our signature Vitamin C Serum, which quickly became a customer favorite and industry bestseller."
+          }
+        },
+        "milestone-3": {
+          "type": "milestone",
+          "settings": {
+            "year": "2020",
+            "title": "Going Carbon Neutral",
+            "description": "Achieved carbon-neutral certification and switched to 100% recyclable packaging materials."
+          }
+        },
+        "milestone-4": {
+          "type": "milestone",
+          "settings": {
+            "year": "2021",
+            "title": "100,000 Happy Customers",
+            "description": "Reached a major milestone with over 100,000 customers trusting us with their skincare routine."
+          }
+        },
+        "milestone-5": {
+          "type": "milestone",
+          "settings": {
+            "year": "2023",
+            "title": "Global Expansion",
+            "description": "Expanded to 30+ countries, bringing clean organic skincare to customers worldwide."
+          }
+        }
+      },
+      "block_order": ["milestone-1", "milestone-2", "milestone-3", "milestone-4", "milestone-5"]
+    },
+    "team": {
+      "type": "team-section",
+      "settings": {
+        "subtitle": "Our Team",
+        "title": "Meet the Experts",
+        "description": "Scientists, herbalists, and skincare enthusiasts united by a passion for clean beauty."
+      },
+      "blocks": {
+        "member-1": {
+          "type": "team_member",
+          "settings": {
+            "name": "Dr. Sarah Chen",
+            "role": "Founder & Chief Scientist",
+            "bio": "With over 15 years in cosmetic chemistry, Sarah leads our product development with a focus on efficacy and safety."
+          }
+        },
+        "member-2": {
+          "type": "team_member",
+          "settings": {
+            "name": "Marcus Rivera",
+            "role": "Head of Sustainability",
+            "bio": "Marcus ensures our operations remain carbon-neutral and our packaging stays eco-friendly."
+          }
+        },
+        "member-3": {
+          "type": "team_member",
+          "settings": {
+            "name": "Dr. Emily Okafor",
+            "role": "Lead Herbalist",
+            "bio": "Emily sources our botanical ingredients from certified organic farms around the world."
+          }
+        }
+      },
+      "block_order": ["member-1", "member-2", "member-3"]
+    },
+    "cta": {
+      "type": "newsletter",
+      "settings": {
+        "title": "Join Our Community",
+        "description": "Be part of the clean beauty movement. Get exclusive offers, skincare tips, and early access to new products.",
+        "placeholder": "Enter your email",
+        "button_text": "Subscribe",
+        "disclaimer": "We respect your privacy. Unsubscribe anytime."
+      }
+    }
+  },
+  "order": [
+    "about-hero",
+    "values",
+    "timeline",
+    "team",
+    "cta"
+  ]
+}
