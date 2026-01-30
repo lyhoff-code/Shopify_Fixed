@@ -1,8 +1,8 @@
-<!-- Real-time Social Proof Notifications -->
-<div id="social-proof-container" class="social-proof-container"></div>
+<!-- Elegant Social Proof Notifications - French-Organic Style -->
+<div id="social-proof-container" class="social-proof-container-elegant"></div>
 
 <style>
-.social-proof-container {
+.social-proof-container-elegant {
   position: fixed;
   bottom: 200px;
   left: 20px;
@@ -13,210 +13,189 @@
   pointer-events: none;
 }
 
-.social-proof-notification {
+.social-proof-notification-elegant {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  gap: 14px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #FDFCFB, #F5F3F0);
+  border: 1px solid rgba(156, 175, 136, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(74, 63, 53, 0.1);
   transform: translateX(-120%);
   opacity: 0;
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: auto;
-  max-width: 320px;
+  max-width: 300px;
   cursor: pointer;
+  position: relative;
 }
 
-.social-proof-notification.show {
+.social-proof-notification-elegant.show {
   transform: translateX(0);
   opacity: 1;
 }
 
-.social-proof-notification.hide {
+.social-proof-notification-elegant.hide {
   transform: translateX(-120%);
   opacity: 0;
 }
 
-.social-proof-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+.social-proof-image-elegant {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(156, 175, 136, 0.15), rgba(212, 197, 169, 0.15));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 22px;
   flex-shrink: 0;
   overflow: hidden;
+  border: 1px solid rgba(156, 175, 136, 0.2);
 }
 
-.social-proof-image img {
+.social-proof-image-elegant img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.social-proof-content {
+.social-proof-content-elegant {
   flex: 1;
   min-width: 0;
 }
 
-.social-proof-title {
-  font-size: 0.8rem;
-  color: #666;
-  margin-bottom: 2px;
+.social-proof-title-elegant {
+  font-size: 0.75rem;
+  color: #6B5D4D;
+  margin-bottom: 3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-.social-proof-message {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #1A1A1A;
+.social-proof-message-elegant {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4A3F35;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.social-proof-time {
-  font-size: 0.75rem;
-  color: #999;
-  margin-top: 2px;
+.social-proof-time-elegant {
+  font-size: 0.7rem;
+  color: #9CAF88;
+  margin-top: 3px;
+  font-style: italic;
 }
 
-.social-proof-close {
+.social-proof-close-elegant {
   position: absolute;
-  top: 5px;
-  right: 8px;
-  width: 20px;
-  height: 20px;
+  top: 8px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
   border: none;
   background: none;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease;
-  font-size: 16px;
-  color: #999;
+  font-size: 14px;
+  color: #9CAF88;
 }
 
-.social-proof-notification:hover .social-proof-close {
+.social-proof-notification-elegant:hover .social-proof-close-elegant {
   opacity: 1;
 }
 
-/* Different notification types */
-.social-proof-notification.purchase {
-  border-left: 4px solid #2D5A4A;
+/* Notification type accents */
+.social-proof-notification-elegant.purchase {
+  border-left: 3px solid #9CAF88;
 }
 
-.social-proof-notification.review {
-  border-left: 4px solid #FFD700;
+.social-proof-notification-elegant.review {
+  border-left: 3px solid #D4C5A9;
 }
 
-.social-proof-notification.visitor {
-  border-left: 4px solid #3498db;
+.social-proof-notification-elegant.visitor {
+  border-left: 3px solid #C9A9A6;
 }
 
-.social-proof-notification.stock {
-  border-left: 4px solid #e74c3c;
+.social-proof-notification-elegant.stock {
+  border-left: 3px solid #BFB093;
 }
 
-/* Animated icons */
-.social-proof-icon {
-  animation: socialProofPulse 2s ease-in-out infinite;
+/* Subtle icon animation */
+.social-proof-icon-elegant {
+  animation: socialProofFloat 3s ease-in-out infinite;
 }
 
-@keyframes socialProofPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+@keyframes socialProofFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
 }
 
-/* Visitor counter badge */
-.visitor-counter {
+/* Elegant visitor counter */
+.visitor-counter-elegant {
   position: fixed;
   top: 100px;
   right: 20px;
-  background: rgba(255,255,255,0.95);
-  padding: 10px 16px;
-  border-radius: 30px;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #FDFCFB, #F5F3F0);
+  border: 1px solid rgba(156, 175, 136, 0.3);
+  padding: 10px 18px;
+  border-radius: 25px;
+  box-shadow: 0 2px 15px rgba(74, 63, 53, 0.08);
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
+  gap: 10px;
+  font-size: 0.8rem;
   z-index: 100;
   opacity: 0;
   transform: translateX(100px);
-  transition: all 0.5s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #4A3F35;
 }
 
-.visitor-counter.show {
+.visitor-counter-elegant.show {
   opacity: 1;
   transform: translateX(0);
 }
 
-.visitor-counter-dot {
+.visitor-counter-dot-elegant {
   width: 8px;
   height: 8px;
-  background: #2ecc71;
+  background: #9CAF88;
   border-radius: 50%;
-  animation: visitorPulse 1.5s ease-in-out infinite;
+  animation: visitorPulseElegant 2s ease-in-out infinite;
 }
 
-@keyframes visitorPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
-  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+@keyframes visitorPulseElegant {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(156, 175, 136, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(156, 175, 136, 0); }
 }
 
-.visitor-counter-number {
-  font-weight: 700;
-  color: #2D5A4A;
-}
-
-/* Stock counter */
-.stock-alert {
-  position: fixed;
-  top: 150px;
-  right: 20px;
-  background: #fff3cd;
-  border: 1px solid #ffc107;
-  padding: 10px 16px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  z-index: 100;
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 0.5s ease;
-}
-
-.stock-alert.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.stock-alert-icon {
-  font-size: 1.2rem;
+.visitor-counter-number-elegant {
+  font-weight: 600;
+  color: #7D9167;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .social-proof-container {
+  .social-proof-container-elegant {
     left: 10px;
-    bottom: 100px;
+    bottom: 120px;
   }
 
-  .social-proof-notification {
-    max-width: 280px;
-    padding: 10px 12px;
+  .social-proof-notification-elegant {
+    max-width: 260px;
+    padding: 12px 14px;
   }
 
-  .visitor-counter,
-  .stock-alert {
+  .visitor-counter-elegant {
     right: 10px;
     font-size: 0.75rem;
-    padding: 8px 12px;
+    padding: 8px 14px;
   }
 }
 </style>
@@ -225,60 +204,60 @@
 document.addEventListener('DOMContentLoaded', function() {
   const container = document.getElementById('social-proof-container');
 
-  // Sample data - in production, this would come from your backend
+  // Elegant notification data
   const notifications = [
     {
       type: 'purchase',
-      icon: '🛒',
-      title: 'Someone just purchased',
-      products: ['Vitamin C Serum', 'Hyaluronic Acid Cream', 'Retinol Night Serum', 'Gentle Cleanser', 'Mineral Sunscreen'],
-      locations: ['New York', 'Los Angeles', 'Chicago', 'Miami', 'Seattle', 'Austin', 'Denver', 'Boston']
+      icon: '&#10047;',
+      title: 'New Order',
+      products: ['Vitamin C Serum', 'Hyaluronic Acid', 'Retinol Night Cream', 'Gentle Cleanser', 'Mineral SPF'],
+      locations: ['Paris', 'New York', 'London', 'Milan', 'Barcelona', 'Amsterdam', 'Geneva', 'Monaco']
     },
     {
       type: 'review',
-      icon: '⭐',
-      title: 'New 5-star review',
+      icon: '&#10022;',
+      title: 'New Review',
       messages: [
-        '"Best serum I\'ve ever used!"',
-        '"My skin has never looked better"',
-        '"Worth every penny!"',
-        '"Finally found my holy grail"',
-        '"Obsessed with this product!"'
+        '"Absolutely divine product"',
+        '"My skin has never been better"',
+        '"Pure luxury for the skin"',
+        '"Finally, quality I can trust"',
+        '"Elegant and effective"'
       ],
-      names: ['Sarah M.', 'Jessica L.', 'Emily R.', 'Amanda K.', 'Rachel T.']
+      names: ['Sophie L.', 'Charlotte M.', 'Isabelle R.', 'Victoria K.', 'Alexandra T.']
     },
     {
       type: 'visitor',
-      icon: '👀',
-      title: 'Trending now',
+      icon: '&#10048;',
+      title: 'Popular Now',
       messages: [
-        '23 people viewing this',
-        '15 added to cart today',
+        '18 people viewing',
+        '12 added to cart today',
         'Bestseller this week',
-        '47 sold in last 24 hours'
+        '34 sold recently'
       ]
     },
     {
       type: 'stock',
-      icon: '🔥',
-      title: 'Low stock alert',
+      icon: '&#10070;',
+      title: 'Limited Availability',
       messages: [
-        'Only 3 left in stock!',
-        'Selling fast - 5 remaining',
-        'Almost sold out!',
-        'Last few items available'
+        'Only 4 remaining',
+        'Selling quickly',
+        'Almost gone',
+        'Last few in stock'
       ]
     }
   ];
 
-  const times = ['just now', '2 min ago', '5 min ago', '8 min ago', '12 min ago'];
+  const times = ['just now', 'moments ago', '2 min ago', '5 min ago', 'recently'];
 
   let notificationQueue = [];
   let isShowing = false;
 
   function createNotification(data) {
     const notification = document.createElement('div');
-    notification.className = `social-proof-notification ${data.type}`;
+    notification.className = `social-proof-notification-elegant ${data.type}`;
 
     let content = '';
 
@@ -287,13 +266,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const product = data.products[Math.floor(Math.random() * data.products.length)];
         const location = data.locations[Math.floor(Math.random() * data.locations.length)];
         content = `
-          <div class="social-proof-image">
-            <span class="social-proof-icon">${data.icon}</span>
+          <div class="social-proof-image-elegant">
+            <span class="social-proof-icon-elegant">${data.icon}</span>
           </div>
-          <div class="social-proof-content">
-            <div class="social-proof-title">${data.title}</div>
-            <div class="social-proof-message">${product}</div>
-            <div class="social-proof-time">📍 ${location} • ${times[Math.floor(Math.random() * times.length)]}</div>
+          <div class="social-proof-content-elegant">
+            <div class="social-proof-title-elegant">${data.title}</div>
+            <div class="social-proof-message-elegant">${product}</div>
+            <div class="social-proof-time-elegant">${location} • ${times[Math.floor(Math.random() * times.length)]}</div>
           </div>
         `;
         break;
@@ -302,13 +281,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const review = data.messages[Math.floor(Math.random() * data.messages.length)];
         const name = data.names[Math.floor(Math.random() * data.names.length)];
         content = `
-          <div class="social-proof-image">
-            <span class="social-proof-icon">${data.icon}</span>
+          <div class="social-proof-image-elegant">
+            <span class="social-proof-icon-elegant">${data.icon}</span>
           </div>
-          <div class="social-proof-content">
-            <div class="social-proof-title">${name} left a review</div>
-            <div class="social-proof-message">${review}</div>
-            <div class="social-proof-time">⭐⭐⭐⭐⭐ • ${times[Math.floor(Math.random() * times.length)]}</div>
+          <div class="social-proof-content-elegant">
+            <div class="social-proof-title-elegant">${name}</div>
+            <div class="social-proof-message-elegant">${review}</div>
+            <div class="social-proof-time-elegant">${times[Math.floor(Math.random() * times.length)]}</div>
           </div>
         `;
         break;
@@ -317,20 +296,20 @@ document.addEventListener('DOMContentLoaded', function() {
       case 'stock':
         const message = data.messages[Math.floor(Math.random() * data.messages.length)];
         content = `
-          <div class="social-proof-image">
-            <span class="social-proof-icon">${data.icon}</span>
+          <div class="social-proof-image-elegant">
+            <span class="social-proof-icon-elegant">${data.icon}</span>
           </div>
-          <div class="social-proof-content">
-            <div class="social-proof-title">${data.title}</div>
-            <div class="social-proof-message">${message}</div>
+          <div class="social-proof-content-elegant">
+            <div class="social-proof-title-elegant">${data.title}</div>
+            <div class="social-proof-message-elegant">${message}</div>
           </div>
         `;
         break;
     }
 
-    notification.innerHTML = content + '<button class="social-proof-close">&times;</button>';
+    notification.innerHTML = content + '<button class="social-proof-close-elegant">&times;</button>';
 
-    notification.querySelector('.social-proof-close').addEventListener('click', (e) => {
+    notification.querySelector('.social-proof-close-elegant').addEventListener('click', (e) => {
       e.stopPropagation();
       hideNotification(notification);
     });
@@ -354,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(() => {
       hideNotification(notification);
-    }, 5000);
+    }, 5500);
   }
 
   function hideNotification(notification) {
@@ -367,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       isShowing = false;
       processQueue();
-    }, 500);
+    }, 600);
   }
 
   function processQueue() {
@@ -386,50 +365,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Show notifications periodically
+  // Schedule notifications
   function scheduleNotifications() {
     const types = ['purchase', 'review', 'purchase', 'visitor', 'purchase', 'stock'];
     let index = 0;
 
-    // First notification after 8 seconds
     setTimeout(() => {
       queueNotification(types[index]);
       index = (index + 1) % types.length;
 
-      // Then every 15-25 seconds
       setInterval(() => {
         queueNotification(types[index]);
         index = (index + 1) % types.length;
-      }, 15000 + Math.random() * 10000);
-    }, 8000);
-  }
-
-  // Visitor counter
-  function showVisitorCounter() {
-    const counter = document.createElement('div');
-    counter.className = 'visitor-counter';
-    counter.innerHTML = `
-      <span class="visitor-counter-dot"></span>
-      <span><span class="visitor-counter-number">${12 + Math.floor(Math.random() * 20)}</span> people viewing now</span>
-    `;
-    document.body.appendChild(counter);
-
-    setTimeout(() => counter.classList.add('show'), 3000);
-
-    // Update count occasionally
-    setInterval(() => {
-      const num = counter.querySelector('.visitor-counter-number');
-      const current = parseInt(num.textContent);
-      const change = Math.floor(Math.random() * 5) - 2;
-      num.textContent = Math.max(8, Math.min(35, current + change));
+      }, 18000 + Math.random() * 12000);
     }, 10000);
   }
 
-  // Initialize
+  // Elegant visitor counter
+  function showVisitorCounter() {
+    const counter = document.createElement('div');
+    counter.className = 'visitor-counter-elegant';
+    counter.innerHTML = `
+      <span class="visitor-counter-dot-elegant"></span>
+      <span><span class="visitor-counter-number-elegant">${10 + Math.floor(Math.random() * 15)}</span> viewing now</span>
+    `;
+    document.body.appendChild(counter);
+
+    setTimeout(() => counter.classList.add('show'), 4000);
+
+    setInterval(() => {
+      const num = counter.querySelector('.visitor-counter-number-elegant');
+      const current = parseInt(num.textContent);
+      const change = Math.floor(Math.random() * 4) - 2;
+      num.textContent = Math.max(6, Math.min(28, current + change));
+    }, 12000);
+  }
+
   scheduleNotifications();
   showVisitorCounter();
 
-  // Expose for external triggers
   window.showSocialProof = queueNotification;
 });
 </script>

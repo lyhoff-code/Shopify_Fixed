@@ -1,45 +1,51 @@
-<!-- Advanced AI Chatbot with Avatar -->
-<div id="chatbot-advanced" class="chatbot-advanced">
+<!-- Elegant AI Chatbot - French-Organic Style -->
+<div id="chatbot-advanced" class="chatbot-elegant">
   <!-- Chat toggle button -->
-  <button class="chatbot-toggle-btn" aria-label="Open chat">
-    <span class="chatbot-toggle-avatar">
-      <svg viewBox="0 0 50 50" class="chatbot-avatar-svg">
-        <circle cx="25" cy="25" r="23" fill="#2D5A4A"/>
-        <circle cx="25" cy="20" r="8" fill="#fff"/>
-        <path d="M12 35 Q25 45 38 35" fill="#fff"/>
-        <circle class="chatbot-eye left" cx="20" cy="18" r="2" fill="#2D5A4A"/>
-        <circle class="chatbot-eye right" cx="30" cy="18" r="2" fill="#2D5A4A"/>
+  <button class="chatbot-toggle-elegant" aria-label="Open chat">
+    <span class="chatbot-toggle-icon">
+      <svg viewBox="0 0 50 50" class="chatbot-svg-elegant">
+        <defs>
+          <linearGradient id="chatbotGradElegant" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#9CAF88"/>
+            <stop offset="100%" stop-color="#7D9167"/>
+          </linearGradient>
+        </defs>
+        <circle cx="25" cy="25" r="23" fill="url(#chatbotGradElegant)"/>
+        <path d="M15 20 Q25 15 35 20 Q35 30 25 35 Q15 30 15 20 Z" fill="#FDFCFB" opacity="0.9"/>
+        <circle cx="21" cy="23" r="2" fill="#4A3F35" class="chatbot-eye-elegant"/>
+        <circle cx="29" cy="23" r="2" fill="#4A3F35" class="chatbot-eye-elegant"/>
+        <path d="M21 28 Q25 31 29 28" stroke="#4A3F35" stroke-width="1.5" fill="none" stroke-linecap="round"/>
       </svg>
     </span>
-    <span class="chatbot-toggle-badge">1</span>
-    <span class="chatbot-toggle-pulse"></span>
+    <span class="chatbot-badge-elegant">1</span>
+    <span class="chatbot-pulse-elegant"></span>
   </button>
 
   <!-- Chat window -->
-  <div class="chatbot-window">
+  <div class="chatbot-window-elegant">
     <!-- Header -->
-    <div class="chatbot-header">
-      <div class="chatbot-header-avatar">
-        <svg viewBox="0 0 50 50" class="chatbot-avatar-svg">
-          <circle cx="25" cy="25" r="23" fill="#2D5A4A"/>
-          <circle cx="25" cy="20" r="8" fill="#fff"/>
-          <path d="M12 35 Q25 45 38 35" fill="#fff"/>
-          <circle class="chatbot-eye left" cx="20" cy="18" r="2" fill="#2D5A4A"/>
-          <circle class="chatbot-eye right" cx="30" cy="18" r="2" fill="#2D5A4A"/>
+    <div class="chatbot-header-elegant">
+      <div class="chatbot-header-avatar-elegant">
+        <svg viewBox="0 0 50 50" class="chatbot-svg-elegant">
+          <circle cx="25" cy="25" r="23" fill="#FDFCFB"/>
+          <path d="M15 20 Q25 15 35 20 Q35 30 25 35 Q15 30 15 20 Z" fill="#9CAF88" opacity="0.3"/>
+          <circle cx="21" cy="23" r="2" fill="#4A3F35"/>
+          <circle cx="29" cy="23" r="2" fill="#4A3F35"/>
+          <path d="M21 28 Q25 31 29 28" stroke="#4A3F35" stroke-width="1.5" fill="none" stroke-linecap="round"/>
         </svg>
-        <span class="chatbot-status-dot"></span>
+        <span class="chatbot-status-elegant"></span>
       </div>
-      <div class="chatbot-header-info">
+      <div class="chatbot-header-info-elegant">
         <h4>Sage</h4>
-        <p>Your Skincare Expert 🌿</p>
+        <p>Your Beauty Concierge</p>
       </div>
-      <div class="chatbot-header-actions">
-        <button class="chatbot-minimize" aria-label="Minimize">
+      <div class="chatbot-header-actions-elegant">
+        <button class="chatbot-minimize-elegant" aria-label="Minimize">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="5" y1="12" x2="19" y2="12"/>
           </svg>
         </button>
-        <button class="chatbot-close" aria-label="Close">
+        <button class="chatbot-close-elegant" aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
@@ -49,265 +55,248 @@
     </div>
 
     <!-- Messages area -->
-    <div class="chatbot-messages" id="chatbot-messages">
-      <!-- Messages populated by JS -->
-    </div>
+    <div class="chatbot-messages-elegant" id="chatbot-messages"></div>
 
     <!-- Quick actions -->
-    <div class="chatbot-quick-actions" id="chatbot-quick-actions">
-      <button class="quick-action" data-action="skincare">💆 Skincare advice</button>
-      <button class="quick-action" data-action="products">🛍️ Product help</button>
-      <button class="quick-action" data-action="order">📦 Order status</button>
-      <button class="quick-action" data-action="quiz">✨ Take skin quiz</button>
+    <div class="chatbot-quick-elegant" id="chatbot-quick-actions">
+      <button class="quick-action-elegant" data-action="skincare">Skincare advice</button>
+      <button class="quick-action-elegant" data-action="products">Product help</button>
+      <button class="quick-action-elegant" data-action="order">Order status</button>
+      <button class="quick-action-elegant" data-action="quiz">Take skin quiz</button>
     </div>
 
     <!-- Input area -->
-    <div class="chatbot-input-area">
-      <div class="chatbot-input-wrapper">
-        <button class="chatbot-emoji-btn" aria-label="Add emoji">😊</button>
-        <input type="text" class="chatbot-input" placeholder="Ask me anything..." id="chatbot-input">
-        <button class="chatbot-send" aria-label="Send message" id="chatbot-send">
+    <div class="chatbot-input-elegant">
+      <div class="chatbot-input-wrapper-elegant">
+        <input type="text" class="chatbot-input-field-elegant" placeholder="Ask me anything..." id="chatbot-input">
+        <button class="chatbot-send-elegant" aria-label="Send message" id="chatbot-send">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
           </svg>
         </button>
       </div>
-      <div class="chatbot-powered">
-        <span>Powered by AI 🧠</span>
+      <div class="chatbot-powered-elegant">
+        <span>Powered by AI</span>
       </div>
     </div>
   </div>
 </div>
 
 <style>
-/* Advanced Chatbot Styles */
-.chatbot-advanced {
+/* French-Organic Elegant Chatbot */
+.chatbot-elegant {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 9999;
-  font-family: var(--font-body, system-ui, sans-serif);
+  font-family: var(--font-body, 'Georgia', serif);
 }
 
-/* Toggle Button */
-.chatbot-toggle-btn {
-  width: 60px;
-  height: 60px;
+/* Elegant Toggle Button */
+.chatbot-toggle-elegant {
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  border: none;
-  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
-  box-shadow: 0 4px 20px rgba(45, 90, 74, 0.4);
+  border: 2px solid #9CAF88;
+  background: linear-gradient(135deg, #FDFCFB, #F5F3F0);
+  box-shadow: 0 4px 20px rgba(156, 175, 136, 0.25);
   cursor: pointer;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: visible;
 }
 
-.chatbot-toggle-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(45, 90, 74, 0.5);
+.chatbot-toggle-elegant:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(156, 175, 136, 0.35);
 }
 
-.chatbot-advanced.open .chatbot-toggle-btn {
+.chatbot-elegant.open .chatbot-toggle-elegant {
   transform: scale(0);
   opacity: 0;
   pointer-events: none;
 }
 
-.chatbot-toggle-avatar {
-  width: 40px;
-  height: 40px;
+.chatbot-toggle-icon {
+  width: 36px;
+  height: 36px;
   display: block;
   margin: auto;
 }
 
-.chatbot-avatar-svg {
+.chatbot-svg-elegant {
   width: 100%;
   height: 100%;
 }
 
-.chatbot-eye {
-  animation: chatbotBlink 3s ease-in-out infinite;
+.chatbot-eye-elegant {
+  animation: chatbotBlinkElegant 4s ease-in-out infinite;
 }
 
-@keyframes chatbotBlink {
+@keyframes chatbotBlinkElegant {
   0%, 45%, 55%, 100% { transform: scaleY(1); }
   50% { transform: scaleY(0.1); }
 }
 
-.chatbot-toggle-badge {
+.chatbot-badge-elegant {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 22px;
-  height: 22px;
-  background: #e74c3c;
-  color: #fff;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  background: #C9A9A6;
+  color: #FDFCFB;
   border-radius: 50%;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 11px;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: badgePulse 2s ease-in-out infinite;
+  animation: badgePulseElegant 3s ease-in-out infinite;
 }
 
-@keyframes badgePulse {
+@keyframes badgePulseElegant {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  50% { transform: scale(1.05); }
 }
 
-.chatbot-toggle-pulse {
+.chatbot-pulse-elegant {
   position: absolute;
-  inset: -5px;
+  inset: -4px;
   border-radius: 50%;
-  border: 2px solid #2D5A4A;
-  animation: togglePulse 2s ease-out infinite;
+  border: 1px solid #9CAF88;
+  animation: togglePulseElegant 3s ease-out infinite;
 }
 
-@keyframes togglePulse {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(1.5); opacity: 0; }
+@keyframes togglePulseElegant {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
 }
 
-/* Chat Window */
-.chatbot-window {
+/* Elegant Chat Window */
+.chatbot-window-elegant {
   position: absolute;
-  bottom: 80px;
+  bottom: 75px;
   right: 0;
-  width: 380px;
-  height: 550px;
-  background: #fff;
+  width: 360px;
+  height: 520px;
+  background: #FDFCFB;
+  border: 1px solid rgba(156, 175, 136, 0.3);
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 50px rgba(74, 63, 53, 0.12);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform: scale(0.8) translateY(20px);
+  transform: scale(0.9) translateY(20px);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: bottom right;
 }
 
-.chatbot-advanced.open .chatbot-window {
+.chatbot-elegant.open .chatbot-window-elegant {
   transform: scale(1) translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Header */
-.chatbot-header {
+/* Elegant Header */
+.chatbot-header-elegant {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
-  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
-  color: #fff;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #9CAF88, #7D9167);
+  color: #FDFCFB;
 }
 
-.chatbot-header-avatar {
+.chatbot-header-avatar-elegant {
   position: relative;
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   margin-right: 12px;
 }
 
-.chatbot-header-avatar .chatbot-avatar-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.chatbot-header-avatar .chatbot-avatar-svg circle:first-child {
-  fill: #fff;
-}
-
-.chatbot-header-avatar .chatbot-avatar-svg circle:nth-child(2) {
-  fill: #2D5A4A;
-}
-
-.chatbot-header-avatar .chatbot-avatar-svg path {
-  fill: #2D5A4A;
-}
-
-.chatbot-status-dot {
+.chatbot-status-elegant {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 12px;
-  height: 12px;
-  background: #2ecc71;
-  border: 2px solid #fff;
+  bottom: 1px;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  background: #D4C5A9;
+  border: 2px solid #FDFCFB;
   border-radius: 50%;
-  animation: statusPulse 2s ease-in-out infinite;
+  animation: statusPulseElegant 2.5s ease-in-out infinite;
 }
 
-@keyframes statusPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+@keyframes statusPulseElegant {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 197, 169, 0.4); }
+  50% { box-shadow: 0 0 0 5px rgba(212, 197, 169, 0); }
 }
 
-.chatbot-header-info {
+.chatbot-header-info-elegant {
   flex: 1;
 }
 
-.chatbot-header-info h4 {
+.chatbot-header-info-elegant h4 {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
-.chatbot-header-info p {
+.chatbot-header-info-elegant p {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   opacity: 0.9;
+  font-style: italic;
 }
 
-.chatbot-header-actions {
+.chatbot-header-actions-elegant {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
-.chatbot-header-actions button {
-  width: 32px;
-  height: 32px;
+.chatbot-header-actions-elegant button {
+  width: 30px;
+  height: 30px;
   border: none;
-  background: rgba(255,255,255,0.2);
+  background: rgba(253, 252, 251, 0.2);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #FDFCFB;
   transition: background 0.3s ease;
 }
 
-.chatbot-header-actions button:hover {
-  background: rgba(255,255,255,0.3);
+.chatbot-header-actions-elegant button:hover {
+  background: rgba(253, 252, 251, 0.3);
 }
 
-.chatbot-header-actions button svg {
-  width: 16px;
-  height: 16px;
+.chatbot-header-actions-elegant button svg {
+  width: 14px;
+  height: 14px;
 }
 
-/* Messages */
-.chatbot-messages {
+/* Elegant Messages */
+.chatbot-messages-elegant {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  background: #f8f9fa;
+  gap: 16px;
+  background: linear-gradient(180deg, #F5F3F0, #FDFCFB);
 }
 
-.chat-message {
+.chat-message-elegant {
   display: flex;
   gap: 10px;
-  animation: messageSlide 0.3s ease;
+  animation: messageSlideElegant 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes messageSlide {
+@keyframes messageSlideElegant {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -318,245 +307,207 @@
   }
 }
 
-.chat-message.user {
+.chat-message-elegant.user {
   flex-direction: row-reverse;
 }
 
-.chat-message-avatar {
-  width: 32px;
-  height: 32px;
+.chat-avatar-elegant {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: #2D5A4A;
+  background: linear-gradient(135deg, rgba(156, 175, 136, 0.2), rgba(212, 197, 169, 0.2));
+  border: 1px solid rgba(156, 175, 136, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  color: #fff;
+  font-size: 12px;
+  color: #7D9167;
   flex-shrink: 0;
 }
 
-.chat-message.user .chat-message-avatar {
-  background: #e0e0e0;
+.chat-message-elegant.user .chat-avatar-elegant {
+  background: linear-gradient(135deg, rgba(212, 197, 169, 0.3), rgba(201, 169, 166, 0.2));
+  color: #6B5D4D;
 }
 
-.chat-message-content {
+.chat-content-elegant {
   max-width: 75%;
 }
 
-.chat-message-bubble {
+.chat-bubble-elegant {
   padding: 12px 16px;
-  border-radius: 18px;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #4A3F35;
 }
 
-.chat-message:not(.user) .chat-message-bubble {
-  background: #fff;
+.chat-message-elegant:not(.user) .chat-bubble-elegant {
+  background: #FFFFFF;
+  border: 1px solid rgba(156, 175, 136, 0.15);
   border-bottom-left-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(74, 63, 53, 0.05);
 }
 
-.chat-message.user .chat-message-bubble {
-  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
-  color: #fff;
+.chat-message-elegant.user .chat-bubble-elegant {
+  background: linear-gradient(135deg, #9CAF88, #7D9167);
+  color: #FDFCFB;
   border-bottom-right-radius: 4px;
 }
 
-.chat-message-time {
-  font-size: 0.7rem;
-  color: #999;
+.chat-time-elegant {
+  font-size: 0.65rem;
+  color: #9CAF88;
   margin-top: 4px;
   padding: 0 4px;
+  font-style: italic;
 }
 
-.chat-message.user .chat-message-time {
+.chat-message-elegant.user .chat-time-elegant {
   text-align: right;
 }
 
-/* Typing indicator */
-.typing-indicator {
+/* Elegant Typing indicator */
+.typing-indicator-elegant {
   display: flex;
-  gap: 4px;
+  gap: 5px;
   padding: 12px 16px;
-  background: #fff;
-  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(156, 175, 136, 0.15);
+  border-radius: 16px;
   border-bottom-left-radius: 4px;
   width: fit-content;
 }
 
-.typing-dot {
-  width: 8px;
-  height: 8px;
-  background: #2D5A4A;
+.typing-dot-elegant {
+  width: 6px;
+  height: 6px;
+  background: #9CAF88;
   border-radius: 50%;
-  animation: typingBounce 1.4s ease-in-out infinite;
+  animation: typingBounceElegant 1.6s ease-in-out infinite;
 }
 
-.typing-dot:nth-child(2) { animation-delay: 0.2s; }
-.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+.typing-dot-elegant:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot-elegant:nth-child(3) { animation-delay: 0.4s; }
 
-@keyframes typingBounce {
-  0%, 60%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-8px); }
+@keyframes typingBounceElegant {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-6px); opacity: 1; }
 }
 
-/* Quick Actions */
-.chatbot-quick-actions {
+/* Elegant Quick Actions */
+.chatbot-quick-elegant {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 10px 20px;
-  background: #fff;
-  border-top: 1px solid #eee;
+  padding: 12px 20px;
+  background: #FDFCFB;
+  border-top: 1px solid rgba(156, 175, 136, 0.1);
 }
 
-.quick-action {
+.quick-action-elegant {
   padding: 8px 14px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(156, 175, 136, 0.3);
   border-radius: 20px;
-  background: #fff;
-  font-size: 0.8rem;
+  background: transparent;
+  font-size: 0.75rem;
+  color: #4A3F35;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  letter-spacing: 0.3px;
 }
 
-.quick-action:hover {
-  border-color: #2D5A4A;
-  background: rgba(45, 90, 74, 0.05);
+.quick-action-elegant:hover {
+  border-color: #9CAF88;
+  background: rgba(156, 175, 136, 0.1);
+  color: #7D9167;
 }
 
-/* Input Area */
-.chatbot-input-area {
-  padding: 15px 20px;
-  background: #fff;
-  border-top: 1px solid #eee;
+/* Elegant Input Area */
+.chatbot-input-elegant {
+  padding: 14px 20px;
+  background: #FDFCFB;
+  border-top: 1px solid rgba(156, 175, 136, 0.1);
 }
 
-.chatbot-input-wrapper {
+.chatbot-input-wrapper-elegant {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #f5f5f5;
+  background: #F5F3F0;
+  border: 1px solid rgba(156, 175, 136, 0.2);
   border-radius: 25px;
-  padding: 5px 10px;
+  padding: 4px 6px 4px 18px;
 }
 
-.chatbot-emoji-btn {
-  width: 36px;
-  height: 36px;
-  border: none;
-  background: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-
-.chatbot-emoji-btn:hover {
-  background: #e0e0e0;
-}
-
-.chatbot-input {
+.chatbot-input-field-elegant {
   flex: 1;
   border: none;
   background: none;
   padding: 10px 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #4A3F35;
   outline: none;
+  font-family: inherit;
 }
 
-.chatbot-send {
-  width: 40px;
-  height: 40px;
+.chatbot-input-field-elegant::placeholder {
+  color: #9CAF88;
+  font-style: italic;
+}
+
+.chatbot-send-elegant {
+  width: 38px;
+  height: 38px;
   border: none;
-  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
+  background: linear-gradient(135deg, #9CAF88, #7D9167);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #FDFCFB;
   transition: all 0.3s ease;
 }
 
-.chatbot-send:hover {
-  transform: scale(1.1);
+.chatbot-send-elegant:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 10px rgba(156, 175, 136, 0.3);
 }
 
-.chatbot-send svg {
-  width: 18px;
-  height: 18px;
+.chatbot-send-elegant svg {
+  width: 16px;
+  height: 16px;
 }
 
-.chatbot-powered {
+.chatbot-powered-elegant {
   text-align: center;
   margin-top: 10px;
-  font-size: 0.7rem;
-  color: #999;
-}
-
-/* Product cards in chat */
-.chat-product-card {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  margin-top: 10px;
-}
-
-.chat-product-image {
-  width: 60px;
-  height: 60px;
-  background: #e0e0e0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-}
-
-.chat-product-info h5 {
-  margin: 0 0 4px 0;
-  font-size: 0.9rem;
-}
-
-.chat-product-info p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.chat-product-btn {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 12px;
-  background: #2D5A4A;
-  color: #fff;
-  border-radius: 15px;
-  font-size: 0.75rem;
-  text-decoration: none;
+  font-size: 0.65rem;
+  color: #9CAF88;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* Mobile */
 @media (max-width: 480px) {
-  .chatbot-advanced {
+  .chatbot-elegant {
     bottom: 10px;
     right: 10px;
   }
 
-  .chatbot-window {
+  .chatbot-window-elegant {
     width: calc(100vw - 20px);
     height: calc(100vh - 100px);
-    bottom: 70px;
+    bottom: 65px;
     right: -10px;
-    border-radius: 15px;
+    border-radius: 16px;
   }
 
-  .chatbot-toggle-btn {
-    width: 55px;
-    height: 55px;
+  .chatbot-toggle-elegant {
+    width: 52px;
+    height: 52px;
   }
 }
 </style>
@@ -564,78 +515,76 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const chatbot = document.getElementById('chatbot-advanced');
-  const toggleBtn = chatbot.querySelector('.chatbot-toggle-btn');
-  const closeBtn = chatbot.querySelector('.chatbot-close');
-  const minimizeBtn = chatbot.querySelector('.chatbot-minimize');
+  const toggleBtn = chatbot.querySelector('.chatbot-toggle-elegant');
+  const closeBtn = chatbot.querySelector('.chatbot-close-elegant');
+  const minimizeBtn = chatbot.querySelector('.chatbot-minimize-elegant');
   const messagesContainer = document.getElementById('chatbot-messages');
   const input = document.getElementById('chatbot-input');
   const sendBtn = document.getElementById('chatbot-send');
   const quickActions = document.getElementById('chatbot-quick-actions');
-  const badge = chatbot.querySelector('.chatbot-toggle-badge');
+  const badge = chatbot.querySelector('.chatbot-badge-elegant');
 
-  // AI Knowledge Base
+  // Elegant AI Knowledge Base
   const knowledge = {
     greetings: {
-      patterns: ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'hola'],
+      patterns: ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'hola', 'bonjour'],
       responses: [
-        "Hello! 🌿 I'm Sage, your personal skincare expert. How can I help you glow today?",
-        "Hi there! ✨ Welcome! I'm here to help you find your perfect skincare routine. What brings you here today?",
-        "Hey! 💚 So happy you're here. I can help with product recommendations, skincare advice, or order questions. What would you like to know?"
+        "Bonjour! I'm Sage, your beauty concierge. How may I assist you today?",
+        "Welcome! I'm here to help you discover your perfect skincare ritual. What brings you here?",
+        "Hello! It's wonderful to meet you. I can help with product recommendations, skincare advice, or order questions."
       ]
     },
     skincare: {
       patterns: ['routine', 'skincare', 'skin care', 'advice', 'help skin', 'skin type'],
       responses: [
-        "I'd love to help with your skincare routine! 💆 For the best recommendations, I suggest taking our quick Skin Quiz - it only takes 2 minutes and gives you a personalized routine. Would you like to try it?",
-        "Great question! ✨ The basic steps for any routine are: 1) Cleanser, 2) Serum, 3) Moisturizer, 4) SPF (morning). Want me to recommend specific products for your skin type?"
-      ],
-      followUp: "What's your main skin concern? (aging, acne, dryness, dullness, sensitivity)"
+        "I'd be delighted to help with your skincare journey. For personalized recommendations, I suggest our Skin Quiz - it takes just moments and creates a bespoke routine for you.",
+        "The foundation of beautiful skin: Cleanse, treat with serum, moisturize, and protect with SPF. Shall I recommend specific products for your skin type?"
+      ]
     },
     products: {
       patterns: ['product', 'recommend', 'best', 'serum', 'cream', 'cleanser', 'moisturizer'],
       responses: [
-        "Our bestsellers are amazing! 🌟\n\n🧴 **Vitamin C Serum** - Brightening powerhouse\n💧 **Hyaluronic Acid Cream** - Deep hydration\n🌙 **Retinol Night Serum** - Anti-aging hero\n\nWhich one interests you?",
-        "I can definitely help with product recommendations! Our customers love our organic formulas. Are you looking for something specific - like anti-aging, hydration, or brightening?"
+        "Our curated collection features:\n\n- Vitamin C Serum - For luminous skin\n- Hyaluronic Acid - Deep hydration\n- Retinol Night Cream - Gentle renewal\n\nWhich interests you?",
+        "I can certainly guide you. Our formulas are crafted with the finest organic ingredients. Are you seeking anti-aging, hydration, or brightening benefits?"
       ]
     },
     orders: {
       patterns: ['order', 'shipping', 'delivery', 'track', 'where is my', 'status'],
       responses: [
-        "📦 For order tracking, you can:\n\n1. Check your email for tracking info\n2. Visit our Track Order page\n3. Give me your order number and I'll help!\n\nWe ship within 1-2 business days, and delivery takes 3-5 days.",
-        "I can help with your order! 🚚 Free shipping on orders over $99. Standard delivery is 3-5 business days. Do you have an order number you'd like me to look up?"
+        "For order assistance:\n\n- Check your confirmation email\n- Visit our Track Order page\n- Share your order number with me\n\nWe ship within 1-2 days, delivery takes 3-5 days.",
+        "I can help with your order. We offer complimentary shipping on orders over $99. Do you have an order number?"
       ]
     },
     returns: {
       patterns: ['return', 'refund', 'exchange', 'money back', 'not happy'],
       responses: [
-        "We have a 30-day satisfaction guarantee! 💚\n\nIf you're not happy with a product, you can return it for a full refund (unopened) or store credit (opened). Just email us at hello@organicskincare.com with your order number.",
-        "Sorry to hear something isn't working for you! 😔 We stand behind our products with a 30-day guarantee. Contact our team and we'll make it right!"
+        "We stand behind every product with our 30-day satisfaction guarantee. If something isn't quite right, contact us for a full refund or store credit.",
+        "I'm sorry to hear that. We want you to be completely satisfied. Our team will ensure we make it right for you."
       ]
     },
     ingredients: {
       patterns: ['ingredient', 'organic', 'natural', 'chemical', 'paraben', 'vegan', 'cruelty'],
       responses: [
-        "Great question about our ingredients! 🌿\n\n✅ 95%+ certified organic\n✅ 100% vegan & cruelty-free\n❌ No parabens, sulfates, or synthetic fragrances\n\nWe believe in full transparency. You can see every ingredient on our Our Ingredients page!",
-        "We're obsessed with clean beauty! 💚 Every ingredient is carefully selected for effectiveness AND safety. No nasty chemicals ever. Want to know about a specific ingredient?"
+        "Our philosophy:\n\n- 95%+ certified organic\n- 100% vegan & cruelty-free\n- No parabens or synthetic fragrances\n\nWe believe in transparency and purity.",
+        "We're devoted to clean beauty. Every ingredient is chosen for both efficacy and safety. Would you like to know about something specific?"
       ]
     },
     pricing: {
       patterns: ['price', 'cost', 'expensive', 'discount', 'sale', 'coupon', 'code'],
       responses: [
-        "💰 Here's how to save:\n\n🎁 **WELCOME15** - 15% off first order\n📦 **Free shipping** on orders $99+\n💎 **Rewards program** - earn points on every purchase!\n\nWould you like me to apply a code for you?",
-        "We believe in quality at fair prices! 💚 While our products aren't the cheapest, they're concentrated so you use less. Plus, use code **WELCOME15** for 15% off your first order!"
+        "A few ways to save:\n\n- WELCOME15 - 15% off first order\n- Complimentary shipping on $99+\n- Rewards program - earn with every purchase\n\nShall I apply a code for you?",
+        "Our products are an investment in your skin's future. Use WELCOME15 for 15% off your first order."
       ]
     },
     default: [
-      "I'm not quite sure about that, but I'd love to help! 🤔 You can:\n\n• Ask about products or skincare advice\n• Check order status\n• Learn about our ingredients\n\nOr would you like to speak with a human? Email us at hello@organicskincare.com!",
-      "Hmm, let me think... 🤔 I might need a bit more info! Try asking about:\n\n• Product recommendations\n• Skincare routines\n• Shipping & orders\n• Our ingredients\n\nI'm here to help!"
+      "I'd love to help further. You might ask about:\n\n- Product recommendations\n- Skincare routines\n- Shipping & orders\n- Our ingredients\n\nOr email us at hello@organicskincare.com",
+      "Let me know more about what you're looking for. I'm here to help with products, skincare advice, or orders."
     ]
   };
 
   let isOpen = false;
   let conversationHistory = [];
 
-  // Open/Close handlers
   toggleBtn.addEventListener('click', () => toggleChat(true));
   closeBtn.addEventListener('click', () => toggleChat(false));
   minimizeBtn.addEventListener('click', () => toggleChat(false));
@@ -648,11 +597,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (open && conversationHistory.length === 0) {
       setTimeout(() => {
         addBotMessage(getRandomResponse(knowledge.greetings.responses));
-      }, 500);
+      }, 600);
     }
   }
 
-  // Send message
   sendBtn.addEventListener('click', sendMessage);
   input.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
@@ -665,21 +613,18 @@ document.addEventListener('DOMContentLoaded', function() {
     addUserMessage(text);
     input.value = '';
 
-    // Show typing
     showTyping();
 
-    // Process response
     setTimeout(() => {
       hideTyping();
       const response = getAIResponse(text);
       addBotMessage(response);
-    }, 1000 + Math.random() * 1000);
+    }, 1200 + Math.random() * 800);
   }
 
   function getAIResponse(text) {
     const lowerText = text.toLowerCase();
 
-    // Check each category
     for (const [category, data] of Object.entries(knowledge)) {
       if (category === 'default') continue;
 
@@ -697,11 +642,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function addUserMessage(text) {
     const html = `
-      <div class="chat-message user">
-        <div class="chat-message-avatar">👤</div>
-        <div class="chat-message-content">
-          <div class="chat-message-bubble">${escapeHtml(text)}</div>
-          <div class="chat-message-time">${getTime()}</div>
+      <div class="chat-message-elegant user">
+        <div class="chat-avatar-elegant">You</div>
+        <div class="chat-content-elegant">
+          <div class="chat-bubble-elegant">${escapeHtml(text)}</div>
+          <div class="chat-time-elegant">${getTime()}</div>
         </div>
       </div>
     `;
@@ -711,17 +656,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function addBotMessage(text) {
-    // Parse markdown-like formatting
     const formatted = text
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\n/g, '<br>');
 
     const html = `
-      <div class="chat-message bot">
-        <div class="chat-message-avatar">🌿</div>
-        <div class="chat-message-content">
-          <div class="chat-message-bubble">${formatted}</div>
-          <div class="chat-message-time">${getTime()}</div>
+      <div class="chat-message-elegant bot">
+        <div class="chat-avatar-elegant">&#10047;</div>
+        <div class="chat-content-elegant">
+          <div class="chat-bubble-elegant">${formatted}</div>
+          <div class="chat-time-elegant">${getTime()}</div>
         </div>
       </div>
     `;
@@ -732,13 +676,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function showTyping() {
     const html = `
-      <div class="chat-message bot" id="typing-message">
-        <div class="chat-message-avatar">🌿</div>
-        <div class="chat-message-content">
-          <div class="typing-indicator">
-            <span class="typing-dot"></span>
-            <span class="typing-dot"></span>
-            <span class="typing-dot"></span>
+      <div class="chat-message-elegant bot" id="typing-message">
+        <div class="chat-avatar-elegant">&#10047;</div>
+        <div class="chat-content-elegant">
+          <div class="typing-indicator-elegant">
+            <span class="typing-dot-elegant"></span>
+            <span class="typing-dot-elegant"></span>
+            <span class="typing-dot-elegant"></span>
           </div>
         </div>
       </div>
@@ -766,8 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return div.innerHTML;
   }
 
-  // Quick actions
-  quickActions.querySelectorAll('.quick-action').forEach(btn => {
+  quickActions.querySelectorAll('.quick-action-elegant').forEach(btn => {
     btn.addEventListener('click', function() {
       const action = this.dataset.action;
 
@@ -785,7 +728,7 @@ document.addEventListener('DOMContentLoaded', function() {
           sendMessage();
           break;
         case 'quiz':
-          addBotMessage("Great choice! 🌟 Our Skin Quiz will help you find your perfect routine. Let me open it for you!");
+          addBotMessage("Wonderful choice! Our Skin Quiz will create your personalized routine. Let me open it for you.");
           setTimeout(() => {
             window.dispatchEvent(new CustomEvent('openSkinQuiz'));
           }, 1000);
@@ -794,11 +737,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Show badge notification after delay
   setTimeout(() => {
     if (!isOpen) {
       badge.style.display = 'flex';
     }
-  }, 10000);
+  }, 12000);
 });
 </script>

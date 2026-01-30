@@ -1,592 +1,416 @@
-<!-- Dr. James - Modern 3D/4D Skincare Expert -->
+<!-- Dr. James - Sophisticated French-Organic Style -->
 <div id="doctor-mascot" class="doctor-mascot" aria-hidden="true">
   <div class="doctor-container">
     <div class="doctor-character">
-      <!-- Modern 3D Doctor Character -->
-      <div class="doctor-3d-wrapper">
-        <svg viewBox="0 0 140 180" class="doctor-svg-modern">
+      <!-- Elegant Minimalist Doctor -->
+      <div class="doctor-elegant-wrapper">
+        <svg viewBox="0 0 120 150" class="doctor-svg-elegant">
           <defs>
-            <!-- Gradients for 3D effect - Unique IDs -->
-            <linearGradient id="drCoatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FFFFFF"/>
-              <stop offset="50%" stop-color="#F8F9FA"/>
-              <stop offset="100%" stop-color="#E8ECEF"/>
+            <!-- Sophisticated French-Organic Palette -->
+            <linearGradient id="elegantCoat" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FDFCFB"/>
+              <stop offset="100%" stop-color="#F5F3F0"/>
             </linearGradient>
-            <linearGradient id="drSkinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FFE4D6"/>
-              <stop offset="100%" stop-color="#F5D0C0"/>
+            <linearGradient id="elegantSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F8E8DC"/>
+              <stop offset="100%" stop-color="#EBDCD0"/>
             </linearGradient>
-            <linearGradient id="drHairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#5D4037"/>
-              <stop offset="100%" stop-color="#3E2723"/>
+            <linearGradient id="elegantHair" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6B5B4F"/>
+              <stop offset="100%" stop-color="#4A3F35"/>
             </linearGradient>
-            <linearGradient id="drScrubsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#4FC3F7"/>
-              <stop offset="100%" stop-color="#0288D1"/>
+            <linearGradient id="sageGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9CAF88"/>
+              <stop offset="100%" stop-color="#7D9167"/>
             </linearGradient>
-            <!-- Shadow filter -->
-            <filter id="drShadow3d" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="3" dy="5" stdDeviation="4" flood-opacity="0.25"/>
-            </filter>
-            <filter id="drGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
-              <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
+            <linearGradient id="softGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#D4C5A9"/>
+              <stop offset="100%" stop-color="#BFB093"/>
+            </linearGradient>
+            <!-- Subtle shadow -->
+            <filter id="elegantShadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#4A3F35" flood-opacity="0.08"/>
             </filter>
           </defs>
 
-          <!-- Body Shadow on ground -->
-          <ellipse cx="75" cy="172" rx="35" ry="6" fill="rgba(0,0,0,0.15)" class="body-shadow"/>
+          <!-- Subtle ground shadow -->
+          <ellipse cx="60" cy="145" rx="25" ry="4" fill="#E8E4DF" opacity="0.5"/>
 
-          <!-- Modern Lab Coat / Scrubs -->
-          <g class="doctor-body" filter="url(#drShadow3d)">
-            <!-- Scrubs underneath -->
-            <path d="M45 85 L45 160 L105 160 L105 85 Q105 70 75 65 Q45 70 45 85 Z" fill="url(#drScrubsGrad)"/>
+          <!-- Elegant Lab Coat -->
+          <g class="doctor-body-elegant" filter="url(#elegantShadow)">
+            <!-- Inner shirt - sage green -->
+            <path d="M40 72 L40 135 L80 135 L80 72 Q80 62 60 58 Q40 62 40 72 Z" fill="url(#sageGreen)" opacity="0.3"/>
 
-            <!-- Lab Coat -->
-            <path class="coat-main" d="M35 90 L35 165 C35 168 38 170 42 170 L58 170 L58 100 L82 100 L82 170 L98 170 C102 170 105 168 105 165 L105 90 Q105 75 75 68 Q45 75 35 90 Z" fill="url(#drCoatGrad)" stroke="#DDD" stroke-width="0.5"/>
+            <!-- Coat - cream white -->
+            <path d="M32 75 L32 138 C32 140 34 142 38 142 L50 142 L50 85 L70 85 L70 142 L82 142 C86 142 88 140 88 138 L88 75 Q88 63 60 58 Q32 63 32 75 Z" fill="url(#elegantCoat)" stroke="#E8E4DF" stroke-width="0.5"/>
 
-            <!-- Coat pocket -->
-            <rect x="42" y="115" width="15" height="18" rx="2" fill="#F0F0F0" stroke="#DDD" stroke-width="0.5"/>
-            <rect x="44" y="117" width="4" height="1" fill="#2D5A4A"/>
-            <rect x="44" y="120" width="6" height="1" fill="#E0E0E0"/>
+            <!-- Coat collar detail -->
+            <path d="M45 68 L52 78 L60 72 L68 78 L75 68" fill="none" stroke="#E8E4DF" stroke-width="1"/>
 
-            <!-- Pen in pocket -->
-            <rect x="52" y="112" width="3" height="12" rx="1" fill="#1A1A1A"/>
-            <circle cx="53.5" cy="111" r="2" fill="#2D5A4A"/>
+            <!-- Minimal pocket -->
+            <rect x="38" y="95" width="12" height="14" rx="2" fill="none" stroke="#E8E4DF" stroke-width="0.5"/>
 
-            <!-- Coat buttons -->
-            <circle cx="70" cy="105" r="3" fill="#E8E8E8" stroke="#CCC" stroke-width="0.5"/>
-            <circle cx="70" cy="120" r="3" fill="#E8E8E8" stroke="#CCC" stroke-width="0.5"/>
-            <circle cx="70" cy="135" r="3" fill="#E8E8E8" stroke="#CCC" stroke-width="0.5"/>
-          </g>
-
-          <!-- Stethoscope Modern -->
-          <g class="stethoscope-modern">
-            <path d="M55 80 Q40 95 45 125" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>
-            <ellipse cx="45" cy="128" rx="8" ry="10" fill="#444"/>
-            <ellipse cx="45" cy="128" rx="5" ry="7" fill="#666"/>
-            <circle cx="45" cy="128" r="3" fill="#888"/>
+            <!-- Single elegant button -->
+            <circle cx="60" cy="100" r="2.5" fill="#D4C5A9" stroke="#BFB093" stroke-width="0.5"/>
+            <circle cx="60" cy="115" r="2.5" fill="#D4C5A9" stroke="#BFB093" stroke-width="0.5"/>
           </g>
 
           <!-- Neck -->
-          <rect x="62" y="55" width="16" height="18" fill="url(#drSkinGrad)" rx="4"/>
+          <rect x="52" y="48" width="16" height="14" fill="url(#elegantSkin)" rx="3"/>
 
-          <!-- Head with 3D effect -->
-          <g class="doctor-head-group" filter="url(#drShadow3d)">
-            <!-- Head shape -->
-            <ellipse class="head-main" cx="70" cy="38" rx="30" ry="32" fill="url(#drSkinGrad)"/>
+          <!-- Head -->
+          <g class="doctor-head-elegant" filter="url(#elegantShadow)">
+            <ellipse cx="60" cy="32" rx="24" ry="26" fill="url(#elegantSkin)"/>
 
-            <!-- Ear left -->
-            <ellipse cx="40" cy="42" rx="5" ry="8" fill="url(#drSkinGrad)"/>
-            <ellipse cx="41" cy="42" rx="3" ry="5" fill="#E8C4B8"/>
+            <!-- Ears -->
+            <ellipse cx="36" cy="35" rx="4" ry="6" fill="url(#elegantSkin)"/>
+            <ellipse cx="84" cy="35" rx="4" ry="6" fill="url(#elegantSkin)"/>
 
-            <!-- Ear right -->
-            <ellipse cx="100" cy="42" rx="5" ry="8" fill="url(#drSkinGrad)"/>
-            <ellipse cx="99" cy="42" rx="3" ry="5" fill="#E8C4B8"/>
+            <!-- Refined hair style -->
+            <path d="M36 30 Q34 10 60 6 Q86 10 84 30 Q84 22 75 18 Q60 14 48 18 Q38 22 36 30 Z" fill="url(#elegantHair)"/>
+            <path d="M42 25 Q50 18 62 20" stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="none" stroke-linecap="round"/>
 
-            <!-- Modern styled hair -->
-            <path class="hair-main" d="M40 35 Q38 10 70 5 Q102 10 100 35 Q100 25 90 20 Q75 12 55 20 Q45 25 40 35 Z" fill="url(#drHairGrad)"/>
-            <!-- Hair highlight -->
-            <path d="M50 25 Q60 15 75 18" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Subtle eyebrows -->
+            <path d="M45 24 Q50 22 55 24" stroke="#6B5B4F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <path d="M65 24 Q70 22 75 24" stroke="#6B5B4F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
 
-            <!-- Eyebrows -->
-            <g class="eyebrows-modern">
-              <path d="M50 28 Q57 24 64 28" stroke="#5D4037" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <path d="M76 28 Q83 24 90 28" stroke="#5D4037" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Elegant glasses - thin gold frames -->
+            <g class="glasses-elegant">
+              <ellipse cx="48" cy="32" rx="9" ry="7" fill="none" stroke="url(#softGold)" stroke-width="1"/>
+              <ellipse cx="72" cy="32" rx="9" ry="7" fill="none" stroke="url(#softGold)" stroke-width="1"/>
+              <path d="M57 31 L63 31" stroke="url(#softGold)" stroke-width="1"/>
+              <path d="M39 31 L36 29" stroke="url(#softGold)" stroke-width="1"/>
+              <path d="M81 31 L84 29" stroke="url(#softGold)" stroke-width="1"/>
             </g>
 
-            <!-- Modern Glasses -->
-            <g class="glasses-modern">
-              <rect x="46" y="32" width="20" height="14" rx="3" fill="rgba(200,220,255,0.3)" stroke="#333" stroke-width="1.5"/>
-              <rect x="74" y="32" width="20" height="14" rx="3" fill="rgba(200,220,255,0.3)" stroke="#333" stroke-width="1.5"/>
-              <path d="M66 38 L74 38" stroke="#333" stroke-width="1.5"/>
-              <path d="M46 38 L40 36" stroke="#333" stroke-width="1.5"/>
-              <path d="M94 38 L100 36" stroke="#333" stroke-width="1.5"/>
-              <!-- Lens reflection -->
-              <path d="M50 35 L54 35" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M78 35 L82 35" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Soft eyes -->
+            <g class="eyes-elegant">
+              <ellipse cx="48" cy="33" rx="5" ry="6" fill="#FDFCFB"/>
+              <ellipse cx="72" cy="33" rx="5" ry="6" fill="#FDFCFB"/>
+              <circle cx="49" cy="34" r="3" fill="#7D9167"/>
+              <circle cx="73" cy="34" r="3" fill="#7D9167"/>
+              <circle cx="49" cy="34" r="1.5" fill="#4A3F35"/>
+              <circle cx="73" cy="34" r="1.5" fill="#4A3F35"/>
+              <ellipse cx="50" cy="32" rx="1.2" ry="0.8" fill="#FFFFFF"/>
+              <ellipse cx="74" cy="32" rx="1.2" ry="0.8" fill="#FFFFFF"/>
             </g>
 
-            <!-- Eyes with depth -->
-            <g class="eyes-modern">
-              <!-- Left eye -->
-              <ellipse cx="56" cy="40" rx="8" ry="9" fill="#FFFFFF"/>
-              <ellipse cx="56" cy="40" rx="7" ry="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="0.5"/>
-              <circle class="iris-left" cx="57" cy="41" r="5" fill="#4A7C59"/>
-              <circle class="iris-left-inner" cx="57" cy="41" r="3" fill="#2D5A4A"/>
-              <circle class="pupil-left" cx="57" cy="41" r="2" fill="#1A1A1A"/>
-              <ellipse class="eye-shine" cx="59" cy="39" rx="2" ry="1.5" fill="#FFFFFF"/>
-              <circle class="eye-shine-small" cx="55" cy="43" r="1" fill="rgba(255,255,255,0.5)"/>
+            <!-- Refined nose -->
+            <path d="M60 38 Q61 42 60 45" stroke="#EBDCD0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
 
-              <!-- Right eye -->
-              <ellipse cx="84" cy="40" rx="8" ry="9" fill="#FFFFFF"/>
-              <ellipse cx="84" cy="40" rx="7" ry="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="0.5"/>
-              <circle class="iris-right" cx="85" cy="41" r="5" fill="#4A7C59"/>
-              <circle class="iris-right-inner" cx="85" cy="41" r="3" fill="#2D5A4A"/>
-              <circle class="pupil-right" cx="85" cy="41" r="2" fill="#1A1A1A"/>
-              <ellipse class="eye-shine" cx="87" cy="39" rx="2" ry="1.5" fill="#FFFFFF"/>
-              <circle class="eye-shine-small" cx="83" cy="43" r="1" fill="rgba(255,255,255,0.5)"/>
-            </g>
+            <!-- Gentle smile -->
+            <path class="smile-elegant" d="M53 50 Q60 55 67 50" stroke="#C9A798" stroke-width="1.5" fill="none" stroke-linecap="round"/>
 
-            <!-- Nose modern -->
-            <path d="M70 45 Q72 50 70 54 Q68 52 68 48" fill="#E8C4B8"/>
-
-            <!-- Mouth -->
-            <g class="mouth-modern">
-              <path class="smile-line" d="M60 60 Q70 68 80 60" stroke="#C97B7B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <!-- Teeth when smiling -->
-              <path class="teeth" d="M62 61 Q70 65 78 61 L78 63 Q70 67 62 63 Z" fill="#FFFFFF" opacity="0"/>
-            </g>
-
-            <!-- Cheek blush -->
-            <ellipse cx="45" cy="52" rx="6" ry="4" fill="#FFB4A2" opacity="0.4"/>
-            <ellipse cx="95" cy="52" rx="6" ry="4" fill="#FFB4A2" opacity="0.4"/>
+            <!-- Subtle cheek color -->
+            <ellipse cx="40" cy="42" rx="4" ry="2.5" fill="#E8B4A0" opacity="0.2"/>
+            <ellipse cx="80" cy="42" rx="4" ry="2.5" fill="#E8B4A0" opacity="0.2"/>
           </g>
 
-          <!-- Modern ID Badge -->
-          <g class="id-badge" filter="url(#drShadow3d)">
-            <rect x="88" y="90" width="22" height="32" rx="3" fill="#FFFFFF" stroke="#DDD" stroke-width="0.5"/>
-            <rect x="90" y="93" width="18" height="4" rx="1" fill="#2D5A4A"/>
-            <circle cx="99" cy="106" r="6" fill="#F0F0F0"/>
-            <circle cx="99" cy="106" r="5" fill="url(#drSkinGrad)"/>
-            <text x="99" y="120" text-anchor="middle" font-size="5" font-weight="600" fill="#333">Dr. James</text>
-            <text x="99" y="126" text-anchor="middle" font-size="3.5" fill="#666">Skincare MD</text>
+          <!-- Elegant ID Badge -->
+          <g class="badge-elegant">
+            <rect x="72" y="78" width="16" height="22" rx="2" fill="#FDFCFB" stroke="#E8E4DF" stroke-width="0.5"/>
+            <rect x="74" y="80" width="12" height="3" rx="1" fill="url(#sageGreen)" opacity="0.6"/>
+            <circle cx="80" cy="90" r="4" fill="#F5F3F0"/>
+            <text x="80" y="100" text-anchor="middle" font-size="4" fill="#6B5B4F" font-family="serif">Dr. James</text>
           </g>
 
-          <!-- Animated waving arm -->
-          <g class="waving-arm">
-            <path d="M105 95 Q125 85 130 100" stroke="url(#drCoatGrad)" stroke-width="14" fill="none" stroke-linecap="round"/>
-            <!-- Hand -->
-            <circle cx="132" cy="102" r="10" fill="url(#drSkinGrad)"/>
-            <!-- Fingers -->
-            <path d="M136 96 L142 92" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M138 100 L145 98" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M138 104 L144 104" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M136 108 L141 110" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
+          <!-- Subtle waving hand -->
+          <g class="wave-elegant">
+            <path d="M88 80 Q100 75 102 88" stroke="url(#elegantCoat)" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <circle cx="103" cy="90" r="7" fill="url(#elegantSkin)"/>
           </g>
         </svg>
 
-        <!-- 3D Floating elements -->
-        <div class="floating-elements">
-          <span class="float-icon float-1">💊</span>
-          <span class="float-icon float-2">🧴</span>
-          <span class="float-icon float-3">✨</span>
+        <!-- Floating botanical elements -->
+        <div class="floating-botanicals">
+          <span class="botanical b1">🌿</span>
+          <span class="botanical b2">✧</span>
+          <span class="botanical b3">❋</span>
         </div>
       </div>
 
-      <!-- Modern speech bubble -->
-      <div class="doctor-speech-modern">
-        <div class="speech-inner">
-          <span class="doctor-speech-text">Hi! I'm Dr. James! 👨‍⚕️</span>
-        </div>
-        <div class="speech-tail"></div>
+      <!-- Elegant speech bubble -->
+      <div class="doctor-speech-elegant">
+        <span class="speech-text-elegant">Bonjour! I'm Dr. James ✧</span>
       </div>
     </div>
 
-    <!-- Modern action buttons -->
-    <div class="doctor-actions-modern">
-      <button class="action-btn-3d" data-action="quiz" title="Skin Analysis">
-        <div class="btn-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-            <rect x="9" y="3" width="6" height="4" rx="1"/>
-            <path d="M9 14l2 2 4-4"/>
-          </svg>
-        </div>
-        <span class="btn-label">Skin Quiz</span>
+    <!-- Refined action buttons -->
+    <div class="doctor-actions-elegant">
+      <button class="action-btn-elegant" data-action="quiz" title="Skin Analysis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+          <rect x="9" y="3" width="6" height="4" rx="1"/>
+          <path d="M9 14l2 2 4-4"/>
+        </svg>
       </button>
-      <button class="action-btn-3d" data-action="chat" title="Chat">
-        <div class="btn-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-        </div>
-        <span class="btn-label">Chat</span>
+      <button class="action-btn-elegant" data-action="chat" title="Consultation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
       </button>
-      <button class="action-btn-3d" data-action="help" title="Help">
-        <div class="btn-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
-          </svg>
-        </div>
-        <span class="btn-label">Help</span>
+      <button class="action-btn-elegant" data-action="help" title="Guide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+        </svg>
       </button>
     </div>
   </div>
 
-  <!-- Modern toggle button -->
-  <button class="doctor-toggle-modern" aria-label="Talk to Dr. James">
-    <div class="toggle-inner">
-      <span class="toggle-icon">👨‍⚕️</span>
-    </div>
-    <div class="toggle-ring"></div>
-    <div class="toggle-ring ring-2"></div>
+  <!-- Refined toggle button -->
+  <button class="doctor-toggle-elegant" aria-label="Parlez avec Dr. James">
+    <span class="toggle-icon-elegant">🌿</span>
   </button>
 </div>
 
 <style>
-/* Modern 3D Doctor Mascot */
+/* Sophisticated French-Organic Style */
 .doctor-mascot {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 24px;
+  left: 24px;
   z-index: 9996;
-  font-family: var(--font-body, system-ui, sans-serif);
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 .doctor-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(0) rotateY(-30deg);
+  transform: scale(0) translateY(20px);
   opacity: 0;
   transform-origin: bottom left;
-  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease;
-  perspective: 1000px;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s ease;
 }
 
 .doctor-mascot.active .doctor-container {
-  transform: scale(1) rotateY(0deg);
+  transform: scale(1) translateY(0);
   opacity: 1;
 }
 
 .doctor-character {
   position: relative;
   cursor: pointer;
-  transform-style: preserve-3d;
 }
 
-.doctor-3d-wrapper {
+.doctor-elegant-wrapper {
   position: relative;
-  transform-style: preserve-3d;
-  animation: float3d 4s ease-in-out infinite;
 }
 
-@keyframes float3d {
-  0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
-  25% { transform: translateY(-8px) rotateX(2deg) rotateY(3deg); }
-  50% { transform: translateY(-5px) rotateX(0deg) rotateY(0deg); }
-  75% { transform: translateY(-8px) rotateX(-2deg) rotateY(-3deg); }
+.doctor-svg-elegant {
+  width: 100px;
+  height: 125px;
+  filter: drop-shadow(0 4px 12px rgba(74, 63, 53, 0.08));
 }
 
-.doctor-svg-modern {
-  width: 120px;
-  height: 155px;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+/* Subtle floating animation */
+.doctor-elegant-wrapper {
+  animation: elegantFloat 6s ease-in-out infinite;
 }
 
-/* Body shadow animation */
-.body-shadow {
-  animation: shadowPulse 4s ease-in-out infinite;
+@keyframes elegantFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-@keyframes shadowPulse {
-  0%, 100% { rx: 35; opacity: 0.1; }
-  50% { rx: 30; opacity: 0.15; }
+/* Gentle eye blink */
+.eyes-elegant {
+  animation: elegantBlink 5s ease-in-out infinite;
 }
 
-/* Eye animations */
-.eyes-modern {
-  animation: blink3d 4s ease-in-out infinite;
-}
-
-@keyframes blink3d {
+@keyframes elegantBlink {
   0%, 42%, 48%, 100% { transform: scaleY(1); }
   45% { transform: scaleY(0.1); }
 }
 
-.iris-left, .iris-right, .pupil-left, .pupil-right,
-.iris-left-inner, .iris-right-inner {
-  animation: eyeLook3d 6s ease-in-out infinite;
+/* Subtle wave */
+.wave-elegant {
+  animation: elegantWave 3s ease-in-out infinite;
+  transform-origin: 88px 80px;
 }
 
-@keyframes eyeLook3d {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(2px); }
-  40% { transform: translateX(-1px); }
-  60% { transform: translateX(1px); }
-  80% { transform: translateX(-2px); }
-}
-
-/* Waving arm */
-.waving-arm {
-  animation: wave3d 1.2s ease-in-out infinite;
-  transform-origin: 105px 95px;
-}
-
-@keyframes wave3d {
+@keyframes elegantWave {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-12deg); }
-  75% { transform: rotate(12deg); }
+  50% { transform: rotate(8deg); }
 }
 
-/* Floating elements */
-.floating-elements {
+/* Floating botanicals */
+.floating-botanicals {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.float-icon {
+.botanical {
   position: absolute;
-  font-size: 16px;
-  animation: floatIcon 3s ease-in-out infinite;
+  font-size: 12px;
+  opacity: 0.4;
+  animation: botanicalFloat 8s ease-in-out infinite;
 }
 
-.float-1 {
-  top: 10px;
-  right: -10px;
-  animation-delay: 0s;
-}
+.b1 { top: 5px; right: -8px; animation-delay: 0s; }
+.b2 { top: 30px; left: -10px; animation-delay: 2s; font-size: 10px; color: #9CAF88; }
+.b3 { bottom: 40px; right: -5px; animation-delay: 4s; font-size: 10px; color: #D4C5A9; }
 
-.float-2 {
-  top: 40px;
-  left: -15px;
-  animation-delay: 1s;
-}
-
-.float-3 {
-  bottom: 50px;
-  right: -5px;
-  animation-delay: 2s;
-}
-
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
-  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+@keyframes botanicalFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-8px) rotate(5deg); opacity: 0.6; }
 }
 
 /* Hover effects */
-.doctor-character:hover .doctor-3d-wrapper {
+.doctor-character:hover .doctor-elegant-wrapper {
   animation-play-state: paused;
-  transform: translateY(-10px) scale(1.05);
 }
 
-.doctor-character:hover .smile-line {
-  d: path("M58 58 Q70 72 82 58");
+.doctor-character:hover .smile-elegant {
+  d: path("M52 49 Q60 57 68 49");
 }
 
-.doctor-character:hover .teeth {
-  opacity: 1;
-}
-
-.doctor-character:hover .eyebrows-modern {
-  transform: translateY(-3px);
-}
-
-/* Modern speech bubble */
-.doctor-speech-modern {
+/* Elegant speech bubble */
+.doctor-speech-elegant {
   position: absolute;
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  background: #FDFCFB;
+  padding: 12px 18px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(74, 63, 53, 0.08);
+  border: 1px solid #E8E4DF;
   opacity: 0;
-  transform: translateX(-50%) translateY(15px) scale(0.9);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: translateX(-50%) translateY(10px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
 }
 
-.speech-inner {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-  padding: 14px 20px;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
-  white-space: nowrap;
-  border: 1px solid rgba(255,255,255,0.8);
-}
-
-.speech-tail {
+.doctor-speech-elegant::after {
+  content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #FDFCFB;
 }
 
-.doctor-character:hover .doctor-speech-modern,
-.doctor-mascot.speaking .doctor-speech-modern {
+.doctor-character:hover .doctor-speech-elegant,
+.doctor-mascot.speaking .doctor-speech-elegant {
   opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
+  transform: translateX(-50%) translateY(0);
 }
 
-.doctor-speech-text {
-  font-size: 14px;
-  color: #1A1A1A;
-  font-weight: 600;
+.speech-text-elegant {
+  font-size: 13px;
+  color: #4A3F35;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
-/* Modern action buttons */
-.doctor-actions-modern {
+/* Refined action buttons */
+.doctor-actions-elegant {
   display: flex;
-  gap: 12px;
-  margin-top: 15px;
+  gap: 10px;
+  margin-top: 12px;
   opacity: 0;
-  transform: translateY(-15px) rotateX(-20deg);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
-  perspective: 500px;
+  transform: translateY(-10px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.1s;
 }
 
-.doctor-mascot.active .doctor-actions-modern {
+.doctor-mascot.active .doctor-actions-elegant {
   opacity: 1;
-  transform: translateY(0) rotateX(0deg);
+  transform: translateY(0);
 }
 
-.action-btn-3d {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
+.action-btn-elegant {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #E8E4DF;
+  background: #FDFCFB;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.action-btn-3d:hover {
-  transform: translateY(-5px);
-}
-
-.btn-inner {
-  width: 50px;
-  height: 50px;
-  border-radius: 16px;
-  background: linear-gradient(145deg, #FFFFFF, #E6E6E6);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.1), -5px -5px 15px rgba(255,255,255,0.8);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2D5A4A;
-  transition: all 0.3s ease;
+  color: #7D9167;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.action-btn-3d:hover .btn-inner {
-  background: linear-gradient(145deg, #2D5A4A, #3d7a64);
-  color: #fff;
-  box-shadow: 5px 5px 20px rgba(45,90,74,0.3), -2px -2px 10px rgba(255,255,255,0.5);
+.action-btn-elegant:hover {
+  background: #9CAF88;
+  border-color: #9CAF88;
+  color: #FDFCFB;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(156, 175, 136, 0.25);
 }
 
-.btn-inner svg {
-  width: 24px;
-  height: 24px;
+.action-btn-elegant svg {
+  width: 20px;
+  height: 20px;
 }
 
-.btn-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #666;
-  transition: color 0.3s ease;
-}
-
-.action-btn-3d:hover .btn-label {
-  color: #2D5A4A;
-}
-
-/* Modern toggle button */
-.doctor-toggle-modern {
+/* Elegant toggle button */
+.doctor-toggle-elegant {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 65px;
-  height: 65px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: none;
-  background: transparent;
+  border: 1px solid #E8E4DF;
+  background: linear-gradient(145deg, #FDFCFB, #F5F3F0);
+  box-shadow: 0 4px 20px rgba(74, 63, 53, 0.1);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.toggle-inner {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #3d7a64, #2D5A4A);
-  box-shadow: 5px 5px 20px rgba(45,90,74,0.4), -3px -3px 15px rgba(255,255,255,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 2;
+.doctor-toggle-elegant:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 25px rgba(74, 63, 53, 0.15);
+  border-color: #9CAF88;
 }
 
-.toggle-inner:hover {
-  transform: scale(1.1);
-  box-shadow: 8px 8px 25px rgba(45,90,74,0.5), -3px -3px 15px rgba(255,255,255,0.3);
+.toggle-icon-elegant {
+  font-size: 24px;
+  animation: gentlePulse 4s ease-in-out infinite;
 }
 
-.toggle-icon {
-  font-size: 28px;
-  animation: iconPulse3d 2s ease-in-out infinite;
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 
-@keyframes iconPulse3d {
-  0%, 100% { transform: scale(1) rotateY(0deg); }
-  50% { transform: scale(1.1) rotateY(10deg); }
-}
-
-.toggle-ring {
-  position: absolute;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  border: 2px solid rgba(45,90,74,0.3);
-  animation: ringPulse3d 2s ease-out infinite;
-}
-
-.ring-2 {
-  animation-delay: 1s;
-}
-
-@keyframes ringPulse3d {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(1.8); opacity: 0; }
-}
-
-.doctor-mascot.active .doctor-toggle-modern {
-  transform: scale(0.7);
-  opacity: 0.5;
+.doctor-mascot.active .doctor-toggle-elegant {
+  transform: scale(0.8);
+  opacity: 0.6;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .doctor-mascot {
-    bottom: 15px;
-    left: 15px;
+    bottom: 16px;
+    left: 16px;
   }
 
-  .doctor-svg-modern {
-    width: 100px;
-    height: 130px;
+  .doctor-svg-elegant {
+    width: 85px;
+    height: 106px;
   }
 
-  .toggle-inner {
-    width: 50px;
-    height: 50px;
+  .doctor-toggle-elegant {
+    width: 46px;
+    height: 46px;
   }
 
-  .toggle-ring {
-    width: 55px;
-    height: 55px;
-  }
-
-  .btn-inner {
-    width: 45px;
-    height: 45px;
-    border-radius: 14px;
-  }
-
-  .btn-label {
-    font-size: 10px;
+  .action-btn-elegant {
+    width: 38px;
+    height: 38px;
   }
 }
 </style>
@@ -594,31 +418,31 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const mascot = document.getElementById('doctor-mascot');
-  const toggle = mascot.querySelector('.doctor-toggle-modern');
+  const toggle = mascot.querySelector('.doctor-toggle-elegant');
   const character = mascot.querySelector('.doctor-character');
-  const speechText = mascot.querySelector('.doctor-speech-text');
-  const actionBtns = mascot.querySelectorAll('.action-btn-3d');
+  const speechText = mascot.querySelector('.speech-text-elegant');
+  const actionBtns = mascot.querySelectorAll('.action-btn-elegant');
 
   const messages = {
     greeting: [
-      "Hi! I'm Dr. James! 👨‍⚕️",
-      "Welcome! Let's talk skincare! ✨",
-      "Hello! Your skin expert is here! 💚",
-      "Hey there! Ready for glowing skin? 🌟"
+      "Bonjour! I'm Dr. James ✧",
+      "Welcome to pure beauty ❋",
+      "Hello, beauty awaits ✧",
+      "Bienvenue! Let's glow ❋"
     ],
     tips: [
-      "SPF every day - even indoors! ☀️",
-      "Hydration = Happy skin! 💧",
-      "Vitamin C in the AM, Retinol PM! ✨",
-      "Always cleanse before bed! 🌙",
-      "Patch test new products! 🧪",
-      "Your skin barrier is everything! 🛡️"
+      "Gentle care, lasting beauty ✧",
+      "Less is more, always ❋",
+      "Your skin tells a story ✧",
+      "Nature knows best ❋",
+      "Patience brings radiance ✧",
+      "Hydrate from within ❋"
     ],
     product: [
-      "Excellent choice! Clinically proven! 👍",
-      "This one's amazing for results! 💯",
-      "My personal recommendation! ⭐",
-      "Your skin will love this! 💚"
+      "Exquisite choice ✧",
+      "Pure elegance ❋",
+      "Beautifully curated ✧",
+      "Refined selection ❋"
     ]
   };
 
@@ -647,18 +471,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
       switch(action) {
         case 'quiz':
-          speak("Let's analyze your skin! 🔬");
-          setTimeout(() => window.dispatchEvent(new CustomEvent('openSkinQuiz')), 500);
+          speak("Discover your ritual ✧");
+          setTimeout(() => window.dispatchEvent(new CustomEvent('openSkinQuiz')), 600);
           break;
         case 'chat':
-          speak("Opening chat! 💬");
+          speak("Let's consult ❋");
           setTimeout(() => {
             const chatBtn = document.querySelector('.chatbot-toggle-btn');
             if (chatBtn) chatBtn.click();
-          }, 300);
+          }, 400);
           break;
         case 'help':
-          speak("I'll help you! 🤝");
+          speak("Your guide awaits ✧");
           window.location.href = '/pages/faq';
           break;
       }
@@ -668,7 +492,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function speak(message) {
     speechText.textContent = message;
     mascot.classList.add('speaking');
-    setTimeout(() => mascot.classList.remove('speaking'), 4000);
+    setTimeout(() => mascot.classList.remove('speaking'), 4500);
   }
 
   function getRandomMessage(category) {
@@ -678,10 +502,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function startTips() {
     tipInterval = setInterval(() => {
-      if (isActive && Math.random() > 0.65) {
+      if (isActive && Math.random() > 0.7) {
         speak(getRandomMessage('tips'));
       }
-    }, 10000);
+    }, 12000);
   }
 
   function stopTips() {
@@ -694,6 +518,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setTimeout(() => {
     if (!isActive) toggle.click();
-  }, 3500);
+  }, 4000);
 });
 </script>
