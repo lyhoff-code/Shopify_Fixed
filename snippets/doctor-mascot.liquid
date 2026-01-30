@@ -6,30 +6,30 @@
       <div class="doctor-3d-wrapper">
         <svg viewBox="0 0 140 180" class="doctor-svg-modern">
           <defs>
-            <!-- Gradients for 3D effect -->
-            <linearGradient id="coatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#FFFFFF"/>
-              <stop offset="50%" style="stop-color:#F8F9FA"/>
-              <stop offset="100%" style="stop-color:#E8ECEF"/>
+            <!-- Gradients for 3D effect - Unique IDs -->
+            <linearGradient id="drCoatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="50%" stop-color="#F8F9FA"/>
+              <stop offset="100%" stop-color="#E8ECEF"/>
             </linearGradient>
-            <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#FFE4D6"/>
-              <stop offset="100%" style="stop-color:#F5D0C0"/>
+            <linearGradient id="drSkinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFE4D6"/>
+              <stop offset="100%" stop-color="#F5D0C0"/>
             </linearGradient>
-            <linearGradient id="hairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#5D4037"/>
-              <stop offset="100%" style="stop-color:#3E2723"/>
+            <linearGradient id="drHairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#5D4037"/>
+              <stop offset="100%" stop-color="#3E2723"/>
             </linearGradient>
-            <linearGradient id="scrubsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#4FC3F7"/>
-              <stop offset="100%" style="stop-color:#0288D1"/>
+            <linearGradient id="drScrubsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4FC3F7"/>
+              <stop offset="100%" stop-color="#0288D1"/>
             </linearGradient>
             <!-- Shadow filter -->
-            <filter id="shadow3d" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="3" dy="5" stdDeviation="4" flood-opacity="0.2"/>
+            <filter id="drShadow3d" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="3" dy="5" stdDeviation="4" flood-opacity="0.25"/>
             </filter>
-            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
+            <filter id="drGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
               <feMerge>
                 <feMergeNode in="blur"/>
                 <feMergeNode in="SourceGraphic"/>
@@ -37,16 +37,16 @@
             </filter>
           </defs>
 
-          <!-- Body Shadow -->
-          <ellipse cx="75" cy="172" rx="35" ry="6" fill="rgba(0,0,0,0.1)" class="body-shadow"/>
+          <!-- Body Shadow on ground -->
+          <ellipse cx="75" cy="172" rx="35" ry="6" fill="rgba(0,0,0,0.15)" class="body-shadow"/>
 
           <!-- Modern Lab Coat / Scrubs -->
-          <g class="doctor-body" filter="url(#shadow3d)">
+          <g class="doctor-body" filter="url(#drShadow3d)">
             <!-- Scrubs underneath -->
-            <path d="M45 85 L45 160 L105 160 L105 85 Q105 70 75 65 Q45 70 45 85 Z" fill="url(#scrubsGradient)"/>
+            <path d="M45 85 L45 160 L105 160 L105 85 Q105 70 75 65 Q45 70 45 85 Z" fill="url(#drScrubsGrad)"/>
 
             <!-- Lab Coat -->
-            <path class="coat-main" d="M35 90 L35 165 C35 168 38 170 42 170 L58 170 L58 100 L82 100 L82 170 L98 170 C102 170 105 168 105 165 L105 90 Q105 75 75 68 Q45 75 35 90 Z" fill="url(#coatGradient)" stroke="#DDD" stroke-width="0.5"/>
+            <path class="coat-main" d="M35 90 L35 165 C35 168 38 170 42 170 L58 170 L58 100 L82 100 L82 170 L98 170 C102 170 105 168 105 165 L105 90 Q105 75 75 68 Q45 75 35 90 Z" fill="url(#drCoatGrad)" stroke="#DDD" stroke-width="0.5"/>
 
             <!-- Coat pocket -->
             <rect x="42" y="115" width="15" height="18" rx="2" fill="#F0F0F0" stroke="#DDD" stroke-width="0.5"/>
@@ -72,23 +72,23 @@
           </g>
 
           <!-- Neck -->
-          <rect x="62" y="55" width="16" height="18" fill="url(#skinGradient)" rx="4"/>
+          <rect x="62" y="55" width="16" height="18" fill="url(#drSkinGrad)" rx="4"/>
 
           <!-- Head with 3D effect -->
-          <g class="doctor-head-group" filter="url(#shadow3d)">
+          <g class="doctor-head-group" filter="url(#drShadow3d)">
             <!-- Head shape -->
-            <ellipse class="head-main" cx="70" cy="38" rx="30" ry="32" fill="url(#skinGradient)"/>
+            <ellipse class="head-main" cx="70" cy="38" rx="30" ry="32" fill="url(#drSkinGrad)"/>
 
             <!-- Ear left -->
-            <ellipse cx="40" cy="42" rx="5" ry="8" fill="url(#skinGradient)"/>
+            <ellipse cx="40" cy="42" rx="5" ry="8" fill="url(#drSkinGrad)"/>
             <ellipse cx="41" cy="42" rx="3" ry="5" fill="#E8C4B8"/>
 
             <!-- Ear right -->
-            <ellipse cx="100" cy="42" rx="5" ry="8" fill="url(#skinGradient)"/>
+            <ellipse cx="100" cy="42" rx="5" ry="8" fill="url(#drSkinGrad)"/>
             <ellipse cx="99" cy="42" rx="3" ry="5" fill="#E8C4B8"/>
 
             <!-- Modern styled hair -->
-            <path class="hair-main" d="M40 35 Q38 10 70 5 Q102 10 100 35 Q100 25 90 20 Q75 12 55 20 Q45 25 40 35 Z" fill="url(#hairGradient)"/>
+            <path class="hair-main" d="M40 35 Q38 10 70 5 Q102 10 100 35 Q100 25 90 20 Q75 12 55 20 Q45 25 40 35 Z" fill="url(#drHairGrad)"/>
             <!-- Hair highlight -->
             <path d="M50 25 Q60 15 75 18" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
 
@@ -147,25 +147,25 @@
           </g>
 
           <!-- Modern ID Badge -->
-          <g class="id-badge" filter="url(#shadow3d)">
+          <g class="id-badge" filter="url(#drShadow3d)">
             <rect x="88" y="90" width="22" height="32" rx="3" fill="#FFFFFF" stroke="#DDD" stroke-width="0.5"/>
             <rect x="90" y="93" width="18" height="4" rx="1" fill="#2D5A4A"/>
             <circle cx="99" cy="106" r="6" fill="#F0F0F0"/>
-            <circle cx="99" cy="106" r="5" fill="url(#skinGradient)"/>
+            <circle cx="99" cy="106" r="5" fill="url(#drSkinGrad)"/>
             <text x="99" y="120" text-anchor="middle" font-size="5" font-weight="600" fill="#333">Dr. James</text>
             <text x="99" y="126" text-anchor="middle" font-size="3.5" fill="#666">Skincare MD</text>
           </g>
 
           <!-- Animated waving arm -->
           <g class="waving-arm">
-            <path d="M105 95 Q125 85 130 100" stroke="url(#coatGradient)" stroke-width="14" fill="none" stroke-linecap="round"/>
+            <path d="M105 95 Q125 85 130 100" stroke="url(#drCoatGrad)" stroke-width="14" fill="none" stroke-linecap="round"/>
             <!-- Hand -->
-            <circle cx="132" cy="102" r="10" fill="url(#skinGradient)"/>
+            <circle cx="132" cy="102" r="10" fill="url(#drSkinGrad)"/>
             <!-- Fingers -->
-            <path d="M136 96 L142 92" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M138 100 L145 98" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M138 104 L144 104" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M136 108 L141 110" stroke="url(#skinGradient)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M136 96 L142 92" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M138 100 L145 98" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M138 104 L144 104" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M136 108 L141 110" stroke="url(#drSkinGrad)" stroke-width="4" stroke-linecap="round"/>
           </g>
         </svg>
 

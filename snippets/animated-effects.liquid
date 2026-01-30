@@ -780,13 +780,30 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Page Loader
+  // Modern 3D Page Loader
   const loader = document.getElementById('page-loader');
-  window.addEventListener('load', () => {
+  if (loader) {
+    // Hide loader after page loads
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        loader.classList.add('loaded');
+        // Remove from DOM after animation
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 600);
+      }, 1500); // Show loader for 1.5 seconds
+    });
+
+    // Fallback - hide loader after 4 seconds max
     setTimeout(() => {
-      loader.classList.add('loaded');
-    }, 800);
-  });
+      if (loader && !loader.classList.contains('loaded')) {
+        loader.classList.add('loaded');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 600);
+      }
+    }, 4000);
+  }
 
   // Confetti System
   const confettiCanvas = document.getElementById('confetti-canvas');
