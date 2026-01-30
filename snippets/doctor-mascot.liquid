@@ -1,0 +1,519 @@
+<!-- Dr. James - Skincare Expert Mascot -->
+<div id="doctor-mascot" class="doctor-mascot" aria-hidden="true">
+  <div class="doctor-container">
+    <div class="doctor-character">
+      <!-- Doctor SVG Character -->
+      <svg viewBox="0 0 120 160" class="doctor-svg">
+        <!-- Body / Lab Coat -->
+        <path class="doctor-coat" d="M30 75 L30 140 L90 140 L90 75 Q90 60 60 55 Q30 60 30 75 Z" fill="#FFFFFF" stroke="#e0e0e0" stroke-width="1"/>
+
+        <!-- Coat lapels -->
+        <path d="M45 75 L60 95 L60 140" stroke="#e8e8e8" stroke-width="2" fill="none"/>
+        <path d="M75 75 L60 95" stroke="#e8e8e8" stroke-width="2" fill="none"/>
+
+        <!-- Coat buttons -->
+        <circle cx="60" cy="105" r="3" fill="#2D5A4A"/>
+        <circle cx="60" cy="120" r="3" fill="#2D5A4A"/>
+
+        <!-- Stethoscope -->
+        <path class="stethoscope" d="M45 70 Q35 80 40 100" stroke="#333" stroke-width="3" fill="none"/>
+        <circle cx="40" cy="103" r="6" fill="#333"/>
+        <circle cx="40" cy="103" r="3" fill="#666"/>
+
+        <!-- Neck -->
+        <rect x="52" y="45" width="16" height="15" fill="#F5D6C6" rx="3"/>
+
+        <!-- Shirt collar -->
+        <path d="M48 55 L52 65 L60 60 L68 65 L72 55" fill="#87CEEB" stroke="#6BB3D9" stroke-width="1"/>
+
+        <!-- Tie -->
+        <path d="M57 60 L60 75 L63 60 Z" fill="#2D5A4A"/>
+        <rect x="57" y="75" width="6" height="20" fill="#2D5A4A"/>
+        <path d="M55 95 L60 105 L65 95 Z" fill="#2D5A4A"/>
+
+        <!-- Head -->
+        <ellipse class="doctor-head" cx="60" cy="32" rx="25" ry="28" fill="#F5D6C6"/>
+
+        <!-- Hair -->
+        <path class="doctor-hair" d="M35 28 Q35 8 60 5 Q85 8 85 28 Q85 20 75 18 Q60 15 45 18 Q35 20 35 28 Z" fill="#5D4037"/>
+
+        <!-- Side hair -->
+        <path d="M35 28 Q33 35 35 42" stroke="#5D4037" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M85 28 Q87 35 85 42" stroke="#5D4037" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+        <!-- Ears -->
+        <ellipse cx="35" cy="35" rx="5" ry="7" fill="#F5D6C6"/>
+        <ellipse cx="85" cy="35" rx="5" ry="7" fill="#F5D6C6"/>
+
+        <!-- Eyebrows -->
+        <g class="doctor-eyebrows">
+          <path d="M42 22 Q48 19 54 22" stroke="#5D4037" stroke-width="2" fill="none"/>
+          <path d="M66 22 Q72 19 78 22" stroke="#5D4037" stroke-width="2" fill="none"/>
+        </g>
+
+        <!-- Eyes -->
+        <g class="doctor-eyes">
+          <ellipse class="doctor-eye left" cx="48" cy="30" rx="6" ry="7" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
+          <ellipse class="doctor-eye right" cx="72" cy="30" rx="6" ry="7" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
+          <circle class="doctor-pupil left" cx="49" cy="31" r="3.5" fill="#4A7C59"/>
+          <circle class="doctor-pupil right" cx="73" cy="31" r="3.5" fill="#4A7C59"/>
+          <circle class="doctor-eye-shine left" cx="50" cy="29" r="1.5" fill="#FFFFFF"/>
+          <circle class="doctor-eye-shine right" cx="74" cy="29" r="1.5" fill="#FFFFFF"/>
+        </g>
+
+        <!-- Nose -->
+        <path d="M60 33 Q62 38 60 42 Q58 40 58 38" fill="#E8C4B8" stroke="none"/>
+
+        <!-- Mouth -->
+        <path class="doctor-mouth" d="M52 48 Q60 54 68 48" stroke="#C97B7B" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+        <!-- Smile teeth (shown on hover) -->
+        <path class="doctor-teeth" d="M54 49 Q60 52 66 49 L66 51 Q60 54 54 51 Z" fill="#FFFFFF" opacity="0"/>
+
+        <!-- Glasses -->
+        <g class="doctor-glasses">
+          <rect x="40" y="26" width="16" height="12" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
+          <rect x="64" y="26" width="16" height="12" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
+          <path d="M56 30 L64 30" stroke="#333" stroke-width="1.5"/>
+          <path d="M40 30 L35 28" stroke="#333" stroke-width="1.5"/>
+          <path d="M80 30 L85 28" stroke="#333" stroke-width="1.5"/>
+        </g>
+
+        <!-- Name badge -->
+        <rect x="70" y="80" width="18" height="25" rx="2" fill="#FFFFFF" stroke="#DDD" stroke-width="1"/>
+        <rect x="72" y="83" width="14" height="3" fill="#2D5A4A"/>
+        <text x="79" y="98" text-anchor="middle" font-size="5" fill="#333">Dr. James</text>
+        <circle cx="79" cy="92" r="4" fill="#E8E8E8"/>
+
+        <!-- Arms -->
+        <g class="doctor-arms">
+          <path class="doctor-arm left" d="M30 80 Q15 90 20 110" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <path class="doctor-arm right" d="M90 80 Q105 90 100 110" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <!-- Hands -->
+          <circle cx="20" cy="112" r="8" fill="#F5D6C6"/>
+          <circle cx="100" cy="112" r="8" fill="#F5D6C6"/>
+        </g>
+
+        <!-- Waving hand (animated) -->
+        <g class="doctor-wave" style="transform-origin: 100px 80px;">
+          <path d="M90 80 Q110 70 115 85" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <circle cx="117" cy="87" r="8" fill="#F5D6C6"/>
+          <!-- Fingers waving -->
+          <path d="M120 82 L125 78" stroke="#F5D6C6" stroke-width="3" stroke-linecap="round"/>
+          <path d="M122 86 L128 84" stroke="#F5D6C6" stroke-width="3" stroke-linecap="round"/>
+          <path d="M122 90 L127 90" stroke="#F5D6C6" stroke-width="3" stroke-linecap="round"/>
+        </g>
+      </svg>
+
+      <!-- Speech bubble -->
+      <div class="doctor-speech">
+        <span class="doctor-speech-text">Hi! I'm Dr. James! 👨‍⚕️</span>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="doctor-actions">
+      <button class="doctor-action-btn" data-action="quiz" title="Skin Analysis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+          <rect x="9" y="3" width="6" height="4" rx="1"/>
+          <path d="M9 14l2 2 4-4"/>
+        </svg>
+      </button>
+      <button class="doctor-action-btn" data-action="chat" title="Ask Dr. James">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+      <button class="doctor-action-btn" data-action="help" title="Get Help">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toggle button -->
+  <button class="doctor-toggle" aria-label="Talk to Dr. James">
+    <span class="doctor-toggle-icon">👨‍⚕️</span>
+  </button>
+</div>
+
+<style>
+/* Doctor Mascot Styles */
+.doctor-mascot {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9996;
+  font-family: var(--font-body, system-ui, sans-serif);
+}
+
+.doctor-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: bottom left;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s ease;
+}
+
+.doctor-mascot.active .doctor-container {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.doctor-character {
+  position: relative;
+  cursor: pointer;
+}
+
+.doctor-svg {
+  width: 100px;
+  height: 130px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+}
+
+/* Animations */
+.doctor-eyes {
+  animation: doctorBlink 4s ease-in-out infinite;
+}
+
+@keyframes doctorBlink {
+  0%, 45%, 55%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+
+.doctor-pupil {
+  animation: doctorLook 5s ease-in-out infinite;
+}
+
+@keyframes doctorLook {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(1.5px); }
+  70% { transform: translateX(-1.5px); }
+}
+
+.doctor-wave {
+  animation: doctorWave 1.5s ease-in-out infinite;
+  display: none;
+}
+
+.doctor-mascot.active .doctor-wave {
+  display: block;
+}
+
+.doctor-mascot.active .doctor-arm.right {
+  display: none;
+}
+
+@keyframes doctorWave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+.doctor-coat {
+  animation: doctorBreathe 3s ease-in-out infinite;
+}
+
+@keyframes doctorBreathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.01); }
+}
+
+.stethoscope {
+  animation: stethoscopeSwing 4s ease-in-out infinite;
+  transform-origin: 45px 70px;
+}
+
+@keyframes stethoscopeSwing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Hover states */
+.doctor-character:hover .doctor-mouth {
+  d: path("M50 46 Q60 56 70 46");
+}
+
+.doctor-character:hover .doctor-teeth {
+  opacity: 1;
+}
+
+.doctor-character:hover .doctor-eyebrows {
+  transform: translateY(-2px);
+}
+
+/* Speech bubble */
+.doctor-speech {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 12px 18px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  margin-bottom: 10px;
+}
+
+.doctor-speech::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+}
+
+.doctor-character:hover .doctor-speech,
+.doctor-mascot.speaking .doctor-speech {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.doctor-speech-text {
+  font-size: 14px;
+  color: #1A1A1A;
+  font-weight: 500;
+}
+
+/* Action buttons */
+.doctor-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease 0.1s;
+}
+
+.doctor-mascot.active .doctor-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.doctor-action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #2D5A4A;
+}
+
+.doctor-action-btn:hover {
+  transform: scale(1.1);
+  background: #2D5A4A;
+  color: #fff;
+}
+
+.doctor-action-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Toggle button */
+.doctor-toggle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #2D5A4A 0%, #3d7a64 100%);
+  box-shadow: 0 4px 15px rgba(45, 90, 74, 0.4);
+  cursor: pointer;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.doctor-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(45, 90, 74, 0.5);
+}
+
+.doctor-mascot.active .doctor-toggle {
+  transform: scale(0.8);
+  opacity: 0.7;
+}
+
+.doctor-toggle-icon {
+  animation: doctorToggleBounce 2s ease-in-out infinite;
+}
+
+@keyframes doctorToggleBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .doctor-mascot {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .doctor-svg {
+    width: 80px;
+    height: 104px;
+  }
+
+  .doctor-toggle {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .doctor-action-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mascot = document.getElementById('doctor-mascot');
+  const toggle = mascot.querySelector('.doctor-toggle');
+  const character = mascot.querySelector('.doctor-character');
+  const speechText = mascot.querySelector('.doctor-speech-text');
+  const actionBtns = mascot.querySelectorAll('.doctor-action-btn');
+
+  // Messages for different situations
+  const messages = {
+    greeting: [
+      "Hi! I'm Dr. James! 👨‍⚕️",
+      "Welcome! How's your skin today?",
+      "Hello! Ready for expert advice? ✨",
+      "Good to see you! 💚"
+    ],
+    tips: [
+      "Don't forget your SPF today! ☀️",
+      "Hydration is key to healthy skin!",
+      "Always patch test new products!",
+      "Your skin changes with seasons 🍂",
+      "Sleep is the best anti-aging secret!",
+      "Vitamin C works wonders! ✨"
+    ],
+    product: [
+      "This is a great choice! 👍",
+      "Excellent for your skin type!",
+      "I recommend this one! 💯",
+      "Clinically proven formula!"
+    ],
+    encouragement: [
+      "You're making great choices!",
+      "Your skin will thank you! 💚",
+      "Consistency is key!",
+      "You've got this! 💪"
+    ]
+  };
+
+  let isActive = false;
+  let tipInterval;
+
+  // Toggle mascot
+  toggle.addEventListener('click', function() {
+    isActive = !isActive;
+    mascot.classList.toggle('active', isActive);
+
+    if (isActive) {
+      speak(getRandomMessage('greeting'));
+      startTips();
+    } else {
+      stopTips();
+    }
+  });
+
+  // Character click
+  character.addEventListener('click', function() {
+    const allMessages = [...messages.tips, ...messages.encouragement];
+    speak(allMessages[Math.floor(Math.random() * allMessages.length)]);
+  });
+
+  // Action buttons
+  actionBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const action = this.dataset.action;
+
+      switch(action) {
+        case 'quiz':
+          speak("Let me analyze your skin! 🔬");
+          setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('openSkinQuiz'));
+          }, 500);
+          break;
+        case 'chat':
+          speak("Let's chat! I'm here to help! 💬");
+          setTimeout(() => {
+            const chatToggle = document.querySelector('.chatbot-toggle-btn');
+            if (chatToggle) chatToggle.click();
+          }, 300);
+          break;
+        case 'help':
+          speak("I'll guide you! 🤝");
+          window.location.href = '/pages/faq';
+          break;
+      }
+    });
+  });
+
+  function speak(message) {
+    speechText.textContent = message;
+    mascot.classList.add('speaking');
+    setTimeout(() => mascot.classList.remove('speaking'), 3500);
+  }
+
+  function getRandomMessage(category) {
+    const msgs = messages[category];
+    return msgs[Math.floor(Math.random() * msgs.length)];
+  }
+
+  function startTips() {
+    tipInterval = setInterval(() => {
+      if (isActive && Math.random() > 0.6) {
+        speak(getRandomMessage('tips'));
+      }
+    }, 12000);
+  }
+
+  function stopTips() {
+    clearInterval(tipInterval);
+  }
+
+  // React to page events
+  window.addEventListener('productAdded', () => {
+    if (isActive) {
+      speak(getRandomMessage('product'));
+    }
+  });
+
+  // Auto-show after delay
+  setTimeout(() => {
+    if (!isActive) {
+      toggle.click();
+    }
+  }, 4000);
+});
+</script>
