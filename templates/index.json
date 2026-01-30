@@ -3,41 +3,41 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "subtitle": "Bienvenido a nuestra tienda",
-        "title": "Descubre Nuestra Nueva Colección",
-        "description": "Productos de alta calidad diseñados para ti. Encuentra lo que necesitas con estilo y funcionalidad.",
+        "subtitle": "Belleza Natural",
+        "title": "Pureza en Cada Fórmula",
+        "description": "Ingredientes orgánicos certificados. Formulaciones científicamente desarrolladas. Resultados visibles desde la primera aplicación.",
         "content_position": "left",
         "full_height": false,
-        "overlay_opacity": 50,
-        "button_1_text": "Ver Colección",
-        "button_2_text": "Conocer Más"
+        "overlay_opacity": 40,
+        "button_1_text": "Descubrir",
+        "button_2_text": "Nuestra Ciencia"
       }
     },
     "featured-collections": {
       "type": "featured-collections",
       "settings": {
-        "subtitle": "Explora",
-        "title": "Nuestras Colecciones",
-        "description": "Descubre nuestra selección cuidadosamente curada de productos de alta calidad."
+        "subtitle": "Colecciones",
+        "title": "Cuidado Esencial",
+        "description": "Cada línea diseñada para necesidades específicas. Sin parabenos, sin sulfatos, sin compromisos."
       }
     },
     "featured-products": {
       "type": "featured-products",
       "settings": {
-        "subtitle": "Lo Mejor",
-        "title": "Productos Destacados",
-        "description": "Los productos más populares seleccionados especialmente para ti.",
+        "subtitle": "Más Vendidos",
+        "title": "Favoritos de Nuestros Clientes",
+        "description": "Productos probados y amados. Formulaciones que funcionan.",
         "products_count": 8,
         "show_view_all": true,
-        "view_all_text": "Ver Todos los Productos"
+        "view_all_text": "Ver Todos"
       }
     },
     "video-section": {
       "type": "video-section",
       "settings": {
-        "subtitle": "Descubre",
-        "title": "Nuestra Historia",
-        "description": "Conoce cómo creamos productos excepcionales con pasión y dedicación."
+        "subtitle": "Nuestra Filosofía",
+        "title": "Del Laboratorio a Tu Piel",
+        "description": "Conoce cómo seleccionamos cada ingrediente y desarrollamos fórmulas que respetan tu piel y el planeta."
       }
     },
     "image-with-text": {
@@ -45,52 +45,52 @@
       "settings": {
         "layout": "image_left",
         "background_color": "white",
-        "subtitle": "Sobre Nosotros",
-        "title": "Nuestra Historia y Pasión",
-        "description": "<p>Somos una empresa comprometida con la calidad y la satisfacción de nuestros clientes. Cada producto que ofrecemos ha sido cuidadosamente seleccionado para garantizar la mejor experiencia.</p><p>Nuestra misión es brindar productos excepcionales con un servicio al cliente incomparable.</p>",
-        "button_text": "Conocer Más"
+        "subtitle": "Nuestra Promesa",
+        "title": "Transparencia Total",
+        "description": "<p>Cada ingrediente tiene un propósito. Cada fórmula está respaldada por investigación científica. Sin rellenos, sin ingredientes cuestionables.</p><p>Creemos en la belleza limpia: productos que nutren tu piel sin comprometer tu salud ni el medio ambiente.</p>",
+        "button_text": "Conoce Nuestros Ingredientes"
       },
       "blocks": {
-        "feature-1": { "type": "feature", "settings": { "text": "Materiales de primera calidad" } },
-        "feature-2": { "type": "feature", "settings": { "text": "Fabricación artesanal" } },
-        "feature-3": { "type": "feature", "settings": { "text": "Envío rápido y seguro" } },
-        "feature-4": { "type": "feature", "settings": { "text": "Atención personalizada" } }
+        "feature-1": { "type": "feature", "settings": { "text": "Ingredientes 100% naturales y orgánicos certificados" } },
+        "feature-2": { "type": "feature", "settings": { "text": "Sin parabenos, sulfatos ni fragancias sintéticas" } },
+        "feature-3": { "type": "feature", "settings": { "text": "Empaques sustentables y reciclables" } },
+        "feature-4": { "type": "feature", "settings": { "text": "Cruelty-free y vegano" } }
       },
       "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"]
     },
     "testimonials": {
       "type": "testimonials",
       "settings": {
-        "subtitle": "Testimonios",
+        "subtitle": "Experiencias",
         "title": "Lo Que Dicen Nuestros Clientes",
-        "description": "Miles de clientes satisfechos confían en nosotros."
+        "description": "Resultados reales de personas reales."
       },
       "blocks": {
         "testimonial-1": {
           "type": "testimonial",
           "settings": {
-            "name": "María García",
+            "name": "Sofía M.",
             "role": "Cliente Verificada",
             "rating": 5,
-            "text": "Excelente calidad en todos los productos. El envío fue rápido y la atención al cliente excepcional. Muy recomendado!"
+            "text": "Después de probar decenas de marcas, finalmente encontré productos que realmente funcionan. Mi piel nunca se ha visto mejor. La diferencia es notable."
           }
         },
         "testimonial-2": {
           "type": "testimonial",
           "settings": {
-            "name": "Carlos Rodríguez",
-            "role": "Cliente Frecuente",
+            "name": "Carolina R.",
+            "role": "Dermatóloga",
             "rating": 5,
-            "text": "Llevo más de un año comprando aquí y nunca me han decepcionado. Los productos son tal como se muestran en las fotos."
+            "text": "Como profesional de la salud, aprecio la transparencia en los ingredientes. Recomiendo estos productos a mis pacientes con piel sensible."
           }
         },
         "testimonial-3": {
           "type": "testimonial",
           "settings": {
-            "name": "Ana Martínez",
-            "role": "Cliente Verificada",
+            "name": "Valentina L.",
+            "role": "Cliente Frecuente",
             "rating": 5,
-            "text": "La mejor tienda online que he encontrado. Precios justos, envío rápido y productos de primera calidad. 100% recomendable."
+            "text": "La textura, el aroma sutil, los resultados... todo es excepcional. Vale cada peso invertido. No vuelvo a usar otra marca."
           }
         }
       },
@@ -99,20 +99,20 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "title": "Únete a Nuestra Comunidad",
-        "description": "Suscríbete para recibir ofertas exclusivas, novedades y descuentos especiales directamente en tu correo.",
+        "title": "Únete a la Comunidad",
+        "description": "Sé la primera en conocer nuevos lanzamientos, recibe consejos de skincare y accede a ofertas exclusivas.",
         "placeholder": "Tu correo electrónico",
         "button_text": "Suscribirse",
-        "disclaimer": "Al suscribirte aceptas nuestra política de privacidad. Puedes darte de baja en cualquier momento."
+        "disclaimer": "Respetamos tu privacidad. Cancela cuando quieras."
       }
     },
     "trust-badges": {
       "type": "trust-badges",
       "blocks": {
-        "badge-1": { "type": "badge", "settings": { "icon": "shipping", "title": "Envío Gratis", "text": "En pedidos +$500" } },
-        "badge-2": { "type": "badge", "settings": { "icon": "return", "title": "30 Días", "text": "Garantía de devolución" } },
-        "badge-3": { "type": "badge", "settings": { "icon": "secure", "title": "Pago Seguro", "text": "100% protegido" } },
-        "badge-4": { "type": "badge", "settings": { "icon": "support", "title": "Soporte 24/7", "text": "Atención dedicada" } }
+        "badge-1": { "type": "badge", "settings": { "icon": "shipping", "title": "Envío Express", "text": "Gratis en pedidos +$999" } },
+        "badge-2": { "type": "badge", "settings": { "icon": "return", "title": "Garantía 30 Días", "text": "Satisfacción total" } },
+        "badge-3": { "type": "badge", "settings": { "icon": "secure", "title": "Pago Seguro", "text": "Encriptación SSL" } },
+        "badge-4": { "type": "badge", "settings": { "icon": "support", "title": "Asesoría Experta", "text": "Consultas personalizadas" } }
       },
       "block_order": ["badge-1", "badge-2", "badge-3", "badge-4"]
     }

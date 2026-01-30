@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Tienda Profesional",
-    "theme_version": "1.0.0",
-    "theme_author": "Custom Design",
+    "theme_name": "Nordic Pure Organic",
+    "theme_version": "2.0.0",
+    "theme_author": "Premium Design",
     "theme_documentation_url": "https://help.shopify.com/",
     "theme_support_url": "https://help.shopify.com/"
   },
@@ -12,37 +12,37 @@
     "settings": [
       {
         "type": "header",
-        "content": "Colores principales"
+        "content": "Paleta Nordic Pure"
       },
       {
         "type": "color",
         "id": "color_primary",
-        "label": "Color primario",
-        "default": "#2C3E50"
+        "label": "Color primario (botones)",
+        "default": "#1A1A1A"
       },
       {
         "type": "color",
         "id": "color_secondary",
-        "label": "Color secundario",
-        "default": "#E74C3C"
+        "label": "Color secundario (acentos)",
+        "default": "#2D5A4A"
       },
       {
         "type": "color",
         "id": "color_accent",
         "label": "Color de acento",
-        "default": "#3498DB"
+        "default": "#2D5A4A"
       },
       {
         "type": "color",
         "id": "color_text",
         "label": "Color del texto",
-        "default": "#333333"
+        "default": "#1A1A1A"
       },
       {
         "type": "color",
         "id": "color_text_light",
-        "label": "Color del texto claro",
-        "default": "#666666"
+        "label": "Color del texto secundario",
+        "default": "#6B6B6B"
       },
       {
         "type": "color",
@@ -54,7 +54,7 @@
         "type": "color",
         "id": "color_background_secondary",
         "label": "Color de fondo secundario",
-        "default": "#F8F9FA"
+        "default": "#F5F5F5"
       }
     ]
   },
@@ -65,13 +65,13 @@
         "type": "font_picker",
         "id": "font_heading",
         "label": "Fuente de títulos",
-        "default": "montserrat_n7"
+        "default": "cormorant_garamond_n6"
       },
       {
         "type": "font_picker",
         "id": "font_body",
         "label": "Fuente del cuerpo",
-        "default": "open_sans_n4"
+        "default": "assistant_n4"
       },
       {
         "type": "range",
@@ -92,7 +92,7 @@
         "type": "image_picker",
         "id": "logo",
         "label": "Logo de la tienda",
-        "info": "Recomendado: PNG transparente de 400x100px"
+        "info": "Recomendado: PNG transparente, minimalista"
       },
       {
         "type": "range",
@@ -101,7 +101,7 @@
         "min": 50,
         "max": 300,
         "step": 10,
-        "default": 150,
+        "default": 180,
         "unit": "px"
       },
       {
@@ -125,7 +125,7 @@
         "type": "color",
         "id": "footer_background",
         "label": "Color de fondo del footer",
-        "default": "#2C3E50"
+        "default": "#1A1A1A"
       },
       {
         "type": "color",
@@ -137,7 +137,7 @@
         "type": "richtext",
         "id": "footer_about",
         "label": "Texto sobre la empresa",
-        "default": "<p>Tu tienda de confianza con los mejores productos y el mejor servicio.</p>"
+        "default": "<p>Productos orgánicos de la más alta calidad. Formulaciones puras, resultados reales.</p>"
       }
     ]
   },
@@ -187,7 +187,7 @@
         "type": "checkbox",
         "id": "show_vendor",
         "label": "Mostrar proveedor/marca",
-        "default": true
+        "default": false
       },
       {
         "type": "checkbox",
@@ -204,7 +204,7 @@
           { "value": "portrait", "label": "Vertical (3:4)" },
           { "value": "landscape", "label": "Horizontal (4:3)" }
         ],
-        "default": "square"
+        "default": "portrait"
       }
     ]
   },
@@ -242,13 +242,13 @@
         "type": "text",
         "id": "announcement_text",
         "label": "Texto del anuncio",
-        "default": "¡Envío gratis en pedidos mayores a $500!"
+        "default": "Envío gratis en pedidos +$999 · Ingredientes 100% naturales"
       },
       {
         "type": "color",
         "id": "announcement_bg_color",
         "label": "Color de fondo",
-        "default": "#E74C3C"
+        "default": "#1A1A1A"
       },
       {
         "type": "color",
