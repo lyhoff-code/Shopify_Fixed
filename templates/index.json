@@ -3,47 +3,47 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "subtitle": "Clean Beauty",
-        "title": "Purity in Every Formula",
-        "description": "Certified organic ingredients. Scientifically developed formulations. Visible results from the first application.",
+        "subtitle": "Ancestral Healing",
+        "title": "Pure Remedies, Real Results",
+        "description": "Handcrafted formulas using time-honored ingredients. Methylene Blue, Beef Tallow, Comfrey & more. No chemicals, no compromises.",
         "content_position": "left",
         "full_height": false,
         "overlay_opacity": 40,
-        "button_1_text": "Shop Now",
-        "button_2_text": "Our Science"
+        "button_1_text": "Shop Bestsellers",
+        "button_2_text": "Our Ingredients"
       }
     },
     "featured-in": {
       "type": "featured-in",
       "settings": {
-        "title": "As Featured In"
+        "title": "Trusted By Thousands"
       }
     },
     "featured-collections": {
       "type": "featured-collections",
       "settings": {
         "subtitle": "Collections",
-        "title": "Essential Care",
-        "description": "Each line designed for specific needs. No parabens, no sulfates, no compromises."
+        "title": "Natural Solutions",
+        "description": "From cellular health to hair growth. Pure ingredients for real results."
       }
     },
     "featured-products": {
       "type": "featured-products",
       "settings": {
-        "subtitle": "Best Sellers",
+        "subtitle": "Most Popular",
         "title": "Customer Favorites",
-        "description": "Tried, tested, and loved. Formulations that work.",
-        "products_count": 8,
+        "description": "Our bestselling formulas. Methylene Blue leads the way.",
+        "products_count": 6,
         "show_view_all": true,
-        "view_all_text": "View All"
+        "view_all_text": "View All Products"
       }
     },
     "video-section": {
       "type": "video-section",
       "settings": {
-        "subtitle": "Our Philosophy",
-        "title": "From Lab to Skin",
-        "description": "Discover how we select each ingredient and develop formulas that respect your skin and the planet."
+        "subtitle": "Our Process",
+        "title": "Handcrafted With Care",
+        "description": "See how we source and prepare each ingredient. From raw materials to your doorstep."
       }
     },
     "image-with-text": {
@@ -51,52 +51,52 @@
       "settings": {
         "layout": "image_left",
         "background_color": "white",
-        "subtitle": "Our Promise",
-        "title": "Total Transparency",
-        "description": "<p>Every ingredient has a purpose. Every formula is backed by scientific research. No fillers, no questionable ingredients.</p><p>We believe in clean beauty: products that nourish your skin without compromising your health or the environment.</p>",
-        "button_text": "Discover Our Ingredients"
+        "subtitle": "Why Choose Us",
+        "title": "Back to Basics",
+        "description": "<p>We believe healing comes from nature, not laboratories. Our formulas use ingredients your grandmother would recognize.</p><p>Beef tallow for deep skin nourishment. Comfrey for natural healing. Methylene blue for cellular vitality. Simple, pure, effective.</p>",
+        "button_text": "Learn About Our Ingredients"
       },
       "blocks": {
-        "feature-1": { "type": "feature", "settings": { "text": "100% certified natural and organic ingredients" } },
-        "feature-2": { "type": "feature", "settings": { "text": "Free from parabens, sulfates, and synthetic fragrances" } },
-        "feature-3": { "type": "feature", "settings": { "text": "Sustainable and recyclable packaging" } },
-        "feature-4": { "type": "feature", "settings": { "text": "Cruelty-free and vegan" } }
+        "feature-1": { "type": "feature", "settings": { "text": "100% natural ingredients - no synthetic chemicals" } },
+        "feature-2": { "type": "feature", "settings": { "text": "Small batch, handcrafted formulas" } },
+        "feature-3": { "type": "feature", "settings": { "text": "Ancestral remedies backed by modern science" } },
+        "feature-4": { "type": "feature", "settings": { "text": "Eco-friendly packaging, sustainable sourcing" } }
       },
       "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"]
     },
     "testimonials": {
       "type": "testimonials",
       "settings": {
-        "subtitle": "Reviews",
+        "subtitle": "Real Results",
         "title": "What Our Customers Say",
-        "description": "Real results from real people."
+        "description": "Join thousands who've discovered natural healing."
       },
       "blocks": {
         "testimonial-1": {
           "type": "testimonial",
           "settings": {
-            "name": "Sarah M.",
-            "role": "Verified Customer",
+            "name": "Maria G.",
+            "role": "Verified Buyer - Methylene Blue",
             "rating": 5,
-            "text": "After trying dozens of brands, I finally found products that actually work. My skin has never looked better. The difference is remarkable."
+            "text": "I've tried everything for energy and focus. The Methylene Blue is a game changer. I feel sharper and more vibrant than I have in years."
           }
         },
         "testimonial-2": {
           "type": "testimonial",
           "settings": {
-            "name": "Dr. Emily R.",
-            "role": "Dermatologist",
+            "name": "Jennifer L.",
+            "role": "Verified Buyer - Comfrey Salve",
             "rating": 5,
-            "text": "As a healthcare professional, I appreciate the transparency in ingredients. I recommend these products to my patients with sensitive skin."
+            "text": "This salve healed a stubborn skin issue I had for months. The comfrey is so soothing. I keep one in every room now!"
           }
         },
         "testimonial-3": {
           "type": "testimonial",
           "settings": {
-            "name": "Jessica L.",
-            "role": "Loyal Customer",
+            "name": "David R.",
+            "role": "Verified Buyer - Scalp Growth Oil",
             "rating": 5,
-            "text": "The texture, the subtle scent, the results... everything is exceptional. Worth every penny. I'm never going back to another brand."
+            "text": "After 3 months, I'm seeing real regrowth. My barber even noticed. Finally something that actually works."
           }
         }
       },
@@ -105,8 +105,8 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "title": "Join the Community",
-        "description": "Be the first to know about new launches, receive skincare tips, and access exclusive offers.",
+        "title": "Join Our Community",
+        "description": "Get exclusive offers, natural health tips, and early access to seasonal products like Hummingbird Nectar.",
         "placeholder": "Your email address",
         "button_text": "Subscribe",
         "disclaimer": "We respect your privacy. Unsubscribe anytime."
@@ -115,19 +115,19 @@
     "trust-badges": {
       "type": "trust-badges",
       "blocks": {
-        "badge-1": { "type": "badge", "settings": { "icon": "shipping", "title": "Free Shipping", "text": "On orders over $99" } },
-        "badge-2": { "type": "badge", "settings": { "icon": "return", "title": "30-Day Guarantee", "text": "Full satisfaction" } },
-        "badge-3": { "type": "badge", "settings": { "icon": "secure", "title": "Secure Payment", "text": "SSL encryption" } },
-        "badge-4": { "type": "badge", "settings": { "icon": "support", "title": "Expert Support", "text": "Personalized advice" } }
+        "badge-1": { "type": "badge", "settings": { "icon": "shipping", "title": "Free Shipping", "text": "Orders over $75" } },
+        "badge-2": { "type": "badge", "settings": { "icon": "return", "title": "Satisfaction Guarantee", "text": "30-day returns" } },
+        "badge-3": { "type": "badge", "settings": { "icon": "secure", "title": "Secure Checkout", "text": "SSL encrypted" } },
+        "badge-4": { "type": "badge", "settings": { "icon": "support", "title": "Real Support", "text": "We answer questions" } }
       },
       "block_order": ["badge-1", "badge-2", "badge-3", "badge-4"]
     },
     "ingredients-showcase": {
       "type": "ingredients-showcase",
       "settings": {
-        "subtitle": "Pure Ingredients",
-        "title": "Nature's Most Powerful Elements",
-        "description": "Each ingredient is carefully selected for its proven benefits. No fillers, no compromises."
+        "subtitle": "Key Ingredients",
+        "title": "Nature's Most Powerful Healers",
+        "description": "Every ingredient has purpose. No fillers, no mystery chemicals."
       }
     }
   },
